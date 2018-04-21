@@ -1,9 +1,11 @@
 package com.FM.controller.player;
 
+
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping("/")
-public class PlayController {
+@RequestMapping("/login")
+public class PublicController {
+
 }
