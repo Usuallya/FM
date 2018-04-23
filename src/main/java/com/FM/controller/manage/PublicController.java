@@ -1,5 +1,6 @@
 package com.FM.controller.manage;
 
+import com.FM.domain.User;
 import com.FM.service.UserService;
 import com.FM.utils.Constants;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,20 +34,26 @@ public class PublicController {
                 String userId = userService.ManagementLogin(userName,password);
                 if (userId!=null) {
                     session.setAttribute("userId",userId );
+                    User user =userService.getUser(userId);
+                    user.setPassword("");
                     modelAndView.setViewName(Constants.MANAGEINDEX);
+                    modelAndView.addObject("user",user);
                 } else {
                     modelAndView.setViewName(Constants.MANAGELOGIN);
                     modelAndView.addObject("loginFail", "登录失败，请重试");
                 }
             }
         }else{
+            User user = userService.getUser((String)session.getAttribute("userId"));
+            user.setPassword("");
             modelAndView.setViewName(Constants.MANAGEINDEX);
+            modelAndView.addObject("user",user);
         }
         return modelAndView;
     }
-/*    @ExceptionHandler(RuntimeException.class)
+   @ExceptionHandler(RuntimeException.class)
     public String doHandler(){
-
+        return "forward:/404.jsp";
     }
-    */
+
 }

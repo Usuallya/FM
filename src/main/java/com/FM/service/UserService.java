@@ -1,6 +1,7 @@
 package com.FM.service;
 
 import com.FM.dao.UserDao;
+import com.FM.domain.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -23,6 +24,10 @@ public class UserService {
             return userId;
         else
             return null;
+    }
+
+    public User getUser(String userId){
+        return null;
     }
 
 
