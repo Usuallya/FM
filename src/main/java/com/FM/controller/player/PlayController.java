@@ -12,7 +12,6 @@ public class PlayController {
 
     @RequestMapping("/playCourse/{courseName}")
     public MultipartFile playCourse(@PathVariable(value="courseName") String courseName){
-
+        return null;
     }
-
 }

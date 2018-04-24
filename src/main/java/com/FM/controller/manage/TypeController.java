@@ -6,4 +6,5 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 @Controller
 @SessionAttributes("userId")
 public class TypeController {
+
 }

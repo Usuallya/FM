@@ -31,11 +31,10 @@ public class PublicController {
                 modelAndView.setViewName(Constants.MANAGELOGIN);
             }else{
                 //这是真登陆的用户
-                String userId = userService.ManagementLogin(userName,password);
+                String userId = userService.ManagertLogin(userName,password);
                 if (userId!=null) {
                     session.setAttribute("userId",userId );
-                    User user =userService.getUser(userId);
-                    user.setPassword("");
+                    User user =userService.getManagerUser(userId);
                     modelAndView.setViewName(Constants.MANAGEINDEX);
                     modelAndView.addObject("user",user);
                 } else {
@@ -44,16 +43,12 @@ public class PublicController {
                 }
             }
         }else{
-            User user = userService.getUser((String)session.getAttribute("userId"));
+            User user = userService.getManagerUser((String)session.getAttribute("userId"));
             user.setPassword("");
             modelAndView.setViewName(Constants.MANAGEINDEX);
             modelAndView.addObject("user",user);
         }
         return modelAndView;
-    }
-   @ExceptionHandler(RuntimeException.class)
-    public String doHandler(){
-        return "forward:/404.jsp";
     }
 
 }
