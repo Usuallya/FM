@@ -21,17 +21,4 @@ public class UserService {
         return false;
     }
 
-    public String ManagertLogin(String userName,String password){
-        String userId = userDao.selectByUsername(userName);
-        if(userDao.validatePassword(userId,password))
-            return userId;
-        else
-            return null;
-    }
-
-    public User getManagerUser(String userId){
-        return userDao.getManagerUser(userId);
-    }
-
-
 }

@@ -1,6 +1,7 @@
 package com.FM.controller.manage;
 
 import com.FM.domain.User;
+import com.FM.service.ManagerService;
 import com.FM.service.UserService;
 import com.FM.utils.Constants;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,7 +20,7 @@ import javax.servlet.http.HttpSession;
 public class PublicController {
 
     @Autowired
-    UserService userService;
+    ManagerService managerService;
 
     @RequestMapping("/login")
     public ModelAndView login(@RequestParam(value = "username",required = false) String userName,@RequestParam(value = "password",required = false) String password,HttpServletRequest request){
@@ -31,10 +32,10 @@ public class PublicController {
                 modelAndView.setViewName(Constants.MANAGELOGIN);
             }else{
                 //这是真登陆的用户
-                String userId = userService.ManagertLogin(userName,password);
+                String userId = managerService.ManagertLogin(userName,password);
                 if (userId!=null) {
                     session.setAttribute("userId",userId );
-                    User user =userService.getManagerUser(userId);
+                    User user =managerService.getManagerUser(userId);
                     modelAndView.setViewName(Constants.MANAGEINDEX);
                     modelAndView.addObject("user",user);
                 } else {
@@ -43,7 +44,7 @@ public class PublicController {
                 }
             }
         }else{
-            User user = userService.getManagerUser((String)session.getAttribute("userId"));
+            User user = managerService.getManagerUser((String)session.getAttribute("userId"));
             modelAndView.setViewName(Constants.MANAGEINDEX);
             modelAndView.addObject("user",user);
         }

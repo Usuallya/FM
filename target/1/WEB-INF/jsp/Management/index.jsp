@@ -55,7 +55,7 @@
 </div>
 <div id="select">
 <div id="left">
-    <div class="select">
+    <div id="select1" class="select">
     <p>一级分类</p>
     <select multiple="multiple" size="6" name="Level1">
         <option value="1">一年级</option>
@@ -63,10 +63,7 @@
         <option value="3">三年级</option>
     </select>
     </div>
-</div>
-
-<div id="middle">
-    <div class="select">
+    <div id="select2" class="select">
         <p>二级分类</p>
         <select multiple="multiple" size="6" name="Level2">
             <option value="1">睡前故事</option>
@@ -80,6 +77,12 @@
         </select>
     </div>
 </div>
+
+<div id="middle">
+    <div id="icons">
+        <p>图标展示区域</p>
+    </div>
+</div>
 <div id="right">
     <div class="select">
         <p>未分类音频文件列表</p>
@@ -89,7 +92,6 @@
             <option value="3">Ford</option>
         </select>
     </div>
-
 </div>
 </div>
 </body>

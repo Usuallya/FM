@@ -1,6 +1,8 @@
 package com.FM.controller.manage;
 
 import com.FM.domain.User;
+import com.FM.service.CourseService;
+import com.FM.service.ManagerService;
 import com.FM.service.TypeService;
 import com.FM.service.UserService;
 import com.FM.utils.Constants;
@@ -23,14 +25,16 @@ import java.util.Map;
 public class ManageController {
 
     @Autowired
-    UserService userService;
+    ManagerService managerService;
     @Autowired
     TypeService typeService;
+    @Autowired
+    CourseService courseService;
     @RequestMapping("/")
     public ModelAndView ManagerIndex(HttpServletRequest request){
         ModelAndView modelAndView = new ModelAndView(Constants.MANAGEINDEX);
         HttpSession session = request.getSession();
-        User user = userService.getManagerUser((String)session.getAttribute("userId"));
+        User user = managerService.getManagerUser((String)session.getAttribute("userId"));
         modelAndView.addObject("user",user);
         return modelAndView;
     }
@@ -55,35 +59,43 @@ public class ManageController {
         String path = request.getSession().getServletContext().getRealPath("")+request.getContextPath()+"/"+Constants.ICON_PATH+"/";
         ModelAndView modelAndView = new ModelAndView();
         if(saveFile(file,path)) {
-            System.out.println("上传成功");
+            modelAndView.addObject("tips","上传成功");
         }
         else {
-            System.out.println("上传失败");
+            modelAndView.addObject("tips","上传失败");
         }
-        modelAndView.addObject("tips","上传成功");
+
         return modelAndView;
     }
-    @RequestMapping("/getCourse")
-    public Map Course(@RequestParam(value = "type") String typeName){
-        if(typeName.equals(""))
-            return typeService.getCourseNotTyped();
-        else
-            return typeService.getCourseTyped(typeName);
+    @RequestMapping("/getCourses")
+    public List<String> Course(@RequestParam(value = "type") Integer typeId){
+        return courseService.getCourse(typeId);
     }
 
     @RequestMapping("/getTypes")
     @ResponseBody
-    public List<String> getTypes(@RequestParam("l1Type") String l1Type){
-        if(l1Type.equals(""))
-            return typeService.getTypesL1();
-        else
-            return typeService.getTypesL2(l1Type);
+    public List<String> getTypes(@RequestParam("parentType") Integer parentType){
+        return typeService.getTypes(parentType);
     }
+
     @RequestMapping("/addType")
     @ResponseBody
     public String addType(@RequestParam("type") String type,@RequestParam("level") Integer level,@RequestParam("parent") String parent){
-        return null;
+        if(typeService.addType(type,level,parent))
+            return Constants.SUCCESS;
+        else
+            return Constants.FAIL;
     }
+    @RequestMapping("/deleteType")
+    @ResponseBody
+    public String deleteType(@RequestParam("type") String typeName,@RequestParam("parent") String parent){
+            if(typeService.deleteType(typeName,parent))
+                return Constants.SUCCESS;
+            else
+                return Constants.FAIL;
+    }
+
+
     private boolean saveFile(MultipartFile file, String path) {
         // 判断文件是否为空
         if (!file.isEmpty()) {
