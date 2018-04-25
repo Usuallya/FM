@@ -44,7 +44,6 @@ public class PublicController {
             }
         }else{
             User user = userService.getManagerUser((String)session.getAttribute("userId"));
-            user.setPassword("");
             modelAndView.setViewName(Constants.MANAGEINDEX);
             modelAndView.addObject("user",user);
         }
