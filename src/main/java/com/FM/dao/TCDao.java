@@ -18,7 +18,7 @@ public class TCDao {
     private final static String courseSQL="SELECT `coursename` FROM `course` WHERE `type`=? ORDER BY `order`";
     private final static String typeSQL="SELECT `typename` FROM `types` WHERE `parentId`=?";
     private final static String addTypeSQL="INSERT INTO `types`(`typename`,`typelevel`,`parenttype`,`iconlocation`,`isdisplay`)VALUES(?,?,?,?,?)";
-
+    private final static String existSQL="SELECT count(*) FROM `types` WHERE `typename`=? AND `parenttype`=?";
     private final static String selectParentTypeSQL="SELECT `id` FROM `types` WHERE `id`=?";
     private final static String deleteTypeSQL="UPDATE `types` SET `isdisplay`=0 WHERE `typename` = ? AND `parenttype`=?";
     private final static String selectTypeByOrderSQL = "SELECT `id` FROM `types` WHERE `order`=?";
@@ -49,14 +49,16 @@ public class TCDao {
         return list;
     }
 
-    public boolean addType(String type,Integer level,Integer parent){
-        //还应该防止在某一级别下的重名
-
+    public Integer addType(String type,Integer level,Integer parent){
+        //首先查询当前类型名是否有重复
+        if(0 == jdbcTemplate.queryForObject(existSQL,new Object[]{type,parent},Integer.class))
+            return Constants.TYPE_ALREADY_EXISTS;
+        //无重复类型名，添加类型
         Integer rows = jdbcTemplate.update(addTypeSQL,new Object[]{type,level,parent,"", Constants.DISPLAY});
         if(rows>0)
-            return true;
+            return Constants.ADD_TYPE_SUCCESS;
         else
-            return false;
+            return Constants.ADD_TYPE_FAIL;
     }
 
     public boolean deleteType(Type type){
@@ -67,10 +69,11 @@ public class TCDao {
             return false;
     }
 
-    public Integer setCourseOrder(Course course,Integer order){
+    public Integer setCourseOrder(Course course){
+
         return null;
     }
-    public Integer setTypeOrder(Type type,Integer order){
+    public Integer setTypeOrder(Type type){
         return null;
     }
 }

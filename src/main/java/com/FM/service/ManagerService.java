@@ -1,6 +1,7 @@
 package com.FM.service;
 
 import com.FM.dao.UserDao;
+import com.FM.domain.Manager;
 import com.FM.domain.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -11,16 +12,16 @@ public class ManagerService {
     @Autowired
     UserDao userDao;
 
-    public String ManagertLogin(String userName,String password){
-        String userId = userDao.selectByUsername(userName);
-        if(userDao.validatePassword(userId,password))
-            return userId;
+    public Integer ManagerLogin(String userName,String password){
+        Integer managerId = userDao.selectByUsername(userName);
+        if(userDao.validatePassword(managerId,password))
+            return managerId;
         else
             return null;
     }
 
-    public User getManagerUser(String userId){
-        return userDao.getManagerUser(userId);
+    public Manager getManagerUser(Integer managerId){
+        return userDao.getManagerUser(managerId);
     }
 
 }

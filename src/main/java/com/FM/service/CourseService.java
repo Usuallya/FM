@@ -19,19 +19,18 @@ public class CourseService {
     }
 
     public boolean add2Type(Course course, Type type){
+
         return false;
     }
 
-    public Integer orderUp(String courseName,String l1typeName,String l2typeName,Integer order){
+    public Integer orderUp(Integer courseId){
         Course course = new Course();
-        course.setCourseName(courseName);
-
-        return tcDao.setCourseOrder(course,order);
+        course.setId(courseId);
+        return tcDao.setCourseOrder(course);
     }
-    public Integer orderDown(String courseName,String l1typeName,String l2typeName,Integer order){
+    public Integer orderDown(Integer courseId){
         Course course = new Course();
-        course.setCourseName(courseName);
-
-        return tcDao.setCourseOrder(course,order);
+        course.setId(courseId);
+        return tcDao.setCourseOrder(course);
     }
 }

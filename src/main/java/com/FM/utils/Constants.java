@@ -13,4 +13,7 @@ public class Constants {
     public static Integer NOTDISPLAY=0;
     public static String SUCCESS="1000";
     public static String FAIL="1001";
+    public static Integer TYPE_ALREADY_EXISTS=-1;
+    public static Integer ADD_TYPE_FAIL=0;
+    public static Integer ADD_TYPE_SUCCESS=1;
 }
