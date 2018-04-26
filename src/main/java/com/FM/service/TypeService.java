@@ -13,43 +13,29 @@ public class TypeService {
     @Autowired
     TCDao tcDao;
 
-
     public List<String> getTypes(Integer parentId){
         List<String> list =  tcDao.getTypes(parentId);
         return list;
     }
 
-    public boolean addType(String type,Integer level,String parent){
-        Integer parentType = tcDao.getParentTypeId(parent);
+    public boolean addType(String type,Integer level,Integer parentType){
         return tcDao.addType(type,level,parentType);
     }
-    public boolean deleteType(String typeName,String parent){
+    public boolean deleteType(String typeName,Integer parentType){
         Type type = new Type();
         type.setTypeName(typeName);
-        if(parent.equals(""))
-            type.setParentType(0);
-        else{
-            Integer parentType = tcDao.getParentTypeId(parent);
-            type.setParentType(parentType);
-        }
-        if(parent.equals(""))
-            return tcDao.deleteType(type);
-        else
-            return tcDao.deleteType(type);
+        type.setParentType(parentType);
+        return tcDao.deleteType(type);
     }
-    public Integer orderUp(Integer typeId,Integer order){
+    public Integer orderUp(Integer typeId){
         Type type = new Type();
         type.setId(typeId);
-        return tcDao.setTypeOrder(type,order);
+        return tcDao.setTypeOrder(type);
     }
-    public Integer orderDown(String typeName,String parentName,Integer order){
+    public Integer orderDown(Integer typeId){
         Type type = new Type();
-        type.setTypeName(typeName);
-        if(parentName.equals(""))
-            type.setParentType(0);
-        else
-            type.setParentType(tcDao.getParentTypeId(parentName));
-        return tcDao.setTypeOrder(type,order);
+        type.setId(typeId);
+        return tcDao.setTypeOrder(type);
     }
 
 }

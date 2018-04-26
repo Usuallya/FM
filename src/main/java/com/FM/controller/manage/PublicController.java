@@ -1,5 +1,6 @@
 package com.FM.controller.manage;
 
+import com.FM.domain.Manager;
 import com.FM.domain.User;
 import com.FM.service.ManagerService;
 import com.FM.service.UserService;
@@ -27,26 +28,24 @@ public class PublicController {
         ModelAndView modelAndView = new ModelAndView();
         HttpSession session = request.getSession();
         if(session.getAttribute("userId")==null){
-            //如果只是到登陆页面
             if(userName==null || password==null) {
                 modelAndView.setViewName(Constants.MANAGELOGIN);
             }else{
-                //这是真登陆的用户
-                String userId = managerService.ManagertLogin(userName,password);
+                Integer userId = managerService.ManagerLogin(userName,password);
                 if (userId!=null) {
                     session.setAttribute("userId",userId );
-                    User user =managerService.getManagerUser(userId);
+                    Manager manager =managerService.getManagerUser(userId);
                     modelAndView.setViewName(Constants.MANAGEINDEX);
-                    modelAndView.addObject("user",user);
+                    modelAndView.addObject("user",manager);
                 } else {
                     modelAndView.setViewName(Constants.MANAGELOGIN);
                     modelAndView.addObject("loginFail", "登录失败，请重试");
                 }
             }
         }else{
-            User user = managerService.getManagerUser((String)session.getAttribute("userId"));
+            Manager manager = managerService.getManagerUser((Integer)session.getAttribute("userId"));
             modelAndView.setViewName(Constants.MANAGEINDEX);
-            modelAndView.addObject("user",user);
+            modelAndView.addObject("user",manager);
         }
         return modelAndView;
     }
