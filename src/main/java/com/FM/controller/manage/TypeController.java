@@ -15,8 +15,11 @@ public class TypeController {
     @RequestMapping("/addType")
     @ResponseBody
     public String addType(@RequestParam("type") String type, @RequestParam("level") Integer level, @RequestParam("parent") Integer parent){
-        if(typeService.addType(type,level,parent))
+        Integer flag = typeService.addType(type,level,parent);
+        if(flag==Constants.ADD_TYPE_SUCCESS)
             return Constants.SUCCESS;
+        else if(flag == Constants.TYPE_ALREADY_EXISTS)
+            return Constants.EXISTS;
         else
             return Constants.FAIL;
     }

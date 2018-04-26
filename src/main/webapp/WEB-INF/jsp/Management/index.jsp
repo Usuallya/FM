@@ -7,10 +7,21 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ page isELIgnored="false" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%
+    String path = request.getContextPath();
+    String basePath = request.getScheme() + "://"
+            + request.getServerName() + ":" + request.getServerPort()
+            + path + "/";
+%>
 <html>
 <head>
     <title>管理系统首页</title>
-    <link type="text/css" rel="styleSheet"  href="/css/managerindex.css" />
+    <script type="text/javascript" src="<%=request.getContextPath()%>/js/jquery-1.8.3.min.js"></script>
+    <script type="text/javascript" src="<%=request.getContextPath()%>/js/Management/index.js"></script>
+    <link type="text/css" rel="styleSheet"  href="<%=request.getContextPath()%>/css/managerindex.css" />
+    <base href="<%=basePath%>" />
 </head>
 <body>
 <div id="login" >
@@ -21,7 +32,7 @@
 <form action="/Management/courseUpload" method="post"  enctype="multipart/form-data">
     <fieldset>
         <legend>课程音频文件上传</legend>
-<input type="file" name="course" multiple="multiple" /> <br />
+        <input type="file" name="course" multiple="multiple" /> <br />
         <input type="submit" value="上传" />
         <p>${tips}</p>
     </fieldset>
@@ -54,45 +65,46 @@
     </div>
 </div>
 <div id="select">
-<div id="left">
-    <div id="select1" class="select">
-    <p>一级分类</p>
-    <select multiple="multiple" size="6" name="Level1">
-        <option value="1">一年级</option>
-        <option value="2">二年级</option>
-        <option value="3">三年级</option>
-    </select>
+    <div id="left">
+        <div id="select1" class="select">
+            <p>一级分类</p>
+            <select multiple="multiple" id="L1List" onchange="getTypes(this)" size="6" name="Level1">
+                <c:forEach items="${L1Types}" var="type">
+                    <option value="${type.getId()}">${type.getTypeName()}</option>
+                </c:forEach>
+            </select>
+        </div>
+        <div id="select2" class="select">
+            <p>二级分类</p>
+            <select multiple="multiple" id="L2List" onchange="getCourse(this)" size="6" name="Level2">
+                <c:forEach items="${L2Types}" var="type">
+                    <option value="${type.getId()}">${type.getTypeName()}</option>
+                </c:forEach>
+            </select>
+            <select multiple="multiple" id="L2CourseList" size="6" name="Level2Courses">
+                <c:forEach items="${initCourse}" var="course">
+                    <option value="${course.getId()}" onchange="flagCourse(this)">${course.getCourseName()}</option>
+                </c:forEach>
+            </select>
+        </div>
     </div>
-    <div id="select2" class="select">
-        <p>二级分类</p>
-        <select multiple="multiple" size="6" name="Level2">
-            <option value="1">睡前故事</option>
-            <option value="2">MP3故事</option>
-            <option value="3">教学语音</option>
-        </select>
-        <select multiple="multiple" size="6" name="Level2Courses">
-            <option value="1">睡前故事1</option>
-            <option value="2">睡前故事2</option>
-            <option value="3">睡前故事3</option>
-        </select>
-    </div>
-</div>
 
-<div id="middle">
-    <div id="icons">
-        <p>图标展示区域</p>
+    <div id="middle">
+        <div id="icons">
+            <p>图标展示区域</p>
+        </div>
     </div>
-</div>
-<div id="right">
-    <div class="select">
-        <p>未分类音频文件列表</p>
-        <select multiple="multiple" size="6" name="coursefile">
-            <option value="1">BMW</option>
-            <option value="2">Benz</option>
-            <option value="3">Ford</option>
-        </select>
+    <div id="right">
+        <div class="select">
+            <p>未分类音频文件列表</p>
+            <select multiple="multiple" id="NoTypeList" onchange="flagNCourse(this)" size="6" name="coursefile">
+                <c:forEach items="${noTypeCourse}" var="course">
+                    <option value="${course.getId()}">${course.getCourseName()}</option>
+                </c:forEach>
+            </select>
+        </div>
     </div>
-</div>
 </div>
 </body>
+
 </html>

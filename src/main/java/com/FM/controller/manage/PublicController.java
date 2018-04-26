@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttributes;
+import org.springframework.web.bind.support.SessionStatus;
 import org.springframework.web.servlet.ModelAndView;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -35,7 +36,7 @@ public class PublicController {
                 if (userId!=null) {
                     session.setAttribute("userId",userId );
                     Manager manager =managerService.getManagerUser(userId);
-                    modelAndView.setViewName(Constants.MANAGEINDEX);
+                    modelAndView.setViewName("forward:"+Constants.MANAGEINDEX);
                     modelAndView.addObject("user",manager);
                 } else {
                     modelAndView.setViewName(Constants.MANAGELOGIN);
@@ -44,10 +45,18 @@ public class PublicController {
             }
         }else{
             Manager manager = managerService.getManagerUser((Integer)session.getAttribute("userId"));
-            modelAndView.setViewName(Constants.MANAGEINDEX);
+            modelAndView.setViewName("forward:"+Constants.MANAGEINDEX);
             modelAndView.addObject("user",manager);
         }
         return modelAndView;
+    }
+    @RequestMapping("/logout")
+    public String logout(SessionStatus sessionStatus,HttpServletRequest request){
+        HttpSession session = request.getSession();
+        session.removeAttribute("userId");
+        session.invalidate();
+        sessionStatus.setComplete();
+        return "forward:"+Constants.MANAGELOGIN;
     }
 
 }

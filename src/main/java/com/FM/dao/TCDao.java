@@ -15,8 +15,8 @@ import java.util.List;
 public class TCDao {
     @Autowired
     private JdbcTemplate jdbcTemplate;
-    private final static String courseSQL="SELECT `coursename` FROM `course` WHERE `type`=? ORDER BY `order`";
-    private final static String typeSQL="SELECT `typename` FROM `types` WHERE `parentId`=?";
+    private final static String courseSQL="SELECT `*` FROM `course` WHERE `type`=? ORDER BY `order`";
+    private final static String typeSQL="SELECT `*` FROM `types` WHERE `parenttype`=?";
     private final static String addTypeSQL="INSERT INTO `types`(`typename`,`typelevel`,`parenttype`,`iconlocation`,`isdisplay`)VALUES(?,?,?,?,?)";
     private final static String existSQL="SELECT count(*) FROM `types` WHERE `typename`=? AND `parenttype`=?";
     private final static String selectParentTypeSQL="SELECT `id` FROM `types` WHERE `id`=?";
@@ -27,26 +27,33 @@ public class TCDao {
     private final static String setTypeOrderSQL = "UPDATE `types` SET ``";
     private final static String setCourseOrderSQL="UPDATE `` SET ``";
 
-    public List<String> getCourse(Integer typeId){
-    List<String> list = jdbcTemplate.query(courseSQL, new Object[]{typeId}, new RowMapper<String>() {
+    public List<Course> getCourse(Integer typeId){
+    List<Course> list = jdbcTemplate.query(courseSQL, new Object[]{typeId}, new RowMapper<Course>() {
         @Override
-        public String mapRow(ResultSet resultSet, int i) throws SQLException {
-            String course = resultSet.getString("course");
+        public Course mapRow(ResultSet resultSet, int i) throws SQLException {
+            Course course = new Course();
+            course.setId(resultSet.getInt("id"));
+            course.setCourseName(resultSet.getString("coursename"));
+            course.setType(resultSet.getInt("type"));
             return course;
         }
     });
     return list;
     }
 
-    public List<String> getTypes(Integer parentId){
-        List<String> list = jdbcTemplate.query(typeSQL, new Object[]{parentId}, new RowMapper<String>() {
+    public List<Type> getTypes(Integer parentId){
+        List<Type> type = jdbcTemplate.query(typeSQL, new Object[]{parentId}, new RowMapper<Type>() {
             @Override
-            public String mapRow(ResultSet resultSet, int i) throws SQLException {
-                String type = resultSet.getString("type");
+            public Type mapRow(ResultSet resultSet, int i) throws SQLException {
+                Type type = new Type();
+                type.setId(resultSet.getInt("id"));
+                type.setTypeName(resultSet.getString("typename"));
+                type.setTypeLevel(resultSet.getInt("typelevel"));
+                type.setParentType(resultSet.getInt("parenttype"));
                 return type;
             }
         });
-        return list;
+        return type;
     }
 
     public Integer addType(String type,Integer level,Integer parent){

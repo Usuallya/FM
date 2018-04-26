@@ -1,6 +1,8 @@
 package com.FM.controller.manage;
 
+import com.FM.domain.Course;
 import com.FM.domain.Manager;
+import com.FM.domain.Type;
 import com.FM.domain.User;
 import com.FM.service.CourseService;
 import com.FM.service.ManagerService;
@@ -34,10 +36,23 @@ public class ManageController {
     CourseService courseService;
 
     @RequestMapping("/")
+    public String ManagerDefault(){
+        return "forward:"+Constants.MANAGEINDEX;
+    }
+
+    @RequestMapping("/index")
     public ModelAndView ManagerIndex(HttpServletRequest request){
         ModelAndView modelAndView = new ModelAndView(Constants.MANAGEINDEX);
         HttpSession session = request.getSession();
         Manager manager = managerService.getManagerUser((Integer)session.getAttribute("userId"));
+        List<Type> initL1Types = typeService.getTypes(0);
+        List<Type> initL2Types = typeService.getTypes(initL1Types.get(0).getId());
+        List<Course> initCourse = courseService.getCourse(initL2Types.get(0).getId());
+        List<Course> noTypeCourse = courseService.getCourse(0);
+        modelAndView.addObject("L1Types",initL1Types);
+        modelAndView.addObject("L2Types",initL2Types);
+        modelAndView.addObject("initCourse",initCourse);
+        modelAndView.addObject("noTypeCourse",noTypeCourse);
         modelAndView.addObject("user",manager);
         return modelAndView;
     }
@@ -67,23 +82,22 @@ public class ManageController {
         else {
             modelAndView.addObject("tips","上传失败");
         }
-
         return modelAndView;
     }
-    @RequestMapping("/getCourses")
-    public List<String> Course(@RequestParam(value = "type") Integer typeId){
 
+    @RequestMapping("/getCourses")
+    @ResponseBody
+    public List<Course> getCourse(@RequestParam(value = "l2Type") String stypeId){
+        Integer typeId= Integer.parseInt(stypeId);
         return courseService.getCourse(typeId);
     }
 
     @RequestMapping("/getTypes")
     @ResponseBody
-    public List<String> getTypes(@RequestParam("parentType") Integer parentType){
+    public List<Type> getTypes(@RequestParam("parentType") String sparentType){
+        Integer parentType = Integer.parseInt(sparentType);
         return typeService.getTypes(parentType);
     }
-
-
-
 
     private boolean saveFile(MultipartFile file, String path) {
         // 判断文件是否为空

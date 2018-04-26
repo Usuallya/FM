@@ -13,12 +13,12 @@ public class TypeService {
     @Autowired
     TCDao tcDao;
 
-    public List<String> getTypes(Integer parentId){
-        List<String> list =  tcDao.getTypes(parentId);
+    public List<Type> getTypes(Integer parentId){
+        List<Type> list =  tcDao.getTypes(parentId);
         return list;
     }
 
-    public boolean addType(String type,Integer level,Integer parentType){
+    public Integer addType(String type,Integer level,Integer parentType){
         return tcDao.addType(type,level,parentType);
     }
     public boolean deleteType(String typeName,Integer parentType){

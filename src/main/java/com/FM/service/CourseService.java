@@ -13,8 +13,8 @@ public class CourseService {
     @Autowired
     private TCDao tcDao;
 
-    public List<String> getCourse(Integer typeId){
-        List<String> list = tcDao.getCourse(typeId);
+    public List<Course> getCourse(Integer typeId){
+        List<Course> list = tcDao.getCourse(typeId);
         return list;
     }
 
