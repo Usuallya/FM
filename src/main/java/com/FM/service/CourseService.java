@@ -14,23 +14,33 @@ public class CourseService {
     private TCDao tcDao;
 
     public List<Course> getCourse(Integer typeId){
-        List<Course> list = tcDao.getCourse(typeId);
+        List<Course> list = tcDao.getCourses(typeId);
         return list;
     }
 
-    public boolean add2Type(Course course, Type type){
+    public Course getOneCourse(Integer courseId){
+        return tcDao.getCourse(courseId);
+    }
 
-        return false;
+    public boolean add2Type(String courseId, String typeId){
+        Integer cId = Integer.parseInt(courseId);
+        Integer tId = Integer.parseInt(typeId);
+        return tcDao.add2Type(cId,tId);
+    }
+
+    public boolean deleteCourse(String courseId){
+        Integer cId = Integer.parseInt(courseId);
+        return tcDao.deleteCourse(cId);
+    }
+
+    public Integer addCourse(String fileName,String location){
+        return tcDao.addCourse(fileName,location);
     }
 
     public Integer orderUp(Integer courseId){
-        Course course = new Course();
-        course.setId(courseId);
-        return tcDao.setCourseOrder(course);
+        return tcDao.setCourseOrder(courseId,1);
     }
     public Integer orderDown(Integer courseId){
-        Course course = new Course();
-        course.setId(courseId);
-        return tcDao.setCourseOrder(course);
+        return tcDao.setCourseOrder(courseId,0);
     }
 }

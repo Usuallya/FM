@@ -7,6 +7,15 @@ public class Type {
     private Integer parentType;
     private String iconLocation;
     private boolean isdisplay;
+    private Integer order;
+
+    public Integer getOrder() {
+        return order;
+    }
+
+    public void setOrder(Integer order) {
+        this.order = order;
+    }
 
     public Integer getId() {
         return id;

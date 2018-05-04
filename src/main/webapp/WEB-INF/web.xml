@@ -31,7 +31,9 @@
     <servlet-name>default</servlet-name>
     <url-pattern>*.js</url-pattern>
     <url-pattern>*.css</url-pattern>
-    <url-pattern>/assets/*"</url-pattern>
+    <url-pattern>/icon/*</url-pattern>
+    <url-pattern>/course/*</url-pattern>
+    <url-pattern>/assets/*</url-pattern>
     <url-pattern>/images/*</url-pattern>
   </servlet-mapping>
 </web-app>

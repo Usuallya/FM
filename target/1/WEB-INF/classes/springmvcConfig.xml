@@ -11,12 +11,6 @@
 
     <mvc:interceptors>
         <mvc:interceptor>
-            <mvc:mapping path="/**"/>
-            <mvc:exclude-mapping path="/Management/**" />
-            <mvc:exclude-mapping path="/login" />
-            <bean class="com.FM.utils.PlayInterceptor" />
-        </mvc:interceptor>
-        <mvc:interceptor>
             <mvc:mapping path="/Management/**"/>
             <mvc:exclude-mapping path="/Management/login" />
             <bean class="com.FM.utils.MyInterceptor" />

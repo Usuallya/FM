@@ -36,7 +36,7 @@ public class PublicController {
                 if (userId!=null) {
                     session.setAttribute("userId",userId );
                     Manager manager =managerService.getManagerUser(userId);
-                    modelAndView.setViewName("forward:"+Constants.MANAGEINDEX);
+                    modelAndView.setViewName("forward:"+Constants.INDEX);
                     modelAndView.addObject("user",manager);
                 } else {
                     modelAndView.setViewName(Constants.MANAGELOGIN);
@@ -45,7 +45,7 @@ public class PublicController {
             }
         }else{
             Manager manager = managerService.getManagerUser((Integer)session.getAttribute("userId"));
-            modelAndView.setViewName("forward:"+Constants.MANAGEINDEX);
+            modelAndView.setViewName("forward:"+Constants.INDEX);
             modelAndView.addObject("user",manager);
         }
         return modelAndView;
