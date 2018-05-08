@@ -34,7 +34,10 @@ public class CourseService {
     }
 
     public Integer addCourse(String fileName,String location){
-        return tcDao.addCourse(fileName,location);
+        System.out.println(fileName+"  "+location);
+        Integer success = tcDao.addCourse(fileName,location);
+        System.out.println(success);
+        return success;
     }
 
     public Integer orderUp(Integer courseId){

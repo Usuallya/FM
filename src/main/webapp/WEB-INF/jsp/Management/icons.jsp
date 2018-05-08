@@ -32,8 +32,8 @@
     <link href="<%=request.getContextPath()%>/assets/css/custom-styles.css" rel="stylesheet" />
     <!-- Google Fonts-->
     <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
-    <title>管理系统首页</title>
-    <script type="text/javascript" src="<%=request.getContextPath()%>/js/jquery-1.8.3.min.js"></script>
+    <title>学优优FM后台管理系统</title>
+    <script type="text/javascript" src="<%=request.getContextPath()%>/js/jquery-1.11.1.min.js"></script>
     <script type="text/javascript" src="<%=request.getContextPath()%>/js/Management/typeCourse.js"></script>
     <base href="<%=basePath%>" />
 </head>
@@ -52,7 +52,7 @@
         </div>
         <ul class="nav navbar-top-links navbar-right">
             <li class="dropdown">
-                <a href="#">退出登录</a>
+                <a href="/Management/logout">退出登录</a>
             </li>
         </ul>
     </nav>
@@ -85,19 +85,32 @@
             <form action="/Management/iconUpload" method="post"  enctype="multipart/form-data">
                 <fieldset>
                     <legend>二级分类图标上传</legend>
-                    <input type="file" name="icon" multiple="multiple" /> <br />
+                    <input type="file" id="file" name="icon" multiple="multiple" accept="image/*" /> <br />
+                    <p>${tips}</p>
                 </fieldset>
                 <fieldset>
-                    <legend>二级分类指定</legend>
-                    <select id="l2Type" size="6" name="l2Type" onchange="chg2Icon()">
+                        <legend>指定分类</legend>
+                        <select id="L1List" onchange="getTypes(this)" name="Level1">
+                            <c:forEach items="${L1Types}" var="type">
+                                <option value="${type.getId()}">${type.getTypeName()}</option>
+                            </c:forEach>
+                        </select>
+                    <select id="L2List" name="l2Type" onchange="chg2Icon()">
                         <c:forEach items="${L2Types}" var="type">
                             <option value="${type.getId()}">${type.getTypeName()}</option>
                         </c:forEach>
                     </select>
                     <br />
-
-                    <img id="iconPreview" src="<% String iconPath = request.getContextPath()+"/"+Constants.ICON_UPLOAD_PATH+"/"; out.println(iconPath); %>${l2fIconLocation}" <c:if test="${l2fIconLocation==null}">hidden="hidden"</c:if>/>
-                    <input type="submit" onclick="return uploadImage();" value="上传" />
+                    <div>
+                    <p>图标预览</p>
+                        <c:if test="${l2fIconLocation!=null}">
+                    <img id="iconPreview" style="width:100px;height:100px;" src="<% String iconPath = request.getContextPath()+"/"+Constants.ICON_UPLOAD_PATH+"/"; out.println(iconPath); %>${l2fIconLocation}"/>
+                        </c:if>
+                        <c:if test="${l2fIconLocation==null}">
+                            暂未指定图标
+                        </c:if>
+                    </div>
+                    <input type="submit" onclick="return validateImage();" value="上传" />
                 </fieldset>
             </form>
         </div>

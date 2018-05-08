@@ -23,11 +23,14 @@
     <link href="<%=request.getContextPath()%>/assets/js/morris/morris-0.4.3.min.css" rel="stylesheet" />
     <!-- Custom Styles-->
     <link href="<%=request.getContextPath()%>/assets/css/custom-styles.css" rel="stylesheet" />
+    <link href="<%=request.getContextPath()%>/css/course.css" rel="stylesheet" />
     <!-- Google Fonts-->
     <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
-    <title>管理系统首页</title>
-    <script type="text/javascript" src="<%=request.getContextPath()%>/js/jquery-1.8.3.min.js"></script>
+    <link href="<%=request.getContextPath()%>/css/searchableSelect.css" rel="stylesheet" type="text/css">
+    <script type="text/javascript" src="<%=request.getContextPath()%>/js/searchableSelect.js"></script>
+    <script type="text/javascript" src="<%=request.getContextPath()%>/js/jquery-1.11.1.min.js"></script>
     <script type="text/javascript" src="<%=request.getContextPath()%>/js/Management/typeCourse.js"></script>
+    <title>学优优FM后台管理系统</title>
     <base href="<%=basePath%>" />
 </head>
 
@@ -48,7 +51,7 @@
 
             <!-- /.dropdown -->
             <li class="dropdown">
-                <a href="#">退出登录</a>
+                <a href="/Management/logout">退出登录</a>
                 <!-- /.dropdown-user -->
             </li>
             <!-- /.dropdown -->
@@ -87,16 +90,25 @@
                 <form action="/Management/courseUpload" method="post"  enctype="multipart/form-data">
                     <fieldset>
                         <legend>课程音频文件上传</legend>
-                        <input type="file" name="course" multiple="multiple" /> <br />
-                        <input type="submit" value="上传" />
+                        <input type="file" id="file" name="course" accept="audio/*" multiple="multiple" /> <br />
+                        <input type="submit" onclick="return validate();" value="上传" />
                         <p>${tips}</p>
                     </fieldset>
                 </form>
             </div>
 
+            <hr style="color:red"/>
+
+            <div><p style="font-size:25px;">加入分类</p></div>
+            <div id="select1" class="select">
+                <select id="L1List" onchange="getTypes(this)" name="Level1">
+                    <c:forEach items="${L1Types}" var="type">
+                        <option value="${type.getId()}">${type.getTypeName()}</option>
+                    </c:forEach>
+                </select>
+            </div>
             <div id="select2" class="select">
-                <p>二级分类</p>
-                <select multiple="multiple" id="L2List" onchange="getCourse(this)" size="6" name="Level2">
+                <select id="L2List" onchange="getCourse(this)" name="Level2">
                     <c:forEach items="${L2Types}" var="type">
                         <option value="${type.getId()}">${type.getTypeName()}</option>
                     </c:forEach>
@@ -105,7 +117,10 @@
 
             <div class="select">
                 <p>未分类音频文件列表</p>
-                <select multiple="multiple" id="NoTypeList" onchange="flagNCourse(this)" size="6" name="coursefile">
+                <select multiple="multiple" id="NoTypeList" size="6">
+                    <c:if test="${noTypeCourse.size()==0}">
+                        <option value="0">无</option>
+                    </c:if>
                     <c:forEach items="${noTypeCourse}" var="course">
                         <option value="${course.getId()}">${course.getCourseName()}</option>
                     </c:forEach>
@@ -116,6 +131,7 @@
         </div>
     </div>
 </div>
+
 <script src="<%=request.getContextPath()%>/assets/js/jquery-1.10.2.js"></script>
 <!-- Bootstrap Js -->
 <script src="<%=request.getContextPath()%>/assets/js/bootstrap.min.js"></script>
@@ -126,8 +142,6 @@
 <script src="<%=request.getContextPath()%>/assets/js/morris/morris.js"></script>
 <!-- Custom Js -->
 <script src="<%=request.getContextPath()%>/assets/js/custom-scripts.js"></script>
-
-
 </body>
 
 </html>

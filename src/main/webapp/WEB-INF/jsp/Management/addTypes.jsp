@@ -32,8 +32,8 @@
     <link href="<%=request.getContextPath()%>/assets/css/custom-styles.css" rel="stylesheet" />
     <!-- Google Fonts-->
     <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
-    <title>管理系统首页</title>
-    <script type="text/javascript" src="<%=request.getContextPath()%>/js/jquery-1.8.3.min.js"></script>
+    <title>学优优FM后台管理系统</title>
+    <script type="text/javascript" src="<%=request.getContextPath()%>/js/jquery-1.11.1.min.js"></script>
     <script type="text/javascript" src="<%=request.getContextPath()%>/js/Management/typeCourse.js"></script>
     <base href="<%=basePath%>" />
 </head>
@@ -55,7 +55,7 @@
 
             <!-- /.dropdown -->
             <li class="dropdown">
-                <a href="#">退出登录</a>
+                <a href="/Management/logout">退出登录</a>
                 <!-- /.dropdown-user -->
             </li>
             <!-- /.dropdown -->
@@ -91,12 +91,14 @@
     <!-- /. NAV SIDE  -->
     <div id="page-wrapper">
         <div id="page-inner">
+            <p>添加分类</p>
             <input id="typeName" type="text" placeholder="请输入分类名称" />
-            <select id="l1select" name="typeLevel" value="请选择分类级别" onchange="changeLevel()">
+            <select id="l1select" onchange="changeLevel()">
                 <option value="1">一级</option>
                 <option value="2">二级</option>
             </select>
-            <select id="l2select" name="l2Level" value="请选择对应的一级分类" hidden="hidden">
+            <select id="l2select" onclick="selectL1Level()" hidden="hidden">
+                <option value="0" >请选择对应的一级分类</option>
                 <c:forEach items="${L1Types}" var="type">
                     <option value="${type.getId()}">${type.getTypeName()}</option>
                 </c:forEach>
@@ -115,7 +117,7 @@
             </div>
             <div id="select2" class="select">
             <p>二级分类</p>
-            <select multiple="multiple" id="L2List" onchange="getCourse(this)" size="6" name="Level2">
+            <select multiple="multiple" id="L2List" size="6" name="Level2">
                 <c:forEach items="${L2Types}" var="type">
                     <option value="${type.getId()}">${type.getTypeName()}</option>
                 </c:forEach>

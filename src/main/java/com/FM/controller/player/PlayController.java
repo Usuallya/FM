@@ -7,13 +7,9 @@ import com.FM.service.TypeService;
 import com.FM.utils.Constants;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.multipart.MultipartFile;
-
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -115,23 +111,42 @@ public class PlayController {
         String desc="";
         Course rtCourse=null;
         Map<String,Type> types=null;
+        Map<String,String> rtArr=new HashMap<>();
         for(int i=0;i<list.size();i++){
             Course course = list.get(i);
-            if(course.getId()==music_id)
-                if(i+signal<list.size() && i+signal>-1) {
-                    rtCourse = list.get(i+signal);
+            if(course.getId()==music_id) {
+                if (i + signal < list.size() && i + signal > -1) {
+                    rtCourse = list.get(i + signal);
+                    System.out.println("rt:"+rtCourse.getCourseName());
+                    Type l2Type = typeService.getType(rtCourse.getType());
+                    Type l1Type = typeService.getType(l2Type.getParentType());
+                    rtArr.put("sorting_id", l1Type.getId().toString());
+                    rtArr.put("sorting_name", l1Type.getTypeName());
+                    rtArr.put("subtype_id", l2Type.getId().toString());
+                    rtArr.put("subtype_name", l2Type.getTypeName());
                     break;
-                }else if(i+signal<-1){
-                     types =typeService.getNextType(id,signal);
+                } else if (i + signal <= -1) {
+                    types = typeService.getNextType(id, signal);
                     List<Course> llist = courseService.getCourse(types.get("l2").getId());
-                    rtCourse = llist.get(llist.size()-1);
+                    if(llist!=null)
+                    rtCourse = llist.get(llist.size() - 1);
+                    rtArr.put("sorting_id", types.get("l1").getId().toString());
+                    rtArr.put("sorting_name", types.get("l1").getTypeName());
+                    rtArr.put("subtype_id", types.get("l2").getId().toString());
+                    rtArr.put("subtype_name", types.get("l2").getTypeName());
                     break;
-                }else if(i+signal>=list.size()){
-                     types =typeService.getNextType(id,signal);
+                } else if (i + signal >= list.size()) {
+                    types = typeService.getNextType(id, signal);
                     List<Course> llist = courseService.getCourse(types.get("l2").getId());
+                    if(llist!=null)
                     rtCourse = llist.get(0);
-                break;
+                    rtArr.put("sorting_id", types.get("l1").getId().toString());
+                    rtArr.put("sorting_name", types.get("l1").getTypeName());
+                    rtArr.put("subtype_id", types.get("l2").getId().toString());
+                    rtArr.put("subtype_name", types.get("l2").getTypeName());
+                    break;
                 }
+            }
         }
         if(rtCourse!=null)
         {
@@ -139,13 +154,7 @@ public class PlayController {
         }else{
             desc= Constants.FAIL;
         }
-        Map<String,String> rtArr=new HashMap<>();
         rtArr.put("music_id",rtCourse.getId().toString());
-        rtArr.put("sorting_id",types.get("l2").getId().toString());
-        rtArr.put("sorting_name",types.get("l2").getTypeName());
-        rtArr.put("subtype_id",types.get("l1").getId().toString());
-        rtArr.put("subtype_name",types.get("l1").getTypeName());
-
         Map<String,Object> map = new HashMap<>();
         map.put("result",result);
         map.put("music_message",rtArr);

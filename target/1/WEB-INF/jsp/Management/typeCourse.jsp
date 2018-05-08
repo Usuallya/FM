@@ -32,8 +32,8 @@
     <link href="<%=request.getContextPath()%>/assets/css/custom-styles.css" rel="stylesheet" />
     <!-- Google Fonts-->
     <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
-    <title>管理系统</title>
-    <script type="text/javascript" src="<%=request.getContextPath()%>/js/jquery-1.8.3.min.js"></script>
+    <title>学优优FM后台管理系统</title>
+    <script type="text/javascript" src="<%=request.getContextPath()%>/js/jquery-1.11.1.min.js"></script>
     <script type="text/javascript" src="<%=request.getContextPath()%>/js/Management/typeCourse.js"></script>
     <base href="<%=basePath%>" />
 </head>
@@ -55,7 +55,7 @@
 
             <!-- /.dropdown -->
             <li class="dropdown">
-                <a href="#">退出登录</a>
+                <a href="/Management/logout">退出登录</a>
                 <!-- /.dropdown-user -->
             </li>
             <!-- /.dropdown -->

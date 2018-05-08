@@ -11,8 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @Controller
-@SessionAttributes("userId")
-@RequestMapping("/Management/Course")
+@RequestMapping("Management/Course")
 public class CourseController {
     @Autowired
     private CourseService courseService;

@@ -17,8 +17,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 @Controller
-@SessionAttributes("userId")
-@RequestMapping("/Management")
+@RequestMapping("Management")
 public class PublicController {
 
     @Autowired
@@ -50,6 +49,7 @@ public class PublicController {
         }
         return modelAndView;
     }
+
     @RequestMapping("/logout")
     public String logout(SessionStatus sessionStatus,HttpServletRequest request){
         HttpSession session = request.getSession();

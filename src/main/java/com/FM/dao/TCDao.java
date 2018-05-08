@@ -15,28 +15,30 @@ import java.util.List;
 public class TCDao {
     @Autowired
     private JdbcTemplate jdbcTemplate;
-    private final static String courseSQL="SELECT * FROM `course` WHERE `type`=? ORDER BY `order`";
-    private final static String typeSQL="SELECT * FROM `types` WHERE `parenttype`=? ORDER BY `order`";
+    private final static String courseSQL="SELECT * FROM `course` WHERE `type`=? AND `isdisplay`=1 ORDER BY `order`";
+    private final static String typeSQL="SELECT * FROM `types` WHERE `parenttype`=? AND `isdisplay`=1 ORDER BY `order`";
     private final static String addTypeSQL="INSERT INTO `types`(`typename`,`typelevel`,`parenttype`,`iconlocation`,`isdisplay`,`order`)VALUES(?,?,?,?,?,?)";
-    private final static String addCourseSQL="INSERT INTO `course`(`coursename`,`type`,`like`,`location`,`order`,`isdisplay`)VALUES(?,0,?,?,?,1)";
+    private final static String addCourseSQL="INSERT INTO `course`(`coursename`,`type`,`like`,`location`,`order`,`isdisplay`)VALUES(?,0,0,?,0,1)";
     private final static String add2TypeSQL="UPDATE `course` SET `type`=?,`order`=? WHERE `id`=?";
-    private final static String existSQL="SELECT count(*) FROM `types` WHERE `typename`=? AND `parenttype`=?";
+    private final static String existSQL="SELECT count(*) FROM `types` WHERE `typename`=? AND `parenttype`=? AND `isdisplay`=1";
     private final static String deleteCourseSQL="UPDATE `course` SET `isdisplay`=0 WHERE `id`=?";
-    private final static String deleteTypeSQL="UPDATE `types` SET `isdisplay`=0 WHERE `typename` = ? AND `parenttype`=?";
+    private final static String deleteTypeSQL="UPDATE `types` SET `isdisplay`=0 WHERE `id` = ?";
+    private final static String deletel2TypeSQL="UPDATE `types` SET `isdisplay`=0 WHERE `parenttype`=?";
+    private final static String deletel2CourseSQL="UPDATE `course` SET `type`=0 WHERE `type`=?";
     private final static String uploadIconSQL="UPDATE `types` SET `iconlocation`=? WHERE `id`=?";
-    private final static String selectTypeSQL = "SELECT * FROM `types` WHERE `id`=?";
-    private final static String selectCourseSQL="SELECT `*` FROM `course` WHERE `id`=?";
-    private final static String selectIconSQL="SELECT `iconlocation` FROM `types` WHERE `id`=?";
-    private final static String selectTypeByOrderSQL="SELECT `id` FROM `types` WHERE `parenttype`=? AND `order`=?";
-    private final static String selectCourseByOrderSQL="SELECT `id` FROM `course` WHERE `type`=? AND `order`=?";
+    private final static String selectTypeSQL = "SELECT * FROM `types` WHERE `id`=? AND `isdisplay`=1";
+    private final static String selectCourseSQL="SELECT * FROM `course` WHERE `id`=? AND `isdisplay`=1";
+    private final static String selectIconSQL="SELECT `iconlocation` FROM `types` WHERE `id`=? AND `isdisplay`=1";
+    private final static String selectTypeByOrderSQL="SELECT `id` FROM `types` WHERE `parenttype`=? AND `order`=? AND `isdisplay`=1";
+    private final static String selectCourseByOrderSQL="SELECT `id` FROM `course` WHERE `type`=? AND `order`=? AND `isdisplay`=1";
     private final static String updateCourseOrderSQL="UPDATE `course` SET `order`=? WHERE `id`=? ";
     private final static String updateTypeOrderSQL="UPDATE `types` SET `order`=? WHERE `id`=?";
-    private final static String selectMaxTypeOrderSQL="SELECT MAX(`order`) FROM `types` WHERE `parenttype`=?";
-    private final static String selectMaxCourseOrderSQL="SELECT MAX(`order`) FROM `course` WHERE `type`=?";
-    private final static String selectAll2Types="SELECT * FROM `types` WHERE `parenttype`<>0 ORDER BY `order`";
-    private final static String selectAll1Types="SELECT * FROM `types` WHERE `parenttype`=0 ORDER BY `order`";
-    private final static String selectFirstChildTypeSQL="SELECT * FROM `types` WHERE `parenttype`=? ORDER BY `order`";
-    private final static String selectLastChildTypeSQL="SELECT * FROM `types` WHERE `parenttype`=? ORDER BY `order` DESC ";
+    private final static String selectMaxTypeOrderSQL="SELECT MAX(`order`) FROM `types` WHERE `parenttype`=? AND `isdisplay`=1";
+    private final static String selectMaxCourseOrderSQL="SELECT MAX(`order`) FROM `course` WHERE `type`=? AND `isdisplay`=1";
+    private final static String selectAll2Types="SELECT * FROM `types` WHERE `parenttype`<>0 AND `isdisplay`=1";
+    private final static String selectAll1Types="SELECT * FROM `types` WHERE `parenttype`=0 ORDER BY `order` AND `isdisplay`=1";
+    private final static String selectFirstChildTypeSQL="SELECT * FROM `types` WHERE `parenttype`=? AND `isdisplay`=1 ORDER BY `order`";
+    private final static String selectLastChildTypeSQL="SELECT * FROM `types` WHERE `parenttype`=? AND `isdisplay`=1 ORDER BY `order` DESC ";
     public List<Course> getCourses(Integer typeId){
         try{
     List<Course> list = jdbcTemplate.query(courseSQL, new Object[]{typeId}, new RowMapper<Course>() {
@@ -46,6 +48,7 @@ public class TCDao {
             course.setId(resultSet.getInt("id"));
             course.setCourseName(resultSet.getString("coursename"));
             course.setType(resultSet.getInt("type"));
+            course.setLocation(resultSet.getString("location"));
             return course;
         }
     });
@@ -64,6 +67,7 @@ public class TCDao {
                 course.setType(resultSet.getInt("type"));
                 course.setOrder(resultSet.getInt("order"));
                 course.setCourseName(resultSet.getString("coursename"));
+                course.setLocation(resultSet.getString("location"));
                 return course;
             }
         });
@@ -79,6 +83,7 @@ public class TCDao {
                 tp.setTypeLevel(resultSet.getInt("typelevel"));
                 tp.setOrder(resultSet.getInt("order"));
                 tp.setTypeName(resultSet.getString("typename"));
+                tp.setIconLocation(resultSet.getString("iconlocation"));
                 return tp;
             }
         });
@@ -90,12 +95,14 @@ public class TCDao {
             List<Type> type = jdbcTemplate.query(typeSQL, new Object[]{parentId}, new RowMapper<Type>() {
                 @Override
                 public Type mapRow(ResultSet resultSet, int i) throws SQLException {
-                    Type type = new Type();
-                    type.setId(resultSet.getInt("id"));
-                    type.setTypeName(resultSet.getString("typename"));
-                    type.setTypeLevel(resultSet.getInt("typelevel"));
-                    type.setParentType(resultSet.getInt("parenttype"));
-                    return type;
+                    Type tp = new Type();
+                    tp.setId(resultSet.getInt("id"));
+                    tp.setParentType(resultSet.getInt("parenttype"));
+                    tp.setTypeLevel(resultSet.getInt("typelevel"));
+                    tp.setOrder(resultSet.getInt("order"));
+                    tp.setTypeName(resultSet.getString("typename"));
+                    tp.setIconLocation(resultSet.getString("iconlocation"));
+                    return tp;
                 }
             });
             return type;
@@ -109,12 +116,14 @@ public class TCDao {
         List<Type> list = jdbcTemplate.query(selectAll2Types, new Object[]{}, new RowMapper<Type>() {
             @Override
             public Type mapRow(ResultSet resultSet, int i) throws SQLException {
-                Type type = new Type();
-                type.setId(resultSet.getInt("id"));
-                type.setTypeName(resultSet.getString("typename"));
-                type.setTypeLevel(resultSet.getInt("typelevel"));
-                type.setParentType(resultSet.getInt("parenttype"));
-                return type;
+                Type tp = new Type();
+                tp.setId(resultSet.getInt("id"));
+                tp.setParentType(resultSet.getInt("parenttype"));
+                tp.setTypeLevel(resultSet.getInt("typelevel"));
+                tp.setOrder(resultSet.getInt("order"));
+                tp.setTypeName(resultSet.getString("typename"));
+                tp.setIconLocation(resultSet.getString("iconlocation"));
+                return tp;
             }
         });
         return list;
@@ -124,12 +133,13 @@ public class TCDao {
         List<Type> list = jdbcTemplate.query(selectAll1Types, new Object[]{}, new RowMapper<Type>() {
             @Override
             public Type mapRow(ResultSet resultSet, int i) throws SQLException {
-                Type type = new Type();
-                type.setId(resultSet.getInt("id"));
-                type.setTypeName(resultSet.getString("typename"));
-                type.setTypeLevel(resultSet.getInt("typelevel"));
-                type.setParentType(resultSet.getInt("parenttype"));
-                return type;
+                Type tp = new Type();
+                tp.setId(resultSet.getInt("id"));
+                tp.setParentType(resultSet.getInt("parenttype"));
+                tp.setTypeLevel(resultSet.getInt("typelevel"));
+                tp.setOrder(resultSet.getInt("order"));
+                tp.setTypeName(resultSet.getString("typename"));
+                return tp;
             }
         });
         return list;
@@ -137,9 +147,9 @@ public class TCDao {
 
     public Integer addType(String type,Integer level,Integer parent){
         //首先查询当前类型名是否有重复
+
         if(0 != jdbcTemplate.queryForObject(existSQL,new Object[]{type,parent},Integer.class))
             return Constants.TYPE_ALREADY_EXISTS;
-        //无重复类型名，添加类型
         Integer order = getMaxTypeOrder(parent)+1;
         Integer rows = jdbcTemplate.update(addTypeSQL,new Object[]{type,level,parent,null, Constants.DISPLAY,order});
         if(rows>0)
@@ -150,12 +160,11 @@ public class TCDao {
 
     public Integer addCourse(String courseName,String location)
     {
-        try {
-            jdbcTemplate.update(addCourseSQL, new Object[]{courseName, null, location, null});
-            return Constants.ADD_SUCCESS;
-        }catch(Exception e){
-            return Constants.ADD_FAIL;
-        }
+            if(jdbcTemplate.update(addCourseSQL, new Object[]{courseName, location})>0)
+                return Constants.ADD_SUCCESS;
+            else
+                return Constants.ADD_FAIL;
+
     }
 
     public boolean add2Type(Integer courseId,Integer typeId){
@@ -174,7 +183,19 @@ public class TCDao {
     }
 
     public boolean deleteType(Type type){
-        Integer rows=jdbcTemplate.update(deleteTypeSQL,new Object[]{type.getTypeName(),type.getParentType()});
+        if(type.getParentType()==0) {
+            List<Type> types = getAll2Types();
+            for(Type ltype : types){
+                if(ltype.getParentType()==type.getId()){
+                    jdbcTemplate.update(deletel2CourseSQL,new Object[]{ltype.getId()});
+                }
+            }
+            jdbcTemplate.update(deletel2TypeSQL,new Object[]{type.getId()});
+        }else{
+            jdbcTemplate.update(deletel2CourseSQL,new Object[]{type.getId()});
+        }
+        Integer rows=jdbcTemplate.update(deleteTypeSQL,new Object[]{type.getId()});
+
         if(rows>0)
             return true;
         else
@@ -195,29 +216,29 @@ public class TCDao {
 
     public Integer setCourseOrder(Integer courseId,Integer operation){
         Integer otherId = 0;
-        Course course = jdbcTemplate.queryForObject(selectCourseSQL, new Object[]{courseId}, new RowMapper<Course>() {
-            @Override
-            public Course mapRow(ResultSet resultSet, int i) throws SQLException {
-                Course course = new Course();
-                course.setId(resultSet.getInt("id"));
-                course.setType(resultSet.getInt("type"));
-                course.setOrder(resultSet.getInt("order"));
-                return course;
-            }
-        });
+        Course course = getCourse(courseId);
         Integer maxOrder = getMaxCourseOrder(course.getType());
         if(operation == 1 && course.getOrder()!=maxOrder){
-            course.setOrder(course.getOrder()+1);
-            otherId = jdbcTemplate.queryForObject(selectCourseByOrderSQL,new Object[]{course.getType(),course.getOrder()},Integer.class);
-            jdbcTemplate.update(updateCourseOrderSQL,new Object[]{course.getOrder(),course.getId()});
-            jdbcTemplate.update(updateCourseOrderSQL,new Object[]{course.getOrder()-1,otherId});
-        }else if(operation == 0 && course.getOrder()!=1){
-            course.setOrder(course.getOrder()-1);
-            otherId = jdbcTemplate.queryForObject(selectCourseByOrderSQL,new Object[]{course.getType(),course.getOrder()},Integer.class);
-            jdbcTemplate.update(updateCourseOrderSQL,new Object[]{course.getOrder(),course.getId()});
-            jdbcTemplate.update(updateCourseOrderSQL,new Object[]{course.getOrder()+1,otherId});
+            while(otherId==0 && course.getOrder()<maxOrder+1) {
+                course.setOrder(course.getOrder() + 1);
+                otherId = jdbcTemplate.queryForObject(selectCourseByOrderSQL, new Object[]{course.getType(), course.getOrder()}, Integer.class);
+                jdbcTemplate.update(updateCourseOrderSQL, new Object[]{course.getOrder(), course.getId()});
+                jdbcTemplate.update(updateCourseOrderSQL, new Object[]{course.getOrder() - 1, otherId});
+            }
+        }else if(operation==1 && course.getOrder()==maxOrder)
+        {
+            otherId = 0;
         }
-        System.out.println("原ID："+ course.getId()+"新id："+otherId);
+        if(operation == 0 && course.getOrder()!=1){
+            while(otherId==0 && course.getOrder()>0) {
+                course.setOrder(course.getOrder() - 1);
+                otherId = jdbcTemplate.queryForObject(selectCourseByOrderSQL, new Object[]{course.getType(), course.getOrder()}, Integer.class);
+                jdbcTemplate.update(updateCourseOrderSQL, new Object[]{course.getOrder(), course.getId()});
+                jdbcTemplate.update(updateCourseOrderSQL, new Object[]{course.getOrder() + 1, otherId});
+            }
+        }else if(operation == 0 && course.getOrder()==1){
+            otherId = 0;
+        }
         return otherId;
     }
 
@@ -236,15 +257,24 @@ public class TCDao {
         });
         Integer maxOrder = getMaxTypeOrder(type.getParentType());
         if(operation == 1 && type.getOrder()!=maxOrder){
-            type.setOrder(type.getOrder()+1);
-            otherId = jdbcTemplate.queryForObject(selectTypeByOrderSQL,new Object[]{type.getParentType(),type.getOrder()},Integer.class);
-            jdbcTemplate.update(updateTypeOrderSQL,new Object[]{type.getOrder(),type.getId()});
-            jdbcTemplate.update(updateTypeOrderSQL,new Object[]{type.getOrder()-1,otherId});
-        }else if(operation == 0 && type.getOrder()!=1){
-            type.setOrder(type.getOrder()-1);
-            otherId = jdbcTemplate.queryForObject(updateTypeOrderSQL,new Object[]{type.getParentType(),type.getOrder()},Integer.class);
-            jdbcTemplate.update(updateTypeOrderSQL,new Object[]{type.getOrder(),type.getId()});
-            jdbcTemplate.update(updateTypeOrderSQL,new Object[]{type.getOrder()+1,otherId});
+            while(otherId==0 && type.getOrder()<maxOrder+1) {
+                type.setOrder(type.getOrder() + 1);
+                otherId = jdbcTemplate.queryForObject(selectTypeByOrderSQL, new Object[]{type.getParentType(), type.getOrder()}, Integer.class);
+                jdbcTemplate.update(updateTypeOrderSQL, new Object[]{type.getOrder(), type.getId()});
+                jdbcTemplate.update(updateTypeOrderSQL, new Object[]{type.getOrder() - 1, otherId});
+            }
+        }else if(operation == 1 && type.getOrder()==maxOrder){
+            otherId = 0;
+        }
+        if(operation == 0 && type.getOrder()!=1){
+            while(otherId==0 && type.getOrder()>0) {
+                type.setOrder(type.getOrder() - 1);
+                otherId = jdbcTemplate.queryForObject(selectTypeByOrderSQL, new Object[]{type.getParentType(), type.getOrder()}, Integer.class);
+                jdbcTemplate.update(updateTypeOrderSQL, new Object[]{type.getOrder(), type.getId()});
+                jdbcTemplate.update(updateTypeOrderSQL, new Object[]{type.getOrder() + 1, otherId});
+            }
+        }else if(operation == 1 && type.getOrder()==1){
+            otherId = 0;
         }
         System.out.println("原ID："+ type.getId()+"新id："+otherId);
         return otherId;
@@ -252,11 +282,13 @@ public class TCDao {
 
     public Integer getMaxTypeOrder(Integer parentType){
         Integer order = jdbcTemplate.queryForObject(selectMaxTypeOrderSQL,new Object[]{parentType},Integer.class);
+        order = order==null ? 0 : order;
         return order;
     }
 
     public Integer getMaxCourseOrder(Integer type){
         Integer order = jdbcTemplate.queryForObject(selectMaxCourseOrderSQL,new Object[]{type},Integer.class);
+        order = order==null ? 0 : order;
         return order;
     }
 

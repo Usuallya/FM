@@ -1,5 +1,6 @@
 package com.FM.controller.manage;
 
+import com.FM.domain.Course;
 import com.FM.domain.Type;
 import com.FM.service.TypeService;
 import com.FM.utils.Constants;
@@ -8,13 +9,14 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 @Controller
 @SessionAttributes("userId")
-@RequestMapping("/Management/type")
+@RequestMapping("Management/type")
 public class TypeController {
     @Autowired
     private TypeService typeService;
@@ -23,8 +25,11 @@ public class TypeController {
     @RequestMapping("/addTypePage")
     public ModelAndView addTypePage(){
         ModelAndView modelAndView = new ModelAndView(Constants.ADD_TYPE_PATH);
-        List<Type> initL1Types = typeService.getTypes(0);
-        List<Type> initL2Types = typeService.getTypes(initL1Types.get(0).getId());
+        List<Type> initL1Types = null;
+        initL1Types = typeService.getTypes(0);
+        List<Type> initL2Types = null;
+        if(initL1Types.size()>0)
+        initL2Types = typeService.getTypes(initL1Types.get(0).getId());
         modelAndView.addObject("L1Types",initL1Types);
         modelAndView.addObject("L2Types",initL2Types);
         return modelAndView;
@@ -40,8 +45,9 @@ public class TypeController {
         }
 
         List<Type> initL1Types = typeService.getTypes(0);
-        List<Type> initL2Types = typeService.getTypes(initL1Types.get(0).getId());
-
+        List<Type> initL2Types=null;
+        if(initL1Types.size()>0)
+            initL2Types = typeService.getTypes(initL1Types.get(0).getId());
         map.put("L1Types",initL1Types);
         map.put("L2Types",initL2Types);
         map.put("flag",flag);
@@ -55,11 +61,13 @@ public class TypeController {
     public ModelAndView getIconPage(){
         String imageLocation=null;
         ModelAndView modelAndView = new ModelAndView(Constants.ICON_PATH);
-        List<Type> initL2Types = typeService.getAll2Types();
-        if(initL2Types!=null)
+        List<Type> initL1Types = typeService.getTypes(0);
+        List<Type> initL2Types = typeService.getTypes(initL1Types.get(0).getId());
+        if(initL2Types.size()>0)
          imageLocation= typeService.getIconLocation(initL2Types.get(0).getId());
-        modelAndView.addObject("L2Types",initL2Types);
         modelAndView.addObject("l2fIconLocation",imageLocation);
+        modelAndView.addObject("L1Types",initL1Types);
+        modelAndView.addObject("L2Types",initL2Types);
         return modelAndView;
     }
 
@@ -72,8 +80,8 @@ public class TypeController {
 
     @RequestMapping("/deleteType")
     @ResponseBody
-    public String deleteType(@RequestParam("type") String typeName,@RequestParam("parent") Integer parent){
-        if(typeService.deleteType(typeName,parent))
+    public String deleteType(@RequestParam("types") String typeId){
+        if(typeService.deleteType(typeId))
             return Constants.SUCCESS;
         else
             return Constants.FAIL;
