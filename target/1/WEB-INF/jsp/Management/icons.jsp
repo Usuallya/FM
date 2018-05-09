@@ -88,12 +88,12 @@
                     <p>${tips}</p>
                 <div style="margin-top:20px;"><p class="lead">图标文件指定</p></div>
                 <label for="L1List">选择分类</label>
-                        <select id="L1List" onchange="getTypes(this)" name="Level1" style="width:200px;" class="form-control">
+                        <select id="L1List" onchange="getTypes(this)" name="Level1" class="form-control">
                             <c:forEach items="${L1Types}" var="type">
                                 <option value="${type.getId()}">${type.getTypeName()}</option>
                             </c:forEach>
                         </select>
-                    <select id="L2List" name="l2Type" onchange="chg2Icon()" style="width:200px;" class="form-control">
+                    <select id="L2List" name="l2Type" onchange="chg2Icon()" class="form-control">
                         <c:forEach items="${L2Types}" var="type">
                             <option value="${type.getId()}">${type.getTypeName()}</option>
                         </c:forEach>

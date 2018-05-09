@@ -89,22 +89,22 @@
             <div><p class="lead">上传文件</p></div>
             <div>
                 <form action="/Management/courseUpload" method="post"  enctype="multipart/form-data">
-                        <input type="file" id="file" name="course" accept="audio/*" multiple="multiple" /> <br />
-                        <input type="submit" class="btn btn-success" onclick="return validate();" value="上传" />
+                        <input type="file" style="float:left;" id="file" name="course" accept="audio/*" multiple="multiple" /> <br />
+                        <input type="submit" style="float:left;margin-top:-25px;" class="btn btn-success" onclick="return validate();" value="上传" />
                         <p>${tips}</p>
                 </form>
             </div>
             <div><p class="lead">音频文件指定</p></div>
             <label for="L1List">请选择要指定的分类</label>
         <div>
-            <div id="select1" style="float:left;">
+            <div id="select1" >
                 <select id="L1List" onchange="getTypes(this)" class="form-control">
                     <c:forEach items="${L1Types}" var="type">
                         <option value="${type.getId()}">${type.getTypeName()}</option>
                     </c:forEach>
                 </select>
             </div>
-            <div id="select2" style="float:left;">
+            <div id="select2" style="margin-top:10px;">
                 <select id="L2List" onchange="getCourse(this)" class="form-control">
                     <c:forEach items="${L2Types}" var="type">
                         <option value="${type.getId()}">${type.getTypeName()}</option>
@@ -116,7 +116,7 @@
             <div>&nbsp;</div>
             <label for="NoTypeList">无分类音频文件列表</label>
             <div class="select" style="margin-bottom:20px;">
-                <select multiple="multiple" id="NoTypeList" class="form-control" style="width:200px;" size="6">
+                <select multiple="multiple" id="NoTypeList" class="form-control" size="6">
                     <c:if test="${noTypeCourse.size()==0}">
                         <option value="0">无</option>
                     </c:if>
@@ -126,7 +126,7 @@
                 </select>
             </div>
             <button onclick="add2Type()" class="btn btn-success">加入到选定分类</button>
-            <button onclick="deleteCourse()" class="btn btn-danger">删除课程</button>
+            <button onclick="deleteCourse()" style="margin-left:20px;" class="btn btn-danger">删除课程</button>
         </div>
         <footer><p>Copyright &copy; 2018.xueyouyouFM All rights reserved.</p></footer>
     </div>

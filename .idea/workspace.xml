@@ -10,87 +10,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b7675880-d613-4a37-bbeb-52a03a4196c1" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_annotations_2_9_0.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_annotations_2_9_0.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_core_2_9_5.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_core_2_9_5.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_databind_2_9_5.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_databind_2_9_5.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__javax_servlet_jstl_1_2.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__javax_servlet_jstl_1_2.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_codehaus_jackson_jackson_core_asl_1_9_13.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_codehaus_jackson_jackson_core_asl_1_9_13.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_codehaus_jackson_jackson_mapper_asl_1_9_13.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_codehaus_jackson_jackson_mapper_asl_1_9_13.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/1.iml" beforeDir="false" afterPath="$PROJECT_DIR$/1.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/1212.sql" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/FM/controller/manage/ManageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/FM/controller/manage/ManageController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/FM/service/CourseService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/FM/service/CourseService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/Management/addTypes.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/Management/addTypes.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/Management/course.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/Management/course.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/Management/icons.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/Management/icons.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/Management/typeCourse.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/Management/typeCourse.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/assets/css/custom-styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/assets/css/custom-styles.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/1/META-INF/MANIFEST.MF" beforeDir="false" afterPath="$PROJECT_DIR$/target/1/META-INF/MANIFEST.MF" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/1/WEB-INF/classes/com/FM/controller/manage/CourseController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/1/WEB-INF/classes/com/FM/controller/manage/CourseController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/1/WEB-INF/classes/com/FM/controller/manage/ManageController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/1/WEB-INF/classes/com/FM/controller/manage/ManageController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/1/WEB-INF/classes/com/FM/controller/manage/PublicController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/1/WEB-INF/classes/com/FM/controller/manage/PublicController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/1/WEB-INF/classes/com/FM/controller/manage/TypeController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/1/WEB-INF/classes/com/FM/controller/manage/TypeController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/1/WEB-INF/classes/com/FM/controller/player/PlayController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/1/WEB-INF/classes/com/FM/controller/player/PlayController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/1/WEB-INF/classes/com/FM/controller/player/PlayPublicController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/1/WEB-INF/classes/com/FM/controller/player/PlayPublicController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/1/WEB-INF/classes/com/FM/dao/TCDao$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/1/WEB-INF/classes/com/FM/dao/TCDao$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/1/WEB-INF/classes/com/FM/dao/TCDao$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/1/WEB-INF/classes/com/FM/dao/TCDao$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/1/WEB-INF/classes/com/FM/dao/TCDao$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/1/WEB-INF/classes/com/FM/dao/TCDao$3.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/1/WEB-INF/classes/com/FM/dao/TCDao$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/1/WEB-INF/classes/com/FM/dao/TCDao$4.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/1/WEB-INF/classes/com/FM/dao/TCDao$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/1/WEB-INF/classes/com/FM/dao/TCDao$5.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/1/WEB-INF/classes/com/FM/dao/TCDao$6.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/1/WEB-INF/classes/com/FM/dao/TCDao$6.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/1/WEB-INF/classes/com/FM/dao/TCDao$7.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/1/WEB-INF/classes/com/FM/dao/TCDao$7.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/1/WEB-INF/classes/com/FM/dao/TCDao$8.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/1/WEB-INF/classes/com/FM/dao/TCDao$8.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/1/WEB-INF/classes/com/FM/dao/TCDao$9.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/1/WEB-INF/classes/com/FM/dao/TCDao$9.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/1/WEB-INF/classes/com/FM/dao/TCDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/1/WEB-INF/classes/com/FM/dao/TCDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/1/WEB-INF/classes/com/FM/dao/UserDao$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/1/WEB-INF/classes/com/FM/dao/UserDao$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/1/WEB-INF/classes/com/FM/dao/UserDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/1/WEB-INF/classes/com/FM/dao/UserDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/1/WEB-INF/classes/com/FM/domain/Course.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/1/WEB-INF/classes/com/FM/domain/Course.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/1/WEB-INF/classes/com/FM/domain/Manager.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/1/WEB-INF/classes/com/FM/domain/Manager.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/1/WEB-INF/classes/com/FM/domain/Type.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/1/WEB-INF/classes/com/FM/domain/Type.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/1/WEB-INF/classes/com/FM/domain/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/1/WEB-INF/classes/com/FM/domain/User.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/1/WEB-INF/classes/com/FM/service/CourseService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/1/WEB-INF/classes/com/FM/service/CourseService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/1/WEB-INF/classes/com/FM/service/ManagerService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/1/WEB-INF/classes/com/FM/service/ManagerService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/1/WEB-INF/classes/com/FM/service/TypeService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/1/WEB-INF/classes/com/FM/service/TypeService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/1/WEB-INF/classes/com/FM/service/UserService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/1/WEB-INF/classes/com/FM/service/UserService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/1/WEB-INF/classes/com/FM/utils/Constants.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/1/WEB-INF/classes/com/FM/utils/Constants.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/1/WEB-INF/classes/com/FM/utils/MyInterceptor.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/1/WEB-INF/classes/com/FM/utils/MyInterceptor.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/1/WEB-INF/classes/com/FM/utils/PlayInterceptor.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/1/WEB-INF/classes/com/FM/utils/PlayInterceptor.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/1/WEB-INF/classes/com/FM/utils/ValidateToken.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/1/WEB-INF/classes/com/FM/utils/ValidateToken.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/1/WEB-INF/jsp/Management/addTypes.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/1/WEB-INF/jsp/Management/addTypes.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/1/WEB-INF/jsp/Management/course.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/1/WEB-INF/jsp/Management/course.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/1/WEB-INF/jsp/Management/icons.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/1/WEB-INF/jsp/Management/icons.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/1/WEB-INF/jsp/Management/typeCourse.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/1/WEB-INF/jsp/Management/typeCourse.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/1/assets/css/custom-styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/target/1/assets/css/custom-styles.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/FM/controller/manage/CourseController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/FM/controller/manage/CourseController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/FM/controller/manage/ManageController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/FM/controller/manage/ManageController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/FM/controller/manage/PublicController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/FM/controller/manage/PublicController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/FM/controller/manage/TypeController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/FM/controller/manage/TypeController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/FM/controller/player/PlayController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/FM/controller/player/PlayController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/FM/controller/player/PlayPublicController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/FM/controller/player/PlayPublicController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/FM/dao/TCDao$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/FM/dao/TCDao$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/FM/dao/TCDao$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/FM/dao/TCDao$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/FM/dao/TCDao$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/FM/dao/TCDao$3.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/FM/dao/TCDao$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/FM/dao/TCDao$4.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/FM/dao/TCDao$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/FM/dao/TCDao$5.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/FM/dao/TCDao$6.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/FM/dao/TCDao$6.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/FM/dao/TCDao$7.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/FM/dao/TCDao$7.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/FM/dao/TCDao$8.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/FM/dao/TCDao$8.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/FM/dao/TCDao$9.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/FM/dao/TCDao$9.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/FM/dao/TCDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/FM/dao/TCDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/FM/dao/UserDao$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/FM/dao/UserDao$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/FM/dao/UserDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/FM/dao/UserDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/FM/domain/Course.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/FM/domain/Course.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/FM/domain/Manager.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/FM/domain/Manager.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/FM/domain/Type.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/FM/domain/Type.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/FM/domain/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/FM/domain/User.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/FM/service/CourseService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/FM/service/CourseService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/FM/service/ManagerService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/FM/service/ManagerService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/FM/service/TypeService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/FM/service/TypeService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/FM/service/UserService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/FM/service/UserService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/FM/utils/Constants.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/FM/utils/Constants.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/FM/utils/MyInterceptor.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/FM/utils/MyInterceptor.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/FM/utils/PlayInterceptor.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/FM/utils/PlayInterceptor.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/FM/utils/ValidateToken.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/FM/utils/ValidateToken.class" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -105,8 +36,23 @@
       <file leaf-file-name="course.jsp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/Management/course.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1300">
-              <caret line="50" selection-start-line="50" selection-end-line="50" />
+            <state relative-caret-position="302">
+              <caret line="128" column="69" selection-start-line="128" selection-start-column="69" selection-end-line="128" selection-end-column="69" />
+              <folding>
+                <element signature="n#style#0;n#input#0;n#form#0;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#input#1;n#form#0;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#1;n#div#3;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#button#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="typeCourse.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/js/Management/typeCourse.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="640">
+              <caret line="331" column="38" lean-forward="true" selection-start-line="331" selection-start-column="38" selection-end-line="331" selection-end-column="38" />
             </state>
           </provider>
         </entry>
@@ -114,35 +60,23 @@
       <file leaf-file-name="addTypes.jsp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/Management/addTypes.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3796">
-              <caret line="164" column="12" selection-start-line="164" selection-start-column="12" selection-end-line="164" selection-end-column="12" />
+            <state relative-caret-position="260">
+              <caret line="122" column="23" lean-forward="true" selection-start-line="122" selection-start-column="23" selection-end-line="122" selection-end-column="23" />
+              <folding>
+                <element signature="n#style#0;n#button#0;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#td#1;n#tr#0;n#table#0;n#div#2;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#td#1;n#tr#0;n#tbody#0;n#table#0;n#div#2;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#td#1;n#tr#1;n#tbody#0;n#table#0;n#div#2;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ManagerService.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/FM/service/ManagerService.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="364">
-              <caret line="18" column="7" selection-start-line="18" selection-start-column="7" selection-end-line="18" selection-end-column="7" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="PlayPublicController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/FM/controller/player/PlayPublicController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="520">
-              <caret line="32" column="49" selection-start-line="32" selection-start-column="49" selection-end-line="32" selection-end-column="49" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="icons.jsp" pinned="false" current-in-tab="true">
+      <file leaf-file-name="icons.jsp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/Management/icons.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="208">
-              <caret line="100" column="26" selection-start-line="100" selection-start-column="26" selection-end-line="100" selection-end-column="26" />
+            <state relative-caret-position="364">
+              <caret line="94" column="33" lean-forward="true" selection-start-line="94" selection-start-column="33" selection-end-line="94" selection-end-column="33" />
               <folding>
                 <element signature="n#style#0;n#div#1;n#form#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
               </folding>
@@ -150,42 +84,55 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="typeCourse.jsp" pinned="false" current-in-tab="false">
+      <file leaf-file-name="UserDao.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/FM/dao/UserDao.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-520">
+              <caret line="16" column="13" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CourseService.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/FM/service/CourseService.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="531">
+              <caret line="35" column="62" selection-start-line="35" selection-start-column="62" selection-end-line="35" selection-end-column="62" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="TCDao.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/FM/dao/TCDao.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-159">
+              <caret line="152" column="50" lean-forward="true" selection-start-line="152" selection-start-column="50" selection-end-line="152" selection-end-column="50" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="TypeService.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/FM/service/TypeService.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="368">
+              <caret line="114" column="38" lean-forward="true" selection-start-line="114" selection-start-column="38" selection-end-line="114" selection-end-column="38" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="typeCourse.jsp" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/Management/typeCourse.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-182">
-              <caret line="105" column="24" selection-start-line="105" selection-start-column="24" selection-end-line="105" selection-end-column="24" />
+            <state relative-caret-position="304">
+              <caret line="99" column="21" lean-forward="true" selection-start-line="99" selection-start-column="21" selection-end-line="99" selection-end-column="21" />
               <folding>
                 <element signature="n#style#0;n#table#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#td#0;n#tr#1;n#table#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#button#0;n#td#1;n#tr#1;n#table#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#td#0;n#tr#2;n#table#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#td#0;n#tr#4;n#table#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#button#0;n#td#1;n#tr#4;n#table#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ManageController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/FM/controller/manage/ManageController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="910">
-              <caret line="62" column="28" selection-start-line="62" selection-start-column="28" selection-end-line="62" selection-end-column="28" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="custom-styles.css" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/assets/css/custom-styles.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="702">
-              <caret line="27" column="29" selection-start-line="27" selection-start-column="29" selection-end-line="27" selection-end-column="29" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="font-awesome.css" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/assets/css/font-awesome.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="6110">
-              <caret line="235" column="1" selection-start-line="235" selection-start-column="1" selection-end-line="235" selection-end-column="1" />
             </state>
           </provider>
         </entry>
@@ -193,7 +140,7 @@
       <file leaf-file-name="login.jsp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/Management/login.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="728">
+            <state relative-caret-position="458">
               <caret line="28" column="7" selection-start-line="28" selection-start-column="7" selection-end-line="28" selection-end-column="7" />
             </state>
           </provider>
@@ -262,7 +209,6 @@
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/Management/login.jsp" />
         <option value="$PROJECT_DIR$/src/main/resources/public.properties" />
         <option value="$PROJECT_DIR$/src/main/java/com/FM/controller/player/PlayController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/FM/service/CourseService.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/FM/service/TypeService.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/FM/dao/TCDao.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/css/managerindex.css" />
@@ -273,10 +219,12 @@
         <option value="$PROJECT_DIR$/src/main/webapp/js/Management/typeCourse.js" />
         <option value="$PROJECT_DIR$/src/main/webapp/css/course.css" />
         <option value="$PROJECT_DIR$/src/main/java/com/FM/controller/manage/ManageController.java" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/Management/addTypes.jsp" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/Management/icons.jsp" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/Management/course.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/assets/css/custom-styles.css" />
+        <option value="$PROJECT_DIR$/src/main/resources/jdbc.properties" />
+        <option value="$PROJECT_DIR$/src/main/java/com/FM/service/CourseService.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/Management/icons.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/Management/addTypes.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/Management/course.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/Management/typeCourse.jsp" />
       </list>
     </option>
@@ -304,7 +252,7 @@
   <component name="NodePackageJsonFileManager">
     <packageJsonPaths />
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="-8" />
     <option name="width" value="975" />
     <option name="height" value="1047" />
@@ -676,16 +624,15 @@
       <workItem from="1525795026488" duration="45000" />
       <workItem from="1525828171847" duration="9476000" />
       <workItem from="1525845472586" duration="3931000" />
-      <workItem from="1525850065918" duration="227000" />
+      <workItem from="1525850065918" duration="3516000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="187820000" />
+    <option name="totallyTimeSpent" value="191056000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1721" height="935" extended-state="7" />
-    <editor active="true" />
+    <frame x="-7" y="-7" width="1721" height="935" extended-state="6" />
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
@@ -706,7 +653,7 @@
       <window_info anchor="bottom" id="Java Enterprise" order="9" />
       <window_info anchor="right" id="Capture Analysis" order="6" />
       <window_info anchor="bottom" id="Version Control" order="10" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.32888147" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.3283208" />
       <window_info anchor="bottom" id="Spring" order="11" />
       <window_info anchor="bottom" id="Terminal" order="12" />
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2020445" />
@@ -757,13 +704,6 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/js/Management/typeCourse.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="368">
-          <caret line="16" column="10" lean-forward="true" selection-start-line="16" selection-start-column="10" selection-end-line="16" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/FM/controller/manage/PublicController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="253">
@@ -881,21 +821,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/jdbc.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="69">
-          <caret line="3" column="20" selection-start-line="3" selection-start-column="20" selection-end-line="3" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/public.properties" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/FM/dao/TCDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="316">
-          <caret line="118" column="32" selection-start-line="118" selection-start-column="32" selection-end-line="118" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/js/jquery-1.11.1.min.js" />
     <entry file="file://$PROJECT_DIR$/src/main/webapp/css/managerindex.css" />
     <entry file="file://$PROJECT_DIR$/src/main/webapp/css/searchableSelect.css" />
@@ -912,20 +838,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="437">
           <caret line="19" column="26" selection-start-line="19" selection-start-column="26" selection-end-line="19" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/FM/service/CourseService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="115">
-          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/FM/service/TypeService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="368">
-          <caret line="24" column="25" selection-start-line="24" selection-start-column="25" selection-end-line="24" selection-end-column="25" />
         </state>
       </provider>
     </entry>
@@ -950,13 +862,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/js/Management/typeCourse.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3996">
-          <caret line="108" column="52" selection-start-line="108" selection-start-column="52" selection-end-line="108" selection-end-column="52" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/css/course.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="148">
@@ -964,22 +869,8 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/Management/login.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="728">
-          <caret line="28" column="7" selection-start-line="28" selection-start-column="7" selection-end-line="28" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/css/typeCourse.css">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/Management/course.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1300">
-          <caret line="50" selection-start-line="50" selection-end-line="50" />
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/assets/css/font-awesome.css">
       <provider selected="true" editor-type-id="text-editor">
@@ -1016,30 +907,102 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/Management/addTypes.jsp">
+    <entry file="file://$PROJECT_DIR$/src/main/resources/jdbc.properties">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3796">
-          <caret line="164" column="12" selection-start-line="164" selection-start-column="12" selection-end-line="164" selection-end-column="12" />
+        <state relative-caret-position="78">
+          <caret line="3" column="15" lean-forward="true" selection-start-line="3" selection-start-column="15" selection-end-line="3" selection-end-column="15" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/Management/typeCourse.jsp">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/FM/dao/UserDao.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-182">
-          <caret line="105" column="24" selection-start-line="105" selection-start-column="24" selection-end-line="105" selection-end-column="24" />
-          <folding>
-            <element signature="n#style#0;n#table#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#button#0;n#td#1;n#tr#1;n#table#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
+        <state relative-caret-position="-520">
+          <caret line="16" column="13" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/FM/service/CourseService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="531">
+          <caret line="35" column="62" selection-start-line="35" selection-start-column="62" selection-end-line="35" selection-end-column="62" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/FM/dao/TCDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-159">
+          <caret line="152" column="50" lean-forward="true" selection-start-line="152" selection-start-column="50" selection-end-line="152" selection-end-column="50" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/FM/service/TypeService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="368">
+          <caret line="114" column="38" lean-forward="true" selection-start-line="114" selection-start-column="38" selection-end-line="114" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/Management/login.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="458">
+          <caret line="28" column="7" selection-start-line="28" selection-start-column="7" selection-end-line="28" selection-end-column="7" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/Management/icons.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="208">
-          <caret line="100" column="26" selection-start-line="100" selection-start-column="26" selection-end-line="100" selection-end-column="26" />
+        <state relative-caret-position="364">
+          <caret line="94" column="33" lean-forward="true" selection-start-line="94" selection-start-column="33" selection-end-line="94" selection-end-column="33" />
           <folding>
             <element signature="n#style#0;n#div#1;n#form#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/Management/addTypes.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="260">
+          <caret line="122" column="23" lean-forward="true" selection-start-line="122" selection-start-column="23" selection-end-line="122" selection-end-column="23" />
+          <folding>
+            <element signature="n#style#0;n#button#0;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#1;n#tr#0;n#table#0;n#div#2;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#1;n#tr#0;n#tbody#0;n#table#0;n#div#2;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#1;n#tr#1;n#tbody#0;n#table#0;n#div#2;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/Management/course.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="302">
+          <caret line="128" column="69" selection-start-line="128" selection-start-column="69" selection-end-line="128" selection-end-column="69" />
+          <folding>
+            <element signature="n#style#0;n#input#0;n#form#0;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#input#1;n#form#0;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#3;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#button#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/js/Management/typeCourse.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="640">
+          <caret line="331" column="38" lean-forward="true" selection-start-line="331" selection-start-column="38" selection-end-line="331" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/Management/typeCourse.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="304">
+          <caret line="99" column="21" lean-forward="true" selection-start-line="99" selection-start-column="21" selection-end-line="99" selection-end-column="21" />
+          <folding>
+            <element signature="n#style#0;n#table#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#0;n#tr#1;n#table#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#button#0;n#td#1;n#tr#1;n#table#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#0;n#tr#2;n#table#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#0;n#tr#4;n#table#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#button#0;n#td#1;n#tr#4;n#table#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1111,7 +1074,7 @@
       </state>
       <state key="ProjectLibrariesConfigurable.UI">
         <settings>
-          <last-edited />
+          <last-edited>Maven: com.google.protobuf:protobuf-java:2.6.0</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>

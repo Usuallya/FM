@@ -108,13 +108,18 @@
                     <option value="${type.getId()}">${type.getTypeName()}</option>
                 </c:forEach>
             </select>
-                <button onclick="addType()" style="margin-top:20px;" class="btn btn-success">添加分类</button>
+                <button onclick="addType()" style="margin-top:20px;float:right;" class="btn btn-success">添加分类</button>
             </div>
 
             <p class="lead">删除分类</p>
             <div style="margin-top:40px;">
             <table id="deleteTypes">
-                <tr><td><p class="text-center">一级分类</p></td><td>&nbsp;</td><td><p class="text-center">二级分类</p></td></tr>
+                <tr>
+                    <td><p class="text-center">一级分类</p></td>
+                    <td style="width:100px;">&nbsp;</td>
+
+                    <td><p class="text-center">二级分类</p></td>
+                </tr>
                 <tbody>
                 <tr><td>
                     <select multiple="multiple" id="L1List" class="form-control" style="width:200px;" onchange="getTypes(this)" size="6" name="Level1">
@@ -123,9 +128,7 @@
                     </c:forEach>
                 </select>
                 </td>
-                    <td>
-                        &nbsp;
-                    </td>
+                    <td style="width:100px;">&nbsp;</td>
                     <td>
                         <select multiple="multiple" id="L2List" style="width:200px;" class="form-control" size="6" name="Level2">
                             <c:forEach items="${L2Types}" var="type">
@@ -138,7 +141,7 @@
                     <td>
                         <button id="d1" onclick="delType(this)" style="margin-top:20px;" class="btn btn-danger">删除一级分类</button>
                     </td>
-                    <td>&nbsp;</td>
+                    <td style="width:100px;">&nbsp;</td>
                     <td>
                         <button id="d2" onclick="delType(this)" style="margin-top:20px;" class="btn btn-danger">删除二级分类</button>
                     </td>

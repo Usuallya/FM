@@ -65,6 +65,7 @@
     <nav class="navbar-default navbar-side" role="navigation">
         <div class="sidebar-collapse">
             <ul class="nav" id="main-menu">
+
                 <li>
                     <a href="/Management/Courses">课程管理</a>
                 </li>
@@ -83,22 +84,24 @@
                     </ul>
                 </li>
             </ul>
+
         </div>
+
     </nav>
     <!-- /. NAV SIDE  -->
     <div id="page-wrapper">
         <div id="page-inner">
 
-            <table style="text-align:center">
+            <table style="text-align:center;width:100%;">
                 <tr>
                     <td><p class="lead">分类顺序管理</p></td>
                     <td>&nbsp;</td>
                     <td>&nbsp;</td>
                 </tr>
                 <tr>
-                    <td>
+                    <td style="width:80%;">
                         <label for="L1List">一级分类顺序管理</label>
-                        <select multiple="multiple" id="L1List" size="6" onchange="getTypes(this)" style="width:200px;" class="form-control" name="Level1">
+                        <select multiple="multiple" id="L1List" size="6" onchange="getTypes(this)"  class="form-control" name="Level1">
                             <c:forEach items="${L1Types}" var="type">
                                 <option value="${type.getId()}">${type.getTypeName()}</option>
                             </c:forEach>
@@ -108,9 +111,11 @@
                         <button id="l1up" class="btn btn-success" style="margin-left:20px;" onclick="order(this)">↑</button>
                         <button id="l1down" class="btn btn-warning" onclick="order(this)">↓</button>
                     </td>
-                    <td style="padding-left:20px;">
+                </tr>
+                <tr>
+                    <td style="width:80%;">
                         <label for="L2List">二级分类顺序管理</label>
-                        <select multiple="multiple" id="L2List" size="6" onchange="getCourse(this)" style="width:200px;" class="form-control" name="Level2">
+                        <select multiple="multiple" id="L2List" size="6" onchange="getCourse(this)" class="form-control" name="Level2">
                             <c:forEach items="${L2Types}" var="type">
                                 <option value="${type.getId()}">${type.getTypeName()}</option>
                             </c:forEach>
@@ -142,8 +147,8 @@
                     </td>
                 </tr>
                 <tr>
-                    <td>
-                        <select multiple="multiple" id="L2CourseList" class="form-control" style="width:200px;" size="6" name="Level2Courses">
+                    <td style="width:80%;">
+                        <select multiple="multiple" id="L2CourseList" class="form-control" size="6" name="Level2Courses">
                     <c:forEach items="${initCourse}" var="course">
                         <option value="${course.getId()}" onchange="flagCourse(this)">${course.getCourseName()}</option>
                     </c:forEach>
@@ -152,12 +157,10 @@
                     <td>
                         <button id="c-up" class="btn btn-success" style="margin-left:20px;" onclick="order(this)">↑</button>
                         <button id="c-down" class="btn btn-warning" onclick="order(this)">↓</button>
+                        <button id="del" class="btn btn-danger" onclick="delCourse()">×</button>
                     </td>
                     <td>&nbsp;</td>
                     <td>&nbsp;</td>
-                </tr>
-                <tr>
-                    <td><button id="del" class="btn btn-danger" style="margin-top:20px;" onclick="delCourse()">删除课程</button></td>
                 </tr>
             </table>
         </div>
