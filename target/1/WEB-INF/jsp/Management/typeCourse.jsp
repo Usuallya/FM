@@ -38,8 +38,8 @@
     <base href="<%=basePath%>" />
 </head>
 
-<body>
-<div id="wrapper">
+<body style="height:100%;">
+<div id="wrapper" style="height:100%;">
     <nav class="navbar navbar-default top-navbar" role="navigation">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-collapse">
@@ -79,7 +79,7 @@
                             <a href="/Management/type/icon">图标指定</a>
                         </li>
                         <li>
-                            <a href="javascript:void(0)">分类——文件管理</a>
+                            <a href="javascript:void(0)">顺序管理</a>
                         </li>
                     </ul>
                 </li>
@@ -89,48 +89,87 @@
 
     </nav>
     <!-- /. NAV SIDE  -->
-    <div id="page-wrapper">
+    <div id="page-wrapper" style="height:100%;">
         <div id="page-inner">
-            <div id="select1" class="select">
-                <p>一级分类</p>
-                <select multiple="multiple" id="L1List" onchange="getTypes(this)" size="6" name="Level1">
-                    <c:forEach items="${L1Types}" var="type">
-                        <option value="${type.getId()}">${type.getTypeName()}</option>
-                    </c:forEach>
-                </select>
-                <div>
-                    <button id="l1up" onclick="order(this)">向上调整顺序</button>
-                    <button id="l1down" onclick="order(this)">向下调整顺序</button>
-                </div>
-            </div>
-            <div id="select2" class="select">
-                <p>二级分类</p>
-                <select multiple="multiple" id="L2List" onchange="getCourse(this)" size="6" name="Level2">
-                    <c:forEach items="${L2Types}" var="type">
-                        <option value="${type.getId()}">${type.getTypeName()}</option>
-                    </c:forEach>
-                </select>
-                <div>
-                    <button id="l2up" onclick="order(this)">向上调整顺序</button>
-                    <button id="l2down" onclick="order(this)">向下调整顺序</button>
-                </div>
-                <p>对应课程</p>
-                <select multiple="multiple" id="L2CourseList" size="6" name="Level2Courses">
+
+            <table style="text-align:center">
+                <tr>
+                    <td><p class="lead">分类顺序管理</p></td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="L1List">一级分类顺序管理</label>
+                        <select multiple="multiple" id="L1List" size="6" onchange="getTypes(this)" style="width:200px;" class="form-control" name="Level1">
+                            <c:forEach items="${L1Types}" var="type">
+                                <option value="${type.getId()}">${type.getTypeName()}</option>
+                            </c:forEach>
+                        </select>
+                    </td>
+                    <td>
+                        <button id="l1up" class="btn btn-success" style="margin-left:20px;" onclick="order(this)">↑</button>
+                        <button id="l1down" class="btn btn-warning" onclick="order(this)">↓</button>
+                    </td>
+                    <td style="padding-left:20px;">
+                        <label for="L2List">二级分类顺序管理</label>
+                        <select multiple="multiple" id="L2List" size="6" onchange="getCourse(this)" style="width:200px;" class="form-control" name="Level2">
+                            <c:forEach items="${L2Types}" var="type">
+                                <option value="${type.getId()}">${type.getTypeName()}</option>
+                            </c:forEach>
+                        </select>
+                    </td>
+                    <td>
+                        <button id="l2up" class="btn btn-success" style="margin-left:20px;" onclick="order(this)">↑</button>
+                        <button id="l2down" class="btn btn-warning" onclick="order(this)">↓</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>
+                <p class="lead">课程顺序管理</p>
+                    </td>
+                    <td>
+                        &nbsp;
+                    </td>
+                    <td>
+                        &nbsp;
+                    </td>
+                    <td>
+                        &nbsp;
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <select multiple="multiple" id="L2CourseList" class="form-control" style="width:200px;" size="6" name="Level2Courses">
                     <c:forEach items="${initCourse}" var="course">
                         <option value="${course.getId()}" onchange="flagCourse(this)">${course.getCourseName()}</option>
                     </c:forEach>
-                </select>
-            </div>
-            <div>
-                <button id="c-up" onclick="order(this)">向上调整顺序</button>
-                <button id="c-down" onclick="order(this)">向下调整顺序</button>
-                <button id="del" onclick="delCourse()">删除课程</button>
-            </div>
+                         </select>
+                    </td>
+                    <td>
+                        <button id="c-up" class="btn btn-success" style="margin-left:20px;" onclick="order(this)">↑</button>
+                        <button id="c-down" class="btn btn-warning" onclick="order(this)">↓</button>
+                    </td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td><button id="del" class="btn btn-danger" style="margin-top:20px;" onclick="delCourse()">删除课程</button></td>
+                </tr>
+            </table>
 
 
         </div>
         <!-- /. PAGE INNER  -->
+        <footer><p>Copyright &copy; 2018.xueyouyouFM All rights reserved.</p></footer>
     </div>
+
     <!-- /. PAGE WRAPPER  -->
 </div>
 <!-- /. WRAPPER  -->

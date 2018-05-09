@@ -72,7 +72,7 @@
                             <a href="javascript:void(0)">图标指定</a>
                         </li>
                         <li>
-                            <a href="/Management/getInitTypesAndCourses">分类——文件管理</a>
+                            <a href="/Management/getInitTypesAndCourses">顺序管理</a>
                         </li>
                     </ul>
                 </li>
@@ -82,36 +82,33 @@
     <!-- /. NAV SIDE  -->
     <div id="page-wrapper">
         <div id="page-inner">
+            <div><p class="lead">图标文件上传</p></div>
             <form action="/Management/iconUpload" method="post"  enctype="multipart/form-data">
-                <fieldset>
-                    <legend>二级分类图标上传</legend>
                     <input type="file" id="file" name="icon" multiple="multiple" accept="image/*" /> <br />
                     <p>${tips}</p>
-                </fieldset>
-                <fieldset>
-                        <legend>指定分类</legend>
-                        <select id="L1List" onchange="getTypes(this)" name="Level1">
+                <div style="margin-top:20px;"><p class="lead">图标文件指定</p></div>
+                <label for="L1List">选择分类</label>
+                        <select id="L1List" onchange="getTypes(this)" name="Level1" style="width:200px;" class="form-control">
                             <c:forEach items="${L1Types}" var="type">
                                 <option value="${type.getId()}">${type.getTypeName()}</option>
                             </c:forEach>
                         </select>
-                    <select id="L2List" name="l2Type" onchange="chg2Icon()">
+                    <select id="L2List" name="l2Type" onchange="chg2Icon()" style="width:200px;" class="form-control">
                         <c:forEach items="${L2Types}" var="type">
                             <option value="${type.getId()}">${type.getTypeName()}</option>
                         </c:forEach>
                     </select>
                     <br />
-                    <div>
-                    <p>图标预览</p>
+                    <div style="width:100px; height:120px;">
+                        <label for="iconPreview">图标预览</label>
                         <c:if test="${l2fIconLocation!=null}">
-                    <img id="iconPreview" style="width:100px;height:100px;" src="<% String iconPath = request.getContextPath()+"/"+Constants.ICON_UPLOAD_PATH+"/"; out.println(iconPath); %>${l2fIconLocation}"/>
+                    <img id="iconPreview" class="img-responsive" src="<% String iconPath = request.getContextPath()+"/"+Constants.ICON_UPLOAD_PATH+"/"; out.println(iconPath); %>${l2fIconLocation}"/>
                         </c:if>
                         <c:if test="${l2fIconLocation==null}">
                             暂未指定图标
                         </c:if>
                     </div>
-                    <input type="submit" onclick="return validateImage();" value="上传" />
-                </fieldset>
+                    <input type="submit" onclick="return validateImage();" class="btn btn-success" value="上传" />
             </form>
         </div>
         <!-- /. PAGE INNER  -->

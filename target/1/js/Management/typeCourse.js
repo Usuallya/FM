@@ -103,10 +103,10 @@ function getCourse(option){
 
 function changeLevel(){
 if($("#l1select").val()[0]==2){
-    $("#l2select").show();
+    $("#l2select").attr("class","form-control show");
 }else
 {
-    $("#l2select").hide();
+    $("#l2select").attr("class","form-control hidden");
 }
 }
 

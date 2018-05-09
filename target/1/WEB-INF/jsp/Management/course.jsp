@@ -48,7 +48,7 @@
         </div>
 
         <ul class="nav navbar-top-links navbar-right">
-
+f
             <!-- /.dropdown -->
             <li class="dropdown">
                 <a href="/Management/logout">退出登录</a>
@@ -74,7 +74,7 @@
                             <a href="/Management/type/icon">图标指定</a>
                         </li>
                         <li>
-                            <a href="/Management/getInitTypesAndCourses">分类——文件管理</a>
+                            <a href="/Management/getInitTypesAndCourses">顺序管理</a>
                         </li>
                     </ul>
                 </li>
@@ -86,38 +86,37 @@
     <!-- /. NAV SIDE  -->
     <div id="page-wrapper">
         <div id="page-inner">
+            <div><p class="lead">上传文件</p></div>
             <div>
                 <form action="/Management/courseUpload" method="post"  enctype="multipart/form-data">
-                    <fieldset>
-                        <legend>课程音频文件上传</legend>
                         <input type="file" id="file" name="course" accept="audio/*" multiple="multiple" /> <br />
-                        <input type="submit" onclick="return validate();" value="上传" />
+                        <input type="submit" class="btn btn-success" onclick="return validate();" value="上传" />
                         <p>${tips}</p>
-                    </fieldset>
                 </form>
             </div>
-
-            <hr style="color:red"/>
-
-            <div><p style="font-size:25px;">加入分类</p></div>
-            <div id="select1" class="select">
-                <select id="L1List" onchange="getTypes(this)" name="Level1">
+            <div><p class="lead">音频文件指定</p></div>
+            <label for="L1List">请选择要指定的分类</label>
+        <div>
+            <div id="select1" style="float:left;">
+                <select id="L1List" onchange="getTypes(this)" class="form-control">
                     <c:forEach items="${L1Types}" var="type">
                         <option value="${type.getId()}">${type.getTypeName()}</option>
                     </c:forEach>
                 </select>
             </div>
-            <div id="select2" class="select">
-                <select id="L2List" onchange="getCourse(this)" name="Level2">
+            <div id="select2" style="float:left;">
+                <select id="L2List" onchange="getCourse(this)" class="form-control">
                     <c:forEach items="${L2Types}" var="type">
                         <option value="${type.getId()}">${type.getTypeName()}</option>
                     </c:forEach>
                 </select>
             </div>
-
-            <div class="select">
-                <p>未分类音频文件列表</p>
-                <select multiple="multiple" id="NoTypeList" size="6">
+        </div>
+            <div>&nbsp;</div>
+            <div>&nbsp;</div>
+            <label for="NoTypeList">无分类音频文件列表</label>
+            <div class="select" style="margin-bottom:20px;">
+                <select multiple="multiple" id="NoTypeList" class="form-control" style="width:200px;" size="6">
                     <c:if test="${noTypeCourse.size()==0}">
                         <option value="0">无</option>
                     </c:if>
@@ -126,8 +125,8 @@
                     </c:forEach>
                 </select>
             </div>
-            <button onclick="add2Type()">加入到选定分类</button>
-            <button onclick="deleteCourse()">删除课程</button>
+            <button onclick="add2Type()" class="btn btn-success">加入到选定分类</button>
+            <button onclick="deleteCourse()" class="btn btn-danger">删除课程</button>
         </div>
     </div>
 </div>

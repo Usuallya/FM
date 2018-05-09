@@ -31,6 +31,8 @@
     <!-- Custom Styles-->
     <link href="<%=request.getContextPath()%>/assets/css/custom-styles.css" rel="stylesheet" />
     <!-- Google Fonts-->
+    <link href="<%=request.getContextPath()%>/css/course.css" rel="stylesheet" />
+
     <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
     <title>学优优FM后台管理系统</title>
     <script type="text/javascript" src="<%=request.getContextPath()%>/js/jquery-1.11.1.min.js"></script>
@@ -79,7 +81,7 @@
                             <a href="/Management/type/icon">图标指定</a>
                         </li>
                         <li>
-                            <a href="/Management/getInitTypesAndCourses">分类——文件管理</a>
+                            <a href="/Management/getInitTypesAndCourses">顺序管理</a>
                         </li>
                     </ul>
                 </li>
@@ -91,41 +93,60 @@
     <!-- /. NAV SIDE  -->
     <div id="page-wrapper">
         <div id="page-inner">
-            <p>添加分类</p>
-            <input id="typeName" type="text" placeholder="请输入分类名称" />
-            <select id="l1select" onchange="changeLevel()">
+            <div><p class="lead">添加分类</p></div>
+            <div style="margin-bottom:20px;">
+            <label for="typeName">请输入分类名称</label>
+            <input id="typeName" class="form-control" type="text" placeholder="分类名称" maxlength="40" />
+            <label for="l1select">请选择分类级别</label>
+            <select id="l1select" class="form-control" onchange="changeLevel()">
                 <option value="1">一级</option>
                 <option value="2">二级</option>
             </select>
-            <select id="l2select" onclick="selectL1Level()" hidden="hidden">
+            <select id="l2select" class="form-control hidden" onclick="selectL1Level()">
                 <option value="0" >请选择对应的一级分类</option>
                 <c:forEach items="${L1Types}" var="type">
                     <option value="${type.getId()}">${type.getTypeName()}</option>
                 </c:forEach>
             </select>
-            <button onclick="addType()">添加分类</button>
-            <div id="select1" class="select">
-            <p>一级分类</p>
-            <select multiple="multiple" id="L1List" onchange="getTypes(this)" size="6" name="Level1">
-                <c:forEach items="${L1Types}" var="type">
-                    <option value="${type.getId()}">${type.getTypeName()}</option>
-                </c:forEach>
-            </select>
-                <div>
-                    <button id="d1" onclick="delType(this)">删除一级分类</button>
-                </div>
+                <button onclick="addType()" style="margin-top:20px;" class="btn btn-success">添加分类</button>
             </div>
-            <div id="select2" class="select">
-            <p>二级分类</p>
-            <select multiple="multiple" id="L2List" size="6" name="Level2">
-                <c:forEach items="${L2Types}" var="type">
-                    <option value="${type.getId()}">${type.getTypeName()}</option>
-                </c:forEach>
-            </select>
-            <div>
-            <button id="d2" onclick="delType(this)">删除二级分类</button>
+
+            <p class="lead">删除分类</p>
+            <div style="margin-top:40px;">
+            <table id="deleteTypes">
+                <tr><td><p class="text-center">一级分类</p></td><td>&nbsp;</td><td><p class="text-center">二级分类</p></td></tr>
+                <tbody>
+                <tr><td>
+                    <select multiple="multiple" id="L1List" class="form-control" style="width:200px;" onchange="getTypes(this)" size="6" name="Level1">
+                    <c:forEach items="${L1Types}" var="type">
+                        <option value="${type.getId()}">${type.getTypeName()}</option>
+                    </c:forEach>
+                </select>
+                </td>
+                    <td>
+                        &nbsp;
+                    </td>
+                    <td>
+                        <select multiple="multiple" id="L2List" style="width:200px;" class="form-control" size="6" name="Level2">
+                            <c:forEach items="${L2Types}" var="type">
+                                <option value="${type.getId()}">${type.getTypeName()}</option>
+                            </c:forEach>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <button id="d1" onclick="delType(this)" style="margin-top:20px;" class="btn btn-danger">删除一级分类</button>
+                    </td>
+                    <td>&nbsp;</td>
+                    <td>
+                        <button id="d2" onclick="delType(this)" style="margin-top:20px;" class="btn btn-danger">删除二级分类</button>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
             </div>
-            </div>
+        </div>
         <!-- /. PAGE INNER  -->
     </div>
     <!-- /. PAGE WRAPPER  -->
