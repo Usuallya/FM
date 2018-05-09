@@ -86,13 +86,18 @@
     <!-- /. NAV SIDE  -->
     <div id="page-wrapper">
         <div id="page-inner">
-            <div><p class="lead">上传文件</p></div>
+            <div><p class="lead">上传歌曲文件</p></div>
             <div>
                 <form action="/Management/courseUpload" method="post"  enctype="multipart/form-data">
                         <input type="file" style="float:left;" id="file" name="course" accept="audio/*" multiple="multiple" /> <br />
                         <input type="submit" style="float:left;margin-top:-25px;" class="btn btn-success" onclick="return validate();" value="上传" />
                         <p>${tips}</p>
                 </form>
+            </div>
+            <div>
+                <p class="lead">添加网络歌曲</p>
+                <label for="urlText"></label><input type="text" id="urlText" class="form-control" style="float:left;width:200px;" placeholder="填写URL"/>
+                <button id="submitURL" style="float:left;margin-left:20px;" onclick="submitURL()" class="btn btn-success">添加网络歌曲</button>
             </div>
             <div><p class="lead">音频文件指定</p></div>
             <label for="L1List">请选择要指定的分类</label>

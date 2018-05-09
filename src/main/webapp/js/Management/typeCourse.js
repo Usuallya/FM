@@ -227,9 +227,12 @@ function delType(button) {
 
 function add2Type(){
     var tId = $("#L2List option:selected").attr("value");
-    var cId = $("#NoTypeList option:selected").attr("value");
-    if(tId==null || cId==null)
+    var noTypeList = $("#NoTypeList").val();
+    var cId=JSON.stringify(noTypeList);
+    if(tId==null || cId==null) {
         alert("请选择文件和对应分类");
+        return;
+    }
     else{
         $.ajax({
             type : "post",
@@ -241,7 +244,9 @@ function add2Type(){
             },
             success : function(data) {
                 alert("添加成功");
-                $("#NoTypeList option[value="+cId+"]").remove();
+                noTypeList.forEach(function(Id,i,array){
+                $("#NoTypeList option[value="+Id+"]").remove();
+            });
             },
             error : function(XMLHttpRequest, textStatus, errorThrown) {
                 alert("发生错误");
@@ -386,6 +391,11 @@ function order(button){
 //typeCourse页面
 function delCourse(){
     var id = $("#L2CourseList").val();
+    if(id=="" || id==null)
+    {
+        alert("请选择要删除的课程文件！");
+        return;
+    }
     $.ajax({
         type : "post",
         url : "/Management/Course/deleteCourse",
@@ -417,7 +427,23 @@ function validate(){
 
     return true;
 }
-
+function submitURL(){
+    postComment();
+}
+function postComment() {
+    //验证url网址
+    if($("#urlText").val()) {
+        var str=$("#urlText").val();
+        var Expression=/http(s)?:\/\/([\w-]+\.)+[\w-]+(\/[\w- .\/?%&=]*)?/;
+        var objExp=new RegExp(Expression);
+        if(objExp.test(str) != true){
+            alert("网址格式不正确！请重新输入");
+            return false;
+        } else {
+            alert("网址正确！");
+        }
+    }
+}
 
 function validateImage(){
     var fileName = $("#file").val();

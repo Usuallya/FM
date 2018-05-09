@@ -4,11 +4,18 @@ import com.FM.domain.Course;
 import com.FM.service.CourseService;
 import com.FM.service.TypeService;
 import com.FM.utils.Constants;
+import com.mysql.cj.xdevapi.JsonArray;
+import net.sf.json.JSONArray;
+import net.sf.json.JSONObject;
+import org.apache.commons.io.IOUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 @Controller
 @RequestMapping("Management/Course")
@@ -30,6 +37,22 @@ public class CourseController {
         return order;
     }
 
+    @RequestMapping("/addURL")
+    @ResponseBody
+    public Integer addURL(@RequestParam("musicURL") String musicURL){
+        String suffixes="avi|mpeg|mp3|mp4|wav";
+        Pattern pat=Pattern.compile("[\\w]+[\\.]("+suffixes+")");//正则判断
+        Matcher mc=pat.matcher(musicURL);//条件匹配
+        while(mc.find()){
+            String substring = mc.group();//截取文件名后缀名
+            System.out.println(substring);
+        }
+
+        String musicName = ;
+        String location = musicURL;
+        courseService.addCourse(musicName,location);
+    }
+
     @RequestMapping("/getCourses")
     @ResponseBody
     public List<Course> getCourse(@RequestParam(value = "l2Type") String stypeId){
@@ -41,8 +64,15 @@ public class CourseController {
     @RequestMapping("/add2Type")
     @ResponseBody
     public String add2Type(@RequestParam(value="courseId") String courseId,@RequestParam(value="typeId") String typeId){
-        System.out.println(courseId);
-        if(courseService.add2Type(courseId,typeId))
+        List<String> list = new ArrayList<String>();
+        JSONArray json = JSONArray.fromObject(courseId);
+        if(json.size()>0)
+        {
+            for(int i =0;i<json.size();i++){
+                list.add(json.get(i).toString());
+            }
+        }
+        if(courseService.add2Type(list,typeId))
             return Constants.SUCCESS;
         else
             return Constants.FAIL;

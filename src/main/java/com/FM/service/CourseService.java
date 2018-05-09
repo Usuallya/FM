@@ -22,10 +22,15 @@ public class CourseService {
         return tcDao.getCourse(courseId);
     }
 
-    public boolean add2Type(String courseId, String typeId){
-        Integer cId = Integer.parseInt(courseId);
+    public boolean add2Type(List<String> courseId, String typeId){
+        Integer cId;
         Integer tId = Integer.parseInt(typeId);
-        return tcDao.add2Type(cId,tId);
+        for(String couId : courseId) {
+            cId = Integer.parseInt(couId);
+            if(!tcDao.add2Type(cId,tId))
+                return false;
+        }
+        return true;
     }
 
     public boolean deleteCourse(String courseId){
