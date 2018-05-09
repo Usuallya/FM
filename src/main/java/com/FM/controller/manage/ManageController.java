@@ -53,7 +53,9 @@ public class ManageController {
         Manager manager = managerService.getManagerUser((Integer)session.getAttribute("userId"));
         List<Course> noTypeCourse = courseService.getCourse(0);
         List<Type> initL1Types = typeService.getTypes(0);
-        List<Type> initl2Types = typeService.getTypes(initL1Types.get(0).getId());
+        List<Type> initl2Types = null;
+        if(initL1Types!=null)
+            initl2Types = typeService.getTypes(initL1Types.get(0).getId());
         modelAndView.addObject("noTypeCourse",noTypeCourse);
         modelAndView.addObject("L1Types",initL1Types);
         modelAndView.addObject("L2Types",initl2Types);

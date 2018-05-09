@@ -112,6 +112,7 @@
             </form>
         </div>
         <!-- /. PAGE INNER  -->
+        <footer><p>Copyright &copy; 2018.xueyouyouFM All rights reserved.</p></footer>
     </div>
     <!-- /. PAGE WRAPPER  -->
 </div>

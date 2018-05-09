@@ -38,8 +38,8 @@
     <base href="<%=basePath%>" />
 </head>
 
-<body style="height:100%;">
-<div id="wrapper" style="height:100%;">
+<body>
+<div id="wrapper">
     <nav class="navbar navbar-default top-navbar" role="navigation">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-collapse">
@@ -65,7 +65,6 @@
     <nav class="navbar-default navbar-side" role="navigation">
         <div class="sidebar-collapse">
             <ul class="nav" id="main-menu">
-
                 <li>
                     <a href="/Management/Courses">课程管理</a>
                 </li>
@@ -84,12 +83,10 @@
                     </ul>
                 </li>
             </ul>
-
         </div>
-
     </nav>
     <!-- /. NAV SIDE  -->
-    <div id="page-wrapper" style="height:100%;">
+    <div id="page-wrapper">
         <div id="page-inner">
 
             <table style="text-align:center">
@@ -163,8 +160,6 @@
                     <td><button id="del" class="btn btn-danger" style="margin-top:20px;" onclick="delCourse()">删除课程</button></td>
                 </tr>
             </table>
-
-
         </div>
         <!-- /. PAGE INNER  -->
         <footer><p>Copyright &copy; 2018.xueyouyouFM All rights reserved.</p></footer>

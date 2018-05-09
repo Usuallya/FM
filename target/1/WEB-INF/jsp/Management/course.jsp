@@ -48,7 +48,7 @@
         </div>
 
         <ul class="nav navbar-top-links navbar-right">
-f
+
             <!-- /.dropdown -->
             <li class="dropdown">
                 <a href="/Management/logout">退出登录</a>
@@ -128,6 +128,7 @@ f
             <button onclick="add2Type()" class="btn btn-success">加入到选定分类</button>
             <button onclick="deleteCourse()" class="btn btn-danger">删除课程</button>
         </div>
+        <footer><p>Copyright &copy; 2018.xueyouyouFM All rights reserved.</p></footer>
     </div>
 </div>
 

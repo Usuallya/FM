@@ -1,25 +1,31 @@
 /*----------------------------------------------
     COMMON  STYLES    
 ------------------------------------------------*/
+html{
+    height:100%;
+}
 body {
     font-family: 'Open Sans', sans-serif;
+    height:100%;
+    background:red;
 }
 
  #wrapper {
     width: 100%;
     background:#09192A;
+     height:100%;
 }
 
 #page-wrapper {
+    background:white;
     padding: 15px 15px;
-    background:#E5EBF2;
-   
+    height:calc(100% - 60px);
 }
 #page-inner {
     width:100%;
     margin:10px 20px 10px 0px;
-    background-color:transparent;
     padding:10px;
+    height:calc(100% - 75px);
 }
 
 .text-center {
