@@ -54,7 +54,7 @@ public class ManageController {
         List<Course> noTypeCourse = courseService.getCourse(0);
         List<Type> initL1Types = typeService.getTypes(0);
         List<Type> initl2Types = null;
-        if(initL1Types!=null)
+        if(initL1Types.size()>0)
             initl2Types = typeService.getTypes(initL1Types.get(0).getId());
         modelAndView.addObject("noTypeCourse",noTypeCourse);
         modelAndView.addObject("L1Types",initL1Types);
@@ -70,14 +70,15 @@ public class ManageController {
         InputStream in = Thread.currentThread().getContextClassLoader().getResourceAsStream("public.properties");
         properties.load(in);
         String courseUploadPath=properties.getProperty("audio_upload_path");
+        String coursePlayPath=properties.getProperty("audio_play_path");
+        String contextName = request.getContextPath();
         if(files!=null) {
             for(int i =0;i<files.length;i++){
                 String path = request.getSession().getServletContext().getRealPath("")
                         + request.getContextPath() + "/" +courseUploadPath + "/";
 
-                String fileName = saveFile(files[i],path);
+                String fileName = coursePlayPath+contextName+courseUploadPath+"/"+saveFile(files[i],path);
                 courseService.addCourse(files[i].getOriginalFilename(),fileName);
-
             }
             modelAndView.addObject("tips", "上传成功");
             List<Course> noTypeCourse = courseService.getCourse(0);
@@ -111,30 +112,18 @@ public class ManageController {
             }
         }
         List<Type> initL1Types = typeService.getTypes(0);
-        List<Type> initL2Types = typeService.getTypes(initL1Types.get(0).getId());
-        if(initL2Types!=null)
-            imageLocation= typeService.getIconLocation(initL2Types.get(0).getId());
+        List<Type> initL2Types = null;
+        if(initL1Types.size()>0) {
+            initL2Types = typeService.getTypes(initL1Types.get(0).getId());
+            if (initL2Types.size() > 0)
+                imageLocation = typeService.getIconLocation(initL2Types.get(0).getId());
+        }
         modelAndView.addObject("L1Types",initL1Types);
         modelAndView.addObject("L2Types",initL2Types);
         modelAndView.addObject("l2fIconLocation",imageLocation);
         return modelAndView;
     }
 
-    @RequestMapping("/getInitTypesAndCourses")
-    @ResponseBody
-    public ModelAndView getTypesAndCourses(){
-        ModelAndView modelAndView = new ModelAndView();
-        List<Type> initL1Types = typeService.getTypes(0);
-        List<Type> initL2Types = typeService.getTypes(initL1Types.get(0).getId());
-        List<Course> initCourse = new ArrayList<>();
-        if(initL2Types.size()>0)
-         initCourse = courseService.getCourse(initL2Types.get(0).getId());
-        modelAndView.addObject("L1Types",initL1Types);
-        modelAndView.addObject("L2Types",initL2Types);
-        modelAndView.addObject("initCourse",initCourse);
-        modelAndView.setViewName(Constants.TYPE_COURSES);
-        return modelAndView;
-    }
     @RequestMapping("/changeOrder")
     @ResponseBody
     public String changeOrder(@RequestParam("Id") String Id,@RequestParam("ctType") String ctType,@RequestParam("operation") String operation){

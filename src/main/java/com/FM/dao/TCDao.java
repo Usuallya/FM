@@ -39,6 +39,7 @@ public class TCDao {
     private final static String selectAll1Types="SELECT * FROM `types` WHERE `parenttype`=0 ORDER BY `order` AND `isdisplay`=1";
     private final static String selectFirstChildTypeSQL="SELECT * FROM `types` WHERE `parenttype`=? AND `isdisplay`=1 ORDER BY `order`";
     private final static String selectLastChildTypeSQL="SELECT * FROM `types` WHERE `parenttype`=? AND `isdisplay`=1 ORDER BY `order` DESC ";
+    private final static String editTypeSQL = "UPDATE `types` SET `typename`=? WHERE `id`=?";
     public List<Course> getCourses(Integer typeId){
         try{
     List<Course> list = jdbcTemplate.query(courseSQL, new Object[]{typeId}, new RowMapper<Course>() {
@@ -146,8 +147,6 @@ public class TCDao {
     }
 
     public Integer addType(String type,Integer level,Integer parent){
-        //首先查询当前类型名是否有重复
-
         if(0 != jdbcTemplate.queryForObject(existSQL,new Object[]{type,parent},Integer.class))
             return Constants.TYPE_ALREADY_EXISTS;
         Integer order = getMaxTypeOrder(parent)+1;
@@ -209,6 +208,13 @@ public class TCDao {
 
     public boolean uploadIcon(String finalPath,Integer typeId){
         if(jdbcTemplate.update(uploadIconSQL,new Object[]{finalPath,typeId})>0)
+            return true;
+        else
+            return false;
+    }
+
+    public boolean editType(Integer typeId, String newTypeName){
+        if(jdbcTemplate.update(editTypeSQL,new Object[]{newTypeName,typeId})>0)
             return true;
         else
             return false;

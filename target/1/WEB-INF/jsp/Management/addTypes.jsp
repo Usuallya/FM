@@ -80,9 +80,6 @@
                         <li>
                             <a href="/Management/type/icon">图标指定</a>
                         </li>
-                        <li>
-                            <a href="/Management/getInitTypesAndCourses">顺序管理</a>
-                        </li>
                     </ul>
                 </li>
             </ul>
@@ -111,25 +108,28 @@
                 <button onclick="addType()" style="margin-top:20px;float:right;" class="btn btn-success">添加分类</button>
             </div>
 
-            <p class="lead">删除分类</p>
+            <p class="lead">编辑分类</p>
             <div style="margin-top:40px;">
             <table id="deleteTypes">
                 <tr>
                     <td><p class="text-center">一级分类</p></td>
                     <td style="width:100px;">&nbsp;</td>
-
                     <td><p class="text-center">二级分类</p></td>
+                    <td>&nbsp;</td>
                 </tr>
                 <tbody>
                 <tr>
                     <td>
-                    <select multiple="multiple" id="L1List" class="form-control" style="width:200px;" onchange="getTypes(this)" size="6" name="Level1">
-                    <c:forEach items="${L1Types}" var="type">
-                        <option value="${type.getId()}">${type.getTypeName()}</option>
-                    </c:forEach>
-                </select>
-                </td>
-                    <td style="width:100px;">&nbsp;</td>
+                        <select multiple="multiple" id="L1List" class="form-control" style="width:200px;" onchange="getTypes(this)" size="6" name="Level1">
+                            <c:forEach items="${L1Types}" var="type">
+                                <option value="${type.getId()}">${type.getTypeName()}</option>
+                            </c:forEach>
+                        </select>
+                    </td>
+                    <td style="width:200px;text-align:left;">
+                        <button id="l1up" class="btn btn-success" onclick="order(this)">↑</button>
+                        <button id="l1down" class="btn btn-warning" onclick="order(this)">↓</button>
+                    </td>
                     <td>
                         <select multiple="multiple" id="L2List" style="width:200px;" class="form-control" size="6" name="Level2">
                             <c:forEach items="${L2Types}" var="type">
@@ -137,22 +137,28 @@
                             </c:forEach>
                         </select>
                     </td>
+                    <td style="width:200px;text-align:left;" >
+                        <button id="l2up" class="btn btn-success" onclick="order(this)">↑</button>
+                        <button id="l2down" class="btn btn-warning" onclick="order(this)">↓</button>
+                    </td>
                 </tr>
                 <tr>
                     <td><input type="text" class="form-control hidden" id="editt1text" placeholder="输入新分类名" style="margin-top:10px;width:200px;" /></td>
                     <td>&nbsp;</td>
                     <td><input type="text" class="form-control hidden" id="editt2text" placeholder="输入新分类名" style="margin-top:10px;width:200px;" /></td>
+                    <td>&nbsp;</td>
                 </tr>
                 <tr>
                     <td>
-                        <button id="editt1" onclick="edit(this)" style="margin-top:20px;" class="btn btn-warning">修改分类名</button>
+                        <button id="edit1" onclick="edit(this)" style="margin-top:20px;" class="btn btn-warning">修改分类名</button>
                         <button id="d1" onclick="delType(this)" style="margin-top:20px;" class="btn btn-danger">删除一级分类</button>
                     </td>
                     <td style="width:100px;">&nbsp;</td>
                     <td>
-                        <button id="editt2" onclick="edit(this)" style="margin-top:20px;" class="btn btn-warning">修改分类名</button>
+                        <button id="edit2" onclick="edit(this)" style="margin-top:20px;" class="btn btn-warning">修改分类名</button>
                         <button id="d2" onclick="delType(this)" style="margin-top:20px;" class="btn btn-danger">删除二级分类</button>
                     </td>
+                    <td>&nbsp;</td>
                 </tr>
                 </tbody>
             </table>

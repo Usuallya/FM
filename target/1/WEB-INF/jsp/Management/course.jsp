@@ -23,7 +23,6 @@
     <link href="<%=request.getContextPath()%>/assets/js/morris/morris-0.4.3.min.css" rel="stylesheet" />
     <!-- Custom Styles-->
     <link href="<%=request.getContextPath()%>/assets/css/custom-styles.css" rel="stylesheet" />
-    <link href="<%=request.getContextPath()%>/css/course.css" rel="stylesheet" />
     <!-- Google Fonts-->
     <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
     <link href="<%=request.getContextPath()%>/css/searchableSelect.css" rel="stylesheet" type="text/css">
@@ -34,7 +33,7 @@
     <base href="<%=basePath%>" />
 </head>
 
-<body>
+<body style="height:calc(100% + 350px);">
 <div id="wrapper">
     <nav class="navbar navbar-default top-navbar" role="navigation">
         <div class="navbar-header">
@@ -73,9 +72,7 @@
                         <li>
                             <a href="/Management/type/icon">图标指定</a>
                         </li>
-                        <li>
-                            <a href="/Management/getInitTypesAndCourses">顺序管理</a>
-                        </li>
+
                     </ul>
                 </li>
             </ul>
@@ -84,42 +81,42 @@
 
     </nav>
     <!-- /. NAV SIDE  -->
-    <div id="page-wrapper">
+    <div id="page-wrapper" style="background:green;">
         <div id="page-inner">
             <div><p class="lead">上传歌曲文件</p></div>
             <div>
                 <form action="/Management/courseUpload" method="post"  enctype="multipart/form-data">
-                        <input type="file" style="float:left;" id="file" name="course" accept="audio/*" multiple="multiple" /> <br />
-                        <input type="submit" style="float:left;margin-top:-25px;" class="btn btn-success" onclick="return validate();" value="上传" />
-                        <p>${tips}</p>
+                        <input type="file" style="float:left;" id="file" name="course" accept="audio/*" multiple="multiple" />
+                        <input type="submit" style="float:left;" class="btn btn-success" onclick="return validate();" value="上传" />
                 </form>
+            </div>
+            <div style="clear:both;">
+            <p style="color:green;">${tips}</p>
             </div>
             <div>
                 <p class="lead">添加网络歌曲</p>
                 <label for="urlText"></label><input type="text" id="urlText" class="form-control" style="float:left;width:200px;" placeholder="填写URL"/>
                 <button id="submitURL" style="float:left;margin-left:20px;" onclick="submitURL()" class="btn btn-success">添加网络歌曲</button>
             </div>
-            <div><p class="lead">音频文件指定</p></div>
+            <div style="margin-top:20px;"><p class="lead">音频文件指定</p></div>
             <label for="L1List">请选择要指定的分类</label>
-        <div>
+        <div style="margin-bottom:10px;">
             <div id="select1" >
-                <select id="L1List" onchange="getTypes(this)" class="form-control">
+                <select id="L11List" onchange="cgetTypes(this)" class="form-control">
                     <c:forEach items="${L1Types}" var="type">
                         <option value="${type.getId()}">${type.getTypeName()}</option>
                     </c:forEach>
                 </select>
             </div>
             <div id="select2" style="margin-top:10px;">
-                <select id="L2List" onchange="getCourse(this)" class="form-control">
+                <select id="L22List" onchange="getCourse(this)" class="form-control">
                     <c:forEach items="${L2Types}" var="type">
                         <option value="${type.getId()}">${type.getTypeName()}</option>
                     </c:forEach>
                 </select>
             </div>
         </div>
-            <div>&nbsp;</div>
-            <div>&nbsp;</div>
-            <label for="NoTypeList">无分类音频文件列表</label>
+            <label for="NoTypeList">可指定音频（未分类）</label>
             <div class="select" style="margin-bottom:20px;">
                 <select multiple="multiple" id="NoTypeList" class="form-control" size="6">
                     <c:if test="${noTypeCourse.size()==0}">
@@ -132,11 +129,46 @@
             </div>
             <button onclick="add2Type()" class="btn btn-success">加入到选定分类</button>
             <button onclick="deleteCourse()" style="margin-left:20px;" class="btn btn-danger">删除课程</button>
+            <div><p class="lead">已分类音频列表</p></div>
+            <table>
+                <tr><td><label for="L1List">一级分类</label></td><td>&nbsp;</td><td><label for="L2List">二级分类</label></td><td>&nbsp;</td><td><label for="L2CourseList">音乐列表</label></td><td>&nbsp;</td></tr>
+                <tr>
+                    <td>
+                    <select multiple="multiple" id="L1List" size="6" onchange="getTypes(this)" style="height:200px;" class="form-control" name="Level1">
+                    <c:forEach items="${L1Types}" var="type">
+                        <option value="${type.getId()}">${type.getTypeName()}</option>
+                    </c:forEach>
+                    </select>
+                    </td>
+                    <td>&nbsp;</td>
+                    <td>
+                    <select multiple="multiple" id="L2List" size="6" onchange="getCourse(this)" style="height:200px;" class="form-control" name="Level2">
+                    <c:forEach items="${L2Types}" var="type">
+                        <option value="${type.getId()}">${type.getTypeName()}</option>
+                    </c:forEach>
+                    </select>
+                    </td>
+                    <td>&nbsp;</td>
+                    <td>
+                        <select multiple="multiple" id="L2CourseList" class="form-control" style="height:200px;" size="6" name="Level2Courses">
+                        <c:forEach items="${initCourse}" var="course">
+                            <option value="${course.getId()}" onchange="flagCourse(this)">${course.getCourseName()}</option>
+                        </c:forEach>
+                        </select>
+                    </td>
+                    <td style="width:150px;">
+                        <button id="c-up" class="btn btn-success" style="margin-left:20px;" onclick="order(this)">↑</button>
+                        <button id="c-down" class="btn btn-warning" onclick="order(this)">↓</button>
+                        <button id="del" class="btn btn-danger" onclick="delCourse()">×</button>
+                    </td>
+                </tr>
+            </table>
+
         </div>
-        <footer><p>Copyright &copy; 2018.xueyouyouFM All rights reserved.</p></footer>
+
     </div>
 </div>
-
+<footer><p>Copyright &copy; 2018.xueyouyouFM All rights reserved.</p></footer>
 <script src="<%=request.getContextPath()%>/assets/js/jquery-1.10.2.js"></script>
 <!-- Bootstrap Js -->
 <script src="<%=request.getContextPath()%>/assets/js/bootstrap.min.js"></script>

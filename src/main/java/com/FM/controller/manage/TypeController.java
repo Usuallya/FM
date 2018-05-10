@@ -55,6 +55,11 @@ public class TypeController {
         return map;
     }
 
+    @RequestMapping("/editType")
+    @ResponseBody
+    public boolean editType(@RequestParam("typeId") String typeId,@RequestParam("newtypeName") String newTypeName){
+        return typeService.editType(typeId,newTypeName);
+    }
 
     @RequestMapping("/icon")
     @ResponseBody
@@ -62,9 +67,12 @@ public class TypeController {
         String imageLocation=null;
         ModelAndView modelAndView = new ModelAndView(Constants.ICON_PATH);
         List<Type> initL1Types = typeService.getTypes(0);
-        List<Type> initL2Types = typeService.getTypes(initL1Types.get(0).getId());
-        if(initL2Types.size()>0)
-         imageLocation= typeService.getIconLocation(initL2Types.get(0).getId());
+        List<Type> initL2Types = null;
+        if(initL1Types.size()>0) {
+            initL2Types = typeService.getTypes(initL1Types.get(0).getId());
+            if (initL2Types.size() > 0)
+                imageLocation = typeService.getIconLocation(initL2Types.get(0).getId());
+        }
         modelAndView.addObject("l2fIconLocation",imageLocation);
         modelAndView.addObject("L1Types",initL1Types);
         modelAndView.addObject("L2Types",initL2Types);

@@ -40,17 +40,10 @@ public class CourseController {
     @RequestMapping("/addURL")
     @ResponseBody
     public Integer addURL(@RequestParam("musicURL") String musicURL){
-        String suffixes="avi|mpeg|mp3|mp4|wav";
-        Pattern pat=Pattern.compile("[\\w]+[\\.]("+suffixes+")");//正则判断
-        Matcher mc=pat.matcher(musicURL);//条件匹配
-        while(mc.find()){
-            String substring = mc.group();//截取文件名后缀名
-            System.out.println(substring);
-        }
 
-        String musicName = ;
+        String musicName = musicURL.substring(musicURL.lastIndexOf("/")+1);
         String location = musicURL;
-        courseService.addCourse(musicName,location);
+        return courseService.addCourse(musicName,location);
     }
 
     @RequestMapping("/getCourses")

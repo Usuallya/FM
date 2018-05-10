@@ -52,7 +52,10 @@ public class TypeService {
         return tcDao.setTypeOrder(typeId,0);
     }
 
-
+    public boolean editType(String typeId,String newTypeName){
+        Integer tId = Integer.parseInt(typeId);
+        return tcDao.editType(tId,newTypeName);
+    }
 
     public Map<String,Type> getNextType(Integer id, Integer signal){
         List<Type> types = tcDao.getAll2Types();

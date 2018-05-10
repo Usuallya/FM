@@ -92,77 +92,8 @@
     <div id="page-wrapper">
         <div id="page-inner">
 
-            <table style="text-align:center;width:100%;">
-                <tr>
-                    <td><p class="lead">分类顺序管理</p></td>
-                    <td>&nbsp;</td>
-                    <td>&nbsp;</td>
-                </tr>
-                <tr>
-                    <td style="width:80%;">
-                        <label for="L1List">一级分类顺序管理</label>
-                        <select multiple="multiple" id="L1List" size="6" onchange="getTypes(this)"  class="form-control" name="Level1">
-                            <c:forEach items="${L1Types}" var="type">
-                                <option value="${type.getId()}">${type.getTypeName()}</option>
-                            </c:forEach>
-                        </select>
-                    </td>
-                    <td>
-                        <button id="l1up" class="btn btn-success" style="margin-left:20px;" onclick="order(this)">↑</button>
-                        <button id="l1down" class="btn btn-warning" onclick="order(this)">↓</button>
-                    </td>
-                </tr>
-                <tr>
-                    <td style="width:80%;">
-                        <label for="L2List">二级分类顺序管理</label>
-                        <select multiple="multiple" id="L2List" size="6" onchange="getCourse(this)" class="form-control" name="Level2">
-                            <c:forEach items="${L2Types}" var="type">
-                                <option value="${type.getId()}">${type.getTypeName()}</option>
-                            </c:forEach>
-                        </select>
-                    </td>
-                    <td>
-                        <button id="l2up" class="btn btn-success" style="margin-left:20px;" onclick="order(this)">↑</button>
-                        <button id="l2down" class="btn btn-warning" onclick="order(this)">↓</button>
-                    </td>
-                </tr>
-                <tr>
-                    <td>&nbsp;</td>
-                    <td>&nbsp;</td>
-                    <td>&nbsp;</td>
-                    <td>&nbsp;</td>
-                </tr>
-                <tr>
-                    <td>
-                <p class="lead">课程顺序管理</p>
-                    </td>
-                    <td>
-                        &nbsp;
-                    </td>
-                    <td>
-                        &nbsp;
-                    </td>
-                    <td>
-                        &nbsp;
-                    </td>
-                </tr>
-                <tr>
-                    <td style="width:80%;">
-                        <select multiple="multiple" id="L2CourseList" class="form-control" size="6" name="Level2Courses">
-                    <c:forEach items="${initCourse}" var="course">
-                        <option value="${course.getId()}" onchange="flagCourse(this)">${course.getCourseName()}</option>
-                    </c:forEach>
-                         </select>
-                    </td>
-                    <td>
-                        <button id="c-up" class="btn btn-success" style="margin-left:20px;" onclick="order(this)">↑</button>
-                        <button id="c-down" class="btn btn-warning" onclick="order(this)">↓</button>
-                        <button id="del" class="btn btn-danger" onclick="delCourse()">×</button>
-                    </td>
-                    <td>&nbsp;</td>
-                    <td>&nbsp;</td>
-                </tr>
-            </table>
+
+
         </div>
         <!-- /. PAGE INNER  -->
         <footer><p>Copyright &copy; 2018.xueyouyouFM All rights reserved.</p></footer>

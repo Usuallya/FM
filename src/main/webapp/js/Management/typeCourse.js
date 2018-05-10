@@ -16,6 +16,35 @@ var l1TypeId = option.value;
                     getDefaultCourse(e);
                 }
             });
+            $("#L2List option:first").prop("selected", 'selected');
+        },
+        error : function(XMLHttpRequest, textStatus, errorThrown) {
+            alert("发生错误");
+            console.log(XMLHttpRequest);
+            console.log(textStatus);
+        }
+    });
+
+}
+
+
+function cgetTypes(option){
+    var l1TypeId = option.value;
+    $.ajax({
+        type : "post",
+        url : "/Management/type/getTypes",
+        dataType : "json",
+        data : {
+            parentType:l1TypeId
+        },
+        success : function(data) {
+            $("#L22List").empty();
+            data.forEach(function(l2Type,i,array){
+                $("#L22List").append("<option value='"+l2Type.id+"'>"+l2Type.typeName+"</option>");
+                if(i==0){
+                    var e = $("#L22List option[value="+l2Type.id+"]");
+                }
+            });
 
         },
         error : function(XMLHttpRequest, textStatus, errorThrown) {
@@ -52,6 +81,7 @@ function getTypesForAdd(option){
 
 }
 
+
 function getDefaultCourse(option){
     var l2TypeId = $(option).attr("value");
     $.ajax({
@@ -67,6 +97,7 @@ function getDefaultCourse(option){
                 console.log(data[i].id);
                 $("#L2CourseList").append("<option value='"+course.id+"'>"+course.courseName+"</option>");
             });
+            $("#L2CourseList option:first").prop("selected", 'selected');
         },
         error : function(XMLHttpRequest, textStatus, errorThrown) {
             alert("发生错误");
@@ -92,6 +123,7 @@ function getCourse(option){
                 console.log(data[i].id);
                 $("#L2CourseList").append("<option value='"+course.id+"'>"+course.courseName+"</option>");
             });
+            $("#L2CourseList option:first").prop("selected", 'selected');
         },
         error : function(XMLHttpRequest, textStatus, errorThrown) {
             alert("发生错误");
@@ -119,12 +151,13 @@ function addType(){
         alert("请输入类别名称！");
         return;
     }else{
-        if($("#l2select").val()[0]==0)
+        if(level==2 && $("#l2select option:selected").attr("value")==0)
         {
             alert("请选择对应的一级类别");
             return;
-        }else
+        }else if(level==2 && $("#l2select option:selected").attr("value")!=0) {
             parentType = $("#l2select option:selected").attr("value");
+        }
         $.ajax({
             type : "post",
             url : "/Management/type/addType",
@@ -137,29 +170,35 @@ function addType(){
             success : function(data) {
                     $("#L1List").empty();
                     $("#L2List").empty();
+                    $("#l2select").empty();
                     $.each(data, function (key, values) {
                         if(key!="flag")
                         values.forEach(function (type, i, array) {
                             if(key=="L1Types") {
                                 $("#L1List").append("<option value='" + type.id + "'>" + type.typeName + "</option>");
                                 if(parentType==0)
-                                $("#l2select").append("<option value='" + type.id + "'>" + type.typeName + "</option>");
+                                    $("#l2select").append("<option value='" + type.id + "'>" + type.typeName + "</option>");
                             }
                             if(key=="L2Types") {
                                 $("#L2List").append("<option value='" + type.id + "'>" + type.typeName + "</option>");
                             }
                         });
-                        if(key=="flag" && values=="0")
+                        if(key=="flag" && values=="0") {
                             alert("添加类别失败");
-                        else if(key=="flag" && values=="-1")
+                            return;
+                        }
+                        else if(key=="flag" && values=="-1"){
                             alert("已经存在同名类别");
+                            return;
+                        }else if(key=="flag" && values=="1"){
+                            alert("添加类别成功！");
+                        }
                     });
                     if(parentType!=0)
                     {
                         $("#L1List").val(parentType);
                         getTypesForAdd($("#L1List option:selected"));
                     }
-
             },
             error : function(XMLHttpRequest, textStatus, errorThrown) {
                 alert("发生错误");
@@ -226,7 +265,7 @@ function delType(button) {
 
 
 function add2Type(){
-    var tId = $("#L2List option:selected").attr("value");
+    var tId = $("#L22List option:selected").attr("value");
     var noTypeList = $("#NoTypeList").val();
     var cId=JSON.stringify(noTypeList);
     if(tId==null || cId==null) {
@@ -386,11 +425,63 @@ function order(button){
     });
 }
 
+function edit(e){
+    var edittext;
+    var typeId;
+    if($(e).attr("id")=="edit1"){
+        if($("#editt1text").attr("class")=="form-control hidden") {
+            $("#editt1text").attr("class", "form-control show");
+            return;
+        }
+        if($("#L1List").val()==null) {
+            alert("请先选择要修改的一级分类");
+            return;
+        }
+        edittext = $("#editt1text").val();
+        typeId=$("#L1List").val()[0];
+
+    }else if($(e).attr("id")=="edit2"){
+        if($("#editt2text").attr("class")=="form-control hidden") {
+            $("#editt2text").attr("class", "form-control show");
+            return;
+        }
+        if($("#L2List").val()==null) {
+            alert("请先选择要修改的二级分类");
+            return;
+        }
+        edittext = $("#editt2text").val();
+        typeId=$("#L2List").val()[0];
+    }
+    $.ajax({
+        type : "post",
+        url : "/Management/type/editType",
+        dataType : "json",
+        data : {
+            newtypeName:edittext,
+            typeId:typeId
+        },
+        success : function(data) {
+            if(data==true) {
+                alert("修改类型名成功");
+                window.location.reload();
+            }
+        },
+        error : function(XMLHttpRequest, textStatus, errorThrown) {
+            alert("发生错误");
+            console.log(XMLHttpRequest);
+            console.log(textStatus);
+        }
+    });
+
+
+
+
+}
 
 
 //typeCourse页面
 function delCourse(){
-    var id = $("#L2CourseList").val();
+    var id = $("#L2CourseList").val()[0];
     if(id=="" || id==null)
     {
         alert("请选择要删除的课程文件！");
@@ -428,7 +519,27 @@ function validate(){
     return true;
 }
 function submitURL(){
-    postComment();
+    var url = $("#urlText").val();
+    if(postComment())
+    {
+        $.ajax({
+            type : "post",
+            url : "/Management/Course/addURL",
+            dataType : "json",
+            data : {
+                musicURL:url
+            },
+            success : function(data) {
+                alert("添加成功");
+                window.location.reload();
+            },
+            error : function(XMLHttpRequest, textStatus, errorThrown) {
+                alert("发生错误");
+                console.log(XMLHttpRequest);
+                console.log(textStatus);
+            }
+        });
+    }
 }
 function postComment() {
     //验证url网址
@@ -440,7 +551,7 @@ function postComment() {
             alert("网址格式不正确！请重新输入");
             return false;
         } else {
-            alert("网址正确！");
+            return true;
         }
     }
 }

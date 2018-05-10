@@ -44,9 +44,11 @@ public class CourseService {
     }
 
     public Integer orderUp(Integer courseId){
+
         return tcDao.setCourseOrder(courseId,1);
     }
     public Integer orderDown(Integer courseId){
+
         return tcDao.setCourseOrder(courseId,0);
     }
 }

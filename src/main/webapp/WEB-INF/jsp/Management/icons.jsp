@@ -71,9 +71,6 @@
                         <li>
                             <a href="javascript:void(0)">图标指定</a>
                         </li>
-                        <li>
-                            <a href="/Management/getInitTypesAndCourses">顺序管理</a>
-                        </li>
                     </ul>
                 </li>
             </ul>
@@ -93,7 +90,7 @@
                                 <option value="${type.getId()}">${type.getTypeName()}</option>
                             </c:forEach>
                         </select>
-                    <select id="L2List" name="l2Type" onchange="chg2Icon()" class="form-control">
+                    <select id="L2List" style="margin-top:10px;" name="l2Type" onchange="chg2Icon()" class="form-control">
                         <c:forEach items="${L2Types}" var="type">
                             <option value="${type.getId()}">${type.getTypeName()}</option>
                         </c:forEach>
@@ -105,7 +102,7 @@
                     <img id="iconPreview" class="img-responsive" src="<% String iconPath = request.getContextPath()+"/"+Constants.ICON_UPLOAD_PATH+"/"; out.println(iconPath); %>${l2fIconLocation}"/>
                         </c:if>
                         <c:if test="${l2fIconLocation==null}">
-                            暂未指定图标
+                            <div>暂未指定图标</div>
                         </c:if>
                     </div>
                     <input type="submit" onclick="return validateImage();" class="btn btn-success" value="上传" />
