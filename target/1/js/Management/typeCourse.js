@@ -4,19 +4,22 @@ var l1TypeId = option.value;
         type : "post",
         url : "/Management/type/getTypes",
         dataType : "json",
+        async:false,
         data : {
             parentType:l1TypeId
         },
         success : function(data) {
             $("#L2List").empty();
-            data.forEach(function(l2Type,i,array){
-                $("#L2List").append("<option value='"+l2Type.id+"'>"+l2Type.typeName+"</option>");
-                if(i==0){
-                    var e = $("#L2List option[value="+l2Type.id+"]");
-                    getDefaultCourse(e);
-                }
-            });
-            $("#L2List option:first").prop("selected", 'selected');
+            if(data!=null && data!="") {
+                data.forEach(function (l2Type, i, array) {
+                    $("#L2List").append("<option value='" + l2Type.id + "'>" + l2Type.typeName + "</option>");
+                    if (i == 0) {
+                        var e = $("#L2List option[value=" + l2Type.id + "]");
+                        getDefaultCourse(e);
+                    }
+                });
+                $("#L2List option:first").prop("selected", 'selected');
+            }
         },
         error : function(XMLHttpRequest, textStatus, errorThrown) {
             alert("发生错误");
@@ -24,9 +27,12 @@ var l1TypeId = option.value;
             console.log(textStatus);
         }
     });
-
 }
 
+function getTypeIcons(e){
+    getTypesForAdd(e);
+    chg2Icon();
+}
 
 function cgetTypes(option){
     var l1TypeId = option.value;
@@ -39,13 +45,11 @@ function cgetTypes(option){
         },
         success : function(data) {
             $("#L22List").empty();
-            data.forEach(function(l2Type,i,array){
-                $("#L22List").append("<option value='"+l2Type.id+"'>"+l2Type.typeName+"</option>");
-                if(i==0){
-                    var e = $("#L22List option[value="+l2Type.id+"]");
-                }
-            });
-
+            if(data!=null && data!="") {
+                data.forEach(function (l2Type, i, array) {
+                    $("#L22List").append("<option value='" + l2Type.id + "'>" + l2Type.typeName + "</option>");
+                });
+            }
         },
         error : function(XMLHttpRequest, textStatus, errorThrown) {
             alert("发生错误");
@@ -58,19 +62,24 @@ function cgetTypes(option){
 
 function getTypesForAdd(option){
     var l1TypeId = $(option).attr("value");
+    if(l1TypeId==null || l1TypeId=="")
+        l1TypeId=option.value;
     $.ajax({
         type : "post",
         url : "/Management/type/getTypes",
         dataType : "json",
+        async:false,
         data : {
             parentType:l1TypeId
         },
         success : function(data) {
             $("#L2List").empty();
-            data.forEach(function(l2Type,i,array){
-                $("#L2List").append("<option value='"+l2Type.id+"'>"+l2Type.typeName+"</option>");
-            });
-
+            if(data!=null && data!="") {
+                data.forEach(function (l2Type, i, array) {
+                    $("#L2List").append("<option value='" + l2Type.id + "'>" + l2Type.typeName + "</option>");
+                });
+                $("#L2List option:first").prop("selected", 'selected');
+            }
         },
         error : function(XMLHttpRequest, textStatus, errorThrown) {
             alert("发生错误");
@@ -176,8 +185,7 @@ function addType(){
                         values.forEach(function (type, i, array) {
                             if(key=="L1Types") {
                                 $("#L1List").append("<option value='" + type.id + "'>" + type.typeName + "</option>");
-                                if(parentType==0)
-                                    $("#l2select").append("<option value='" + type.id + "'>" + type.typeName + "</option>");
+                                $("#l2select").append("<option value='" + type.id + "'>" + type.typeName + "</option>");
                             }
                             if(key=="L2Types") {
                                 $("#L2List").append("<option value='" + type.id + "'>" + type.typeName + "</option>");
@@ -321,7 +329,6 @@ function deleteCourse(){
 }
 
 function chg2Icon(){
-
     var typeId = $("#L2List").val();
     $.ajax({
         type : "post",
@@ -331,8 +338,15 @@ function chg2Icon(){
             typeId:typeId
         },
         success : function(data) {
-            var newPath = "/icon/"+data;
-            $("#iconPreview").attr("src",newPath);
+            if(data=="" || data==null){
+                $("#noIcons").show();
+                $("#iconPreview").hide();
+            }else if(data!="") {
+                var newPath = "/icon/" + data;
+                $("#noIcons").hide();
+                $("#iconPreview").show();
+                $("#iconPreview").attr("src", newPath);
+            }
         },
         error : function(XMLHttpRequest, textStatus, errorThrown) {
             alert("发生错误");
@@ -556,15 +570,46 @@ function postComment() {
     }
 }
 
+function showImage(e){
+    var imgFile = $(e).get(0).files[0];
+
+    var fr = new FileReader();
+
+    fr.onload = function () {
+        $("#iconPreview").show();
+        $("#noIcons").hide();
+        $("#iconPreview").attr("src",fr.result);
+    };
+
+    fr.readAsDataURL(imgFile);
+}
+
+function loadIcon(){
+    var l1 = localStorage.getItem("l1");
+    var l2 = localStorage.getItem("l2");
+    if(l1!=null && l2!=null) {
+        $("#L1List").val(l1);
+        getTypeIcons($("#L1List option:selected"));
+        $("#L2List").val(l2);
+        chg2Icon();
+    }
+}
+
 function validateImage(){
     var fileName = $("#file").val();
     if(fileName == "" || (!fileName.endsWith(".png") && !fileName.endsWith(".jpg") &&!fileName.endsWith(".bmp")) ) {
         alert("没有上传图标文件或者上传的文件不是所要求的格式！");
         return false;
-    }
-    if($("#L1List").val()==0 || $("#L2List").val()==0) {
-        alert("请指定分类");
+    }else if($("#L2List").val()=="" ||$("#L2List").val()==null )
+    {
+        alert("请先添加二级分类");
         return false;
+    }else
+    {
+        var l1 = $("#L1List option:selected").attr("value");
+        var l2 = $("#L2List option:selected").attr("value");
+        localStorage.setItem("l1",l1);
+        localStorage.setItem("l2",l2);
     }
     return true;
 }

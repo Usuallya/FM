@@ -38,7 +38,7 @@
     <base href="<%=basePath%>" />
 </head>
 
-<body>
+<body onload="loadIcon()">
 <div id="wrapper">
     <nav class="navbar navbar-default top-navbar" role="navigation">
         <div class="navbar-header">
@@ -81,11 +81,11 @@
         <div id="page-inner">
             <div><p class="lead">图标文件上传</p></div>
             <form action="/Management/iconUpload" method="post"  enctype="multipart/form-data">
-                    <input type="file" id="file" name="icon" multiple="multiple" accept="image/*" /> <br />
+                    <input type="file" id="file" onchange="showImage(this);" name="icon" multiple="multiple" accept="image/*" />
                     <p>${tips}</p>
                 <div style="margin-top:20px;"><p class="lead">图标文件指定</p></div>
                 <label for="L1List">选择分类</label>
-                        <select id="L1List" onchange="getTypes(this)" name="Level1" class="form-control">
+                        <select id="L1List" onchange="getTypeIcons(this)" name="Level1" class="form-control">
                             <c:forEach items="${L1Types}" var="type">
                                 <option value="${type.getId()}">${type.getTypeName()}</option>
                             </c:forEach>
@@ -98,12 +98,8 @@
                     <br />
                     <div style="width:100px; height:120px;">
                         <label for="iconPreview">图标预览</label>
-                        <c:if test="${l2fIconLocation!=null}">
-                    <img id="iconPreview" class="img-responsive" src="<% String iconPath = request.getContextPath()+"/"+Constants.ICON_UPLOAD_PATH+"/"; out.println(iconPath); %>${l2fIconLocation}"/>
-                        </c:if>
-                        <c:if test="${l2fIconLocation==null}">
-                            <div>暂未指定图标</div>
-                        </c:if>
+                    <img id="iconPreview" class="img-responsive" <c:if test="${l2fIconLocation==null}"> hidden="hidden" </c:if> src="<% String iconPath = request.getContextPath()+"/"+Constants.ICON_UPLOAD_PATH+"/"; out.println(iconPath); %>${l2fIconLocation}"/>
+                        <div id="noIcons" <c:if test="${l2fIconLocation!=null}" > hidden="hidden" </c:if>>暂未指定图标</div>
                     </div>
                     <input type="submit" onclick="return validateImage();" class="btn btn-success" value="上传" />
             </form>

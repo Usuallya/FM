@@ -82,6 +82,8 @@ public class TypeController {
     @RequestMapping("/getTypes")
     @ResponseBody
     public List<Type> getTypes(@RequestParam("parentType") String sparentType){
+        if(sparentType.equals(""))
+            return null;
         Integer parentType = Integer.parseInt(sparentType);
         return typeService.getTypes(parentType);
     }
@@ -89,6 +91,8 @@ public class TypeController {
     @RequestMapping("/deleteType")
     @ResponseBody
     public String deleteType(@RequestParam("types") String typeId){
+        if(typeId.equals(""))
+            return Constants.FAIL;
         if(typeService.deleteType(typeId))
             return Constants.SUCCESS;
         else
@@ -98,6 +102,8 @@ public class TypeController {
     @RequestMapping("/getIconLocation")
     @ResponseBody
     public String getIconLocation(@RequestParam("typeId") String stypeId){
+        if(stypeId.equals(""))
+            return null;
         Integer typeId = Integer.parseInt(stypeId);
         String imageLocation= typeService.getIconLocation(typeId);
         return imageLocation;
