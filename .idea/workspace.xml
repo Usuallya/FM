@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ArtifactsWorkspaceSettings">
     <artifacts-to-build>
-      <artifact name="1:war exploded" />
+      <artifact name="1:war" />
     </artifacts-to-build>
   </component>
   <component name="BookmarkManager">
@@ -12,9 +12,7 @@
     <list default="true" id="b7675880-d613-4a37-bbeb-52a03a4196c1" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/1.iml" afterPath="$PROJECT_DIR$/1.iml" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/FM/controller/manage/TypeController.java" afterPath="$PROJECT_DIR$/src/main/java/com/FM/controller/manage/TypeController.java" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/Management/icons.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/Management/icons.jsp" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/js/Management/typeCourse.js" afterPath="$PROJECT_DIR$/src/main/webapp/js/Management/typeCourse.js" />
       <change beforePath="$PROJECT_DIR$/target/1/WEB-INF/classes/com/FM/controller/manage/CourseController.class" afterPath="$PROJECT_DIR$/target/1/WEB-INF/classes/com/FM/controller/manage/CourseController.class" />
       <change beforePath="$PROJECT_DIR$/target/1/WEB-INF/classes/com/FM/controller/manage/ManageController.class" afterPath="$PROJECT_DIR$/target/1/WEB-INF/classes/com/FM/controller/manage/ManageController.class" />
       <change beforePath="$PROJECT_DIR$/target/1/WEB-INF/classes/com/FM/controller/manage/PublicController.class" afterPath="$PROJECT_DIR$/target/1/WEB-INF/classes/com/FM/controller/manage/PublicController.class" />
@@ -45,9 +43,6 @@
       <change beforePath="$PROJECT_DIR$/target/1/WEB-INF/classes/com/FM/utils/MyInterceptor.class" afterPath="$PROJECT_DIR$/target/1/WEB-INF/classes/com/FM/utils/MyInterceptor.class" />
       <change beforePath="$PROJECT_DIR$/target/1/WEB-INF/classes/com/FM/utils/PlayInterceptor.class" afterPath="$PROJECT_DIR$/target/1/WEB-INF/classes/com/FM/utils/PlayInterceptor.class" />
       <change beforePath="$PROJECT_DIR$/target/1/WEB-INF/classes/com/FM/utils/ValidateToken.class" afterPath="$PROJECT_DIR$/target/1/WEB-INF/classes/com/FM/utils/ValidateToken.class" />
-      <change beforePath="$PROJECT_DIR$/target/1/WEB-INF/jsp/Management/icons.jsp" afterPath="$PROJECT_DIR$/target/1/WEB-INF/jsp/Management/icons.jsp" />
-      <change beforePath="$PROJECT_DIR$/target/1/assets/css/custom-styles.css" afterPath="$PROJECT_DIR$/target/1/assets/css/custom-styles.css" />
-      <change beforePath="$PROJECT_DIR$/target/1/js/Management/typeCourse.js" afterPath="$PROJECT_DIR$/target/1/js/Management/typeCourse.js" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/FM/controller/manage/CourseController.class" afterPath="$PROJECT_DIR$/target/classes/com/FM/controller/manage/CourseController.class" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/FM/controller/manage/ManageController.class" afterPath="$PROJECT_DIR$/target/classes/com/FM/controller/manage/ManageController.class" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/FM/controller/manage/PublicController.class" afterPath="$PROJECT_DIR$/target/classes/com/FM/controller/manage/PublicController.class" />
@@ -92,11 +87,9 @@
       <file leaf-file-name="course.jsp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/Management/course.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="92">
+            <state relative-caret-position="3496">
               <caret line="152" column="26" lean-forward="false" selection-start-line="152" selection-start-column="26" selection-end-line="152" selection-end-column="26" />
-              <folding>
-                <element signature="n#style#0;n#select#0;n#td#4;n#tr#1;n#table#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-              </folding>
+              <folding />
             </state>
           </provider>
         </entry>
@@ -104,9 +97,11 @@
       <file leaf-file-name="icons.jsp" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/Management/icons.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="322">
-              <caret line="110" column="6" lean-forward="true" selection-start-line="110" selection-start-column="6" selection-end-line="110" selection-end-column="6" />
-              <folding />
+            <state relative-caret-position="350">
+              <caret line="98" column="60" lean-forward="true" selection-start-line="98" selection-start-column="60" selection-end-line="98" selection-end-column="60" />
+              <folding>
+                <element signature="e#5176#5182#0#HTML" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -114,7 +109,7 @@
       <file leaf-file-name="custom-styles.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/assets/css/custom-styles.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="437">
+            <state relative-caret-position="736">
               <caret line="32" column="11" lean-forward="false" selection-start-line="32" selection-start-column="11" selection-end-line="32" selection-end-column="11" />
               <folding />
             </state>
@@ -134,7 +129,7 @@
       <file leaf-file-name="typeCourse.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/js/Management/typeCourse.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="397">
+            <state relative-caret-position="13409">
               <caret line="583" column="29" lean-forward="false" selection-start-line="583" selection-start-column="29" selection-end-line="583" selection-end-column="29" />
               <folding />
             </state>
@@ -144,8 +139,8 @@
       <file leaf-file-name="TypeController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/FM/controller/manage/TypeController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="259">
-              <caret line="117" column="43" lean-forward="true" selection-start-line="117" selection-start-column="43" selection-end-line="117" selection-end-column="43" />
+            <state relative-caret-position="2691">
+              <caret line="117" column="43" lean-forward="false" selection-start-line="117" selection-start-column="43" selection-end-line="117" selection-end-column="43" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -157,7 +152,7 @@
         <entry file="file://$PROJECT_DIR$/src/main/java/com/FM/service/TypeService.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="230">
-              <caret line="18" column="36" lean-forward="true" selection-start-line="18" selection-start-column="36" selection-end-line="18" selection-end-column="36" />
+              <caret line="18" column="36" lean-forward="false" selection-start-line="18" selection-start-column="36" selection-end-line="18" selection-end-column="36" />
               <folding>
                 <element signature="e#1216#1217#0" expanded="true" />
                 <element signature="e#1267#1268#0" expanded="true" />
@@ -171,7 +166,7 @@
       <file leaf-file-name="TCDao.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/FM/dao/TCDao.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="23">
+            <state relative-caret-position="1725">
               <caret line="93" column="22" lean-forward="false" selection-start-line="93" selection-start-column="22" selection-end-line="93" selection-end-column="22" />
               <folding>
                 <marker date="1525872959313" expanded="true" signature="531:603" ph="SELECT * FRO... course" />
@@ -356,8 +351,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="AndroidView" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -543,8 +538,8 @@
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
       <pane id="Scratches" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -756,11 +751,12 @@
       <workItem from="1525921760622" duration="514000" />
       <workItem from="1525922373419" duration="989000" />
       <workItem from="1525935357783" duration="8609000" />
+      <workItem from="1525945440532" duration="751000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="229476000" />
+    <option name="totallyTimeSpent" value="230227000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="2576" height="1056" extended-state="6" />
@@ -782,11 +778,11 @@
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3297062" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2337043" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23569158" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Learn" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1091,7 +1087,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/assets/css/custom-styles.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="437">
+        <state relative-caret-position="736">
           <caret line="32" column="11" lean-forward="false" selection-start-line="32" selection-start-column="11" selection-end-line="32" selection-end-column="11" />
           <folding />
         </state>
@@ -1099,18 +1095,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/Management/course.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="92">
+        <state relative-caret-position="3496">
           <caret line="152" column="26" lean-forward="false" selection-start-line="152" selection-start-column="26" selection-end-line="152" selection-end-column="26" />
-          <folding>
-            <element signature="n#style#0;n#select#0;n#td#4;n#tr#1;n#table#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/FM/service/TypeService.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="230">
-          <caret line="18" column="36" lean-forward="true" selection-start-line="18" selection-start-column="36" selection-end-line="18" selection-end-column="36" />
+          <caret line="18" column="36" lean-forward="false" selection-start-line="18" selection-start-column="36" selection-end-line="18" selection-end-column="36" />
           <folding>
             <element signature="e#1216#1217#0" expanded="true" />
             <element signature="e#1267#1268#0" expanded="true" />
@@ -1122,7 +1116,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/FM/dao/TCDao.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="23">
+        <state relative-caret-position="1725">
           <caret line="93" column="22" lean-forward="false" selection-start-line="93" selection-start-column="22" selection-end-line="93" selection-end-column="22" />
           <folding>
             <marker date="1525872959313" expanded="true" signature="531:603" ph="SELECT * FRO... course" />
@@ -1156,8 +1150,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/FM/controller/manage/TypeController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="259">
-          <caret line="117" column="43" lean-forward="true" selection-start-line="117" selection-start-column="43" selection-end-line="117" selection-end-column="43" />
+        <state relative-caret-position="2691">
+          <caret line="117" column="43" lean-forward="false" selection-start-line="117" selection-start-column="43" selection-end-line="117" selection-end-column="43" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -1166,7 +1160,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/js/Management/typeCourse.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="397">
+        <state relative-caret-position="13409">
           <caret line="583" column="29" lean-forward="false" selection-start-line="583" selection-start-column="29" selection-end-line="583" selection-end-column="29" />
           <folding />
         </state>
@@ -1174,9 +1168,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/Management/icons.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="322">
-          <caret line="110" column="6" lean-forward="true" selection-start-line="110" selection-start-column="6" selection-end-line="110" selection-end-column="6" />
-          <folding />
+        <state relative-caret-position="350">
+          <caret line="98" column="60" lean-forward="true" selection-start-line="98" selection-start-column="60" selection-end-line="98" selection-end-column="60" />
+          <folding>
+            <element signature="e#5176#5182#0#HTML" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

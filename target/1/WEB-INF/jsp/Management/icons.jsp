@@ -98,7 +98,7 @@
                     <br />
                     <div style="width:100px; height:120px;">
                         <label for="iconPreview">图标预览</label>
-                    <img id="iconPreview" class="img-responsive" <c:if test="${l2fIconLocation==null}"> hidden="hidden" </c:if> src="<% String iconPath = request.getContextPath()+"/"+Constants.ICON_UPLOAD_PATH+"/"; out.println(iconPath); %>${l2fIconLocation}"/>
+                    <img id="iconPreview" class="img-responsive" <c:if test="${l2fIconLocation==null}"> hidden="hidden"</c:if> src="<% String iconPath = request.getContextPath()+"/"+Constants.ICON_UPLOAD_PATH+"/"; out.println(iconPath); %>${l2fIconLocation}"/>
                         <div id="noIcons" <c:if test="${l2fIconLocation!=null}" > hidden="hidden" </c:if>>暂未指定图标</div>
                     </div>
                     <input type="submit" onclick="return validateImage();" class="btn btn-success" value="上传" />
