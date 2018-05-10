@@ -10,19 +10,9 @@ body {
 }
 
  #wrapper {
-     position:relative;
     width: 100%;
     background:#09192A;
      min-height:100%;
-}
-
-footer{
-    width: 100%;
-    height:15px;
-    position:absolute;
-    bottom:0px;
-    left:0px;
-    background: #333;
 }
 
 #page-wrapper {
