@@ -81,7 +81,7 @@
 
     </nav>
     <!-- /. NAV SIDE  -->
-    <div id="page-wrapper" style="background:green;">
+    <div id="page-wrapper">
         <div id="page-inner">
             <div><p class="lead">上传歌曲文件</p></div>
             <div>
@@ -133,7 +133,7 @@
             <table>
                 <tr><td><label for="L1List">一级分类</label></td><td>&nbsp;</td><td><label for="L2List">二级分类</label></td><td>&nbsp;</td><td><label for="L2CourseList">音乐列表</label></td><td>&nbsp;</td></tr>
                 <tr>
-                    <td>
+                    <td style="width:300px;">
                     <select multiple="multiple" id="L1List" size="6" onchange="getTypes(this)" style="height:200px;" class="form-control" name="Level1">
                     <c:forEach items="${L1Types}" var="type">
                         <option value="${type.getId()}">${type.getTypeName()}</option>
@@ -141,7 +141,7 @@
                     </select>
                     </td>
                     <td>&nbsp;</td>
-                    <td>
+                    <td style="width:300px;">
                     <select multiple="multiple" id="L2List" size="6" onchange="getCourse(this)" style="height:200px;" class="form-control" name="Level2">
                     <c:forEach items="${L2Types}" var="type">
                         <option value="${type.getId()}">${type.getTypeName()}</option>
@@ -149,7 +149,7 @@
                     </select>
                     </td>
                     <td>&nbsp;</td>
-                    <td>
+                    <td style="width:300px;">
                         <select multiple="multiple" id="L2CourseList" class="form-control" style="height:200px;" size="6" name="Level2Courses">
                         <c:forEach items="${initCourse}" var="course">
                             <option value="${course.getId()}" onchange="flagCourse(this)">${course.getCourseName()}</option>
@@ -165,10 +165,10 @@
             </table>
 
         </div>
-
+        <footer><p>Copyright &copy; 2018.xueyouyouFM All rights reserved.</p></footer>
     </div>
 </div>
-<footer><p>Copyright &copy; 2018.xueyouyouFM All rights reserved.</p></footer>
+
 <script src="<%=request.getContextPath()%>/assets/js/jquery-1.10.2.js"></script>
 <!-- Bootstrap Js -->
 <script src="<%=request.getContextPath()%>/assets/js/bootstrap.min.js"></script>
