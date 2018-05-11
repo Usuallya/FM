@@ -85,15 +85,27 @@ public class TypeService {
                 Type l1Type = getType(l2Type.getParentType());
                 Integer l1MaxOrder = tcDao.getMaxTypeOrder(l1Type.getParentType());
                 List<Type> l1TypeList = tcDao.getAll1Types();
-                if(l1Type.getOrder()<l1MaxOrder) {
-                            for(int i = 0;i<l1TypeList.size();i++) {
-                                if(l1TypeList.get(i).getOrder()==l1Type.getOrder()) {
-                                    Type ll1Type = l1TypeList.get(i+1);
-                                    rtTypes.put("l1", ll1Type);
-                                    rtTypes.put("l2", tcDao.getFirstChildType(ll1Type));
-                                }
-                            }
 
+                if(l1Type.getOrder()<l1MaxOrder) {
+                    Integer i,j;
+                    for(i=0;i<l1TypeList.size();i++){
+                        if(l1Type.getOrder() == l1TypeList.get(i).getOrder())
+                            break;
+                    }
+                    for(j = i;j<l1TypeList.size()-1;j++) {
+                        Type ll1Type = l1TypeList.get(j + 1);
+                        if(getTypes(ll1Type.getId()).size()>0) {
+                            rtTypes.put("l1", ll1Type);
+                            rtTypes.put("l2", tcDao.getFirstChildType(ll1Type));
+                            break;
+                        }
+                    }
+                    if(j==l1TypeList.size()-1)
+                    {
+                        rtTypes.put("l1", l1TypeList.get(0));
+                        System.out.println(l1TypeList.get(0).getTypeName());
+                        rtTypes.put("l2",tcDao.getFirstChildType(l1TypeList.get(0)));
+                    }
                 }else {
                     rtTypes.put("l1", l1TypeList.get(0));
                     rtTypes.put("l2",tcDao.getFirstChildType(l1TypeList.get(0)));
@@ -113,20 +125,26 @@ public class TypeService {
             }else{
                 //找到上一个一级分类的最后一个二级分类
                 Type l1Type = getType(l2Type.getParentType());
-                Integer l1MaxOrder = tcDao.getMaxTypeOrder(l1Type.getParentType());
                 List<Type> l1TypeList = tcDao.getAll1Types();
                 if(l1Type.getOrder()>1) {
-                    for(int i = 0;i<l1TypeList.size();i++) {
-                        if(l1TypeList.get(i).getOrder()==l1Type.getOrder()) {
-                            Type ll1Type = l1TypeList.get(i-1);
+                    Integer i,j;
+                    for(i=0;i<l1TypeList.size();i++){
+                        if(l1Type.getOrder() == l1TypeList.get(i).getOrder())
+                            break;
+                    }
+                    for(j = i;j>0;j--) {
+                        Type ll1Type = l1TypeList.get(j - 1);
+                        if(getTypes(ll1Type.getId()).size()>0) {
                             rtTypes.put("l1", ll1Type);
-                            rtTypes.put("l2", tcDao.getLastChildType(ll1Type));
+                            rtTypes.put("l2", tcDao.getFirstChildType(ll1Type));
+                            break;
                         }
                     }
-
+                    if(j==0){
+                        rtTypes = null;
+                    }
                 }else {
-                    rtTypes.put("l1", l1TypeList.get(l1TypeList.size()-1));
-                    rtTypes.put("l2",tcDao.getLastChildType(l1TypeList.get(l1TypeList.size()-1)));
+                    rtTypes=null;
                 }
             }
         }

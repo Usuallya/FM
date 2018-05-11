@@ -36,7 +36,7 @@ public class TCDao {
     private final static String selectMaxTypeOrderSQL="SELECT MAX(`order`) FROM `types` WHERE `parenttype`=? AND `isdisplay`=1";
     private final static String selectMaxCourseOrderSQL="SELECT MAX(`order`) FROM `course` WHERE `type`=? AND `isdisplay`=1";
     private final static String selectAll2Types="SELECT * FROM `types` WHERE `parenttype`<>0 AND `isdisplay`=1";
-    private final static String selectAll1Types="SELECT * FROM `types` WHERE `parenttype`=0 ORDER BY `order` AND `isdisplay`=1";
+    private final static String selectAll1Types="SELECT * FROM `types` WHERE `parenttype`=0 AND `isdisplay`=1 ORDER BY `order` ";
     private final static String selectFirstChildTypeSQL="SELECT * FROM `types` WHERE `parenttype`=? AND `isdisplay`=1 ORDER BY `order`";
     private final static String selectLastChildTypeSQL="SELECT * FROM `types` WHERE `parenttype`=? AND `isdisplay`=1 ORDER BY `order` DESC ";
     private final static String editTypeSQL = "UPDATE `types` SET `typename`=? WHERE `id`=?";
