@@ -136,11 +136,8 @@ public class PlayController {
                     rtArr.put("subtype_name", l2Type.getTypeName());
                 }
                 if (i + signal <= -1) {
-                    List<Course> llist=null;
-                    while(llist==null || llist.size()==0) {
-                        types = typeService.getNextType(types.get("l2").getId(), signal);
-                        llist = courseService.getCourse(types.get("l2").getId());
-                    }
+                    types = typeService.getNextType(id, signal);
+                    List <Course> llist = courseService.getCourse(types.get("l2").getId());
                     if(llist!=null)
                     rtCourse = llist.get(llist.size() - 1);
 
@@ -149,13 +146,8 @@ public class PlayController {
                     rtArr.put("subtype_id", types.get("l2").getId().toString());
                     rtArr.put("subtype_name", types.get("l2").getTypeName());
                 } else if (i + signal >= list.size()) {
-                    List<Course> llist=null;
-                    while(llist==null || llist.size()==0) {
-                        types = typeService.getNextType(types.get("l2").getId(), signal);
-                        //System.out.println(types.get("l2").getTypeName());
-                        llist = courseService.getCourse(types.get("l2").getId());
-                        //System.out.println(llist.size());
-                    }
+                    types = typeService.getNextType(id, signal);
+                    List<Course> llist = courseService.getCourse(types.get("l2").getId());
                     if(llist!=null)
                     rtCourse = llist.get(0);
                     rtArr.put("sorting_id", types.get("l1").getId().toString());

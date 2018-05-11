@@ -1,6 +1,7 @@
 package com.FM.service;
 
 import com.FM.dao.TCDao;
+import com.FM.domain.Course;
 import com.FM.domain.Type;
 import com.FM.utils.Constants;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -58,97 +59,73 @@ public class TypeService {
     }
 
     public Map<String,Type> getNextType(Integer id, Integer signal){
-        List<Type> types = tcDao.getAll2Types();
-        Integer maxOrder=null;
-        Type l2Type=null;
+        List<Type> l1TypeList = tcDao.getAll1Types();
+        Type l2Type = tcDao.getType(id);
+        List<Type> l2TypeList = tcDao.getTypes(l2Type.getParentType());
         Map<String,Type> rtTypes = new HashMap<>();
-        for(Type type : types){
-            if(type.getId()==id){
-                l2Type=type;
-                maxOrder = tcDao.getMaxTypeOrder(l2Type.getParentType());
+        Integer i=0,j=0,lasti=0,lastj=0;
+        for(i=0;i<l1TypeList.size();i++){
+            if(l1TypeList.get(i).getId().equals(l2Type.getParentType())) {
+                lasti = i;
                 break;
             }
         }
-        if(signal == 1){
-            if(l2Type.getOrder()<maxOrder){
-                List<Type> l2TypeList = tcDao.getTypes(l2Type.getParentType());
-                for(int i = 0 ; i <l2TypeList.size();i++) {
-                    if(l2TypeList.get(i).getOrder() == l2Type.getOrder()) {
-                        Type type = l2TypeList.get(i+1);
-                        rtTypes.put("l2", type);
-                        rtTypes.put("l1", tcDao.getType(type.getParentType()));
-                        break;
-                    }
-                }
-            }else{
-                //找到下一个一级分类的第一个二级分类
-                Type l1Type = getType(l2Type.getParentType());
-                Integer l1MaxOrder = tcDao.getMaxTypeOrder(l1Type.getParentType());
-                List<Type> l1TypeList = tcDao.getAll1Types();
-
-                if(l1Type.getOrder()<l1MaxOrder) {
-                    Integer i,j;
-                    for(i=0;i<l1TypeList.size();i++){
-                        if(l1Type.getOrder() == l1TypeList.get(i).getOrder())
-                            break;
-                    }
-                    for(j = i;j<l1TypeList.size()-1;j++) {
-                        Type ll1Type = l1TypeList.get(j + 1);
-                        if(getTypes(ll1Type.getId()).size()>0) {
-                            rtTypes.put("l1", ll1Type);
-                            rtTypes.put("l2", tcDao.getFirstChildType(ll1Type));
-                            break;
-                        }
-                    }
-                    if(j==l1TypeList.size()-1)
-                    {
-                        rtTypes.put("l1", l1TypeList.get(0));
-                        System.out.println(l1TypeList.get(0).getTypeName());
-                        rtTypes.put("l2",tcDao.getFirstChildType(l1TypeList.get(0)));
-                    }
-                }else {
-                    rtTypes.put("l1", l1TypeList.get(0));
-                    rtTypes.put("l2",tcDao.getFirstChildType(l1TypeList.get(0)));
-                }
-            }
-        }else if(signal == -1){
-            if(l2Type.getOrder()>1){
-                List<Type> l2TypeList = tcDao.getTypes(l2Type.getParentType());
-                for(int i = 0 ; i <l2TypeList.size();i++) {
-                    if(l2TypeList.get(i).getOrder() == l2Type.getOrder()) {
-                        Type type = l2TypeList.get(i-1);
-                        rtTypes.put("l2", type);
-                        rtTypes.put("l1", tcDao.getType(type.getParentType()));
-                        break;
-                    }
-                }
-            }else{
-                //找到上一个一级分类的最后一个二级分类
-                Type l1Type = getType(l2Type.getParentType());
-                List<Type> l1TypeList = tcDao.getAll1Types();
-                if(l1Type.getOrder()>1) {
-                    Integer i,j;
-                    for(i=0;i<l1TypeList.size();i++){
-                        if(l1Type.getOrder() == l1TypeList.get(i).getOrder())
-                            break;
-                    }
-                    for(j = i;j>0;j--) {
-                        Type ll1Type = l1TypeList.get(j - 1);
-                        if(getTypes(ll1Type.getId()).size()>0) {
-                            rtTypes.put("l1", ll1Type);
-                            rtTypes.put("l2", tcDao.getFirstChildType(ll1Type));
-                            break;
-                        }
-                    }
-                    if(j==0){
-                        rtTypes = null;
-                    }
-                }else {
-                    rtTypes=null;
-                }
+        for(j=0;j<l2TypeList.size();j++){
+            if(l2TypeList.get(j).getId().equals(l2Type.getId())) {
+                lastj=j;
+                break;
             }
         }
+        while(true){
+            while(true)
+            {
+                if(j+signal>=0 && j+signal <=l2TypeList.size()-1) {
+                    j += signal;
+                    Type ll2Type = l2TypeList.get(j);
+                    if(tcDao.getCourses(ll2Type.getId()).size()>0){
+                        rtTypes.put("l2",ll2Type);
+                        break;
+                    }
+                }else{
+                    break;
+                }
+            }
+            if(rtTypes.size()==0) {
+                if (i + signal >= 0 && i + signal <= l1TypeList.size() - 1) {
+                    i += signal;
+                    l2TypeList = tcDao.getTypes(l1TypeList.get(i).getId());
+                    if (signal == 1) {
+                        j = -1;
+                    } else if (signal == -1) {
+                        j = l2TypeList.size();
+                    }
+                } else {
+                    if (i + signal == -1) {
+                        rtTypes.put("l1", null);
+                        rtTypes.put("l2", null);
+                        break;
+                    } else if (i + signal == l1TypeList.size()) {
+                        i = 0;
+                        j = -1;
+                        l2TypeList = tcDao.getTypes(l1TypeList.get(i).getId());
+                    }
+                }
+            }else
+            {
+                rtTypes.put("l1", l1TypeList.get(i));
+                break;
+
+            }
+            if(i.equals(lasti) && j.equals(lastj))
+            {
+                rtTypes.put("l1",null);
+                rtTypes.put("l2",null);
+                break;
+            }
+        }
+
         return rtTypes;
+
     }
 
     public Type getType(Integer id){
