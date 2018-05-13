@@ -59,73 +59,34 @@ public class TypeService {
     }
 
     public Map<String,Type> getNextType(Integer id, Integer signal){
-        List<Type> l1TypeList = tcDao.getAll1Types();
-        Type l2Type = tcDao.getType(id);
-        List<Type> l2TypeList = tcDao.getTypes(l2Type.getParentType());
-        Map<String,Type> rtTypes = new HashMap<>();
-        Integer i=0,j=0,lasti=0,lastj=0;
-        for(i=0;i<l1TypeList.size();i++){
-            if(l1TypeList.get(i).getId().equals(l2Type.getParentType())) {
-                lasti = i;
-                break;
-            }
-        }
-        for(j=0;j<l2TypeList.size();j++){
-            if(l2TypeList.get(j).getId().equals(l2Type.getId())) {
-                lastj=j;
-                break;
-            }
-        }
-        while(true){
-            while(true)
-            {
-                if(j+signal>=0 && j+signal <=l2TypeList.size()-1) {
-                    j += signal;
-                    Type ll2Type = l2TypeList.get(j);
-                    if(tcDao.getCourses(ll2Type.getId()).size()>0){
-                        rtTypes.put("l2",ll2Type);
-                        break;
-                    }
-                }else{
+            Map<String,Type> rtTypes = new HashMap<>();
+            Type l2Type = getType(id);
+            List<Type> l2TypeList = getTypes(l2Type.getParentType());
+            Integer i=0;
+            for(i=0;i<l2TypeList.size();i++){
+                if(l2TypeList.get(i).getId().equals(l2Type.getId()))
                     break;
-                }
             }
-            if(rtTypes.size()==0) {
-                if (i + signal >= 0 && i + signal <= l1TypeList.size() - 1) {
-                    i += signal;
-                    l2TypeList = tcDao.getTypes(l1TypeList.get(i).getId());
-                    if (signal == 1) {
-                        j = -1;
-                    } else if (signal == -1) {
-                        j = l2TypeList.size();
-                    }
-                } else {
-                    if (i + signal == -1) {
-                        rtTypes.put("l1", null);
-                        rtTypes.put("l2", null);
+            while(rtTypes.size()==0) {
+                if (i + signal < 0) {
+                    rtTypes.put("l1", null);
+                    rtTypes.put("l2", null);
+                    break;
+                } else if (i + signal > (l2TypeList.size() - 1)) {
+                    i = -1;
+                }
+                while (i + signal >= 0 && i + signal <= (l2TypeList.size() - 1)) {
+                    i+=signal;
+                    Type ll2Type = l2TypeList.get(i);
+                    List<Course> courses = tcDao.getCourses(ll2Type.getId());
+                    if (courses.size() > 0) {
+                        rtTypes.put("l2", ll2Type);
+                        rtTypes.put("l1", getType(ll2Type.getParentType()));
                         break;
-                    } else if (i + signal == l1TypeList.size()) {
-                        i = 0;
-                        j = -1;
-                        l2TypeList = tcDao.getTypes(l1TypeList.get(i).getId());
                     }
                 }
-            }else
-            {
-                rtTypes.put("l1", l1TypeList.get(i));
-                break;
-
             }
-            if(i.equals(lasti) && j.equals(lastj))
-            {
-                rtTypes.put("l1",null);
-                rtTypes.put("l2",null);
-                break;
-            }
-        }
-
-        return rtTypes;
-
+            return rtTypes;
     }
 
     public Type getType(Integer id){

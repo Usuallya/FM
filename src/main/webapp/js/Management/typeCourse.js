@@ -342,7 +342,7 @@ function chg2Icon(){
                 $("#noIcons").show();
                 $("#iconPreview").hide();
             }else if(data!="") {
-                var newPath = "/icon/" + data;
+                var newPath = "/FM/icon/" + data;
                 $("#noIcons").hide();
                 $("#iconPreview").show();
                 $("#iconPreview").attr("src", newPath);
