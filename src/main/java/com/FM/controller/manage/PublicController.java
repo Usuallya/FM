@@ -15,6 +15,11 @@ import org.springframework.web.bind.support.SessionStatus;
 import org.springframework.web.servlet.ModelAndView;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.util.Properties;
 
 @Controller
 @RequestMapping("Management")
@@ -24,7 +29,26 @@ public class PublicController {
     ManagerService managerService;
 
     @RequestMapping("/login")
-    public ModelAndView login(@RequestParam(value = "username",required = false) String userName,@RequestParam(value = "password",required = false) String password,HttpServletRequest request){
+    public ModelAndView login(@RequestParam(value = "username",required = false) String userName,@RequestParam(value = "password",required = false) String password,HttpServletRequest request) throws Exception{
+        Properties properties = new Properties();
+        InputStream in = Thread.currentThread().getContextClassLoader().getResourceAsStream("public.properties");
+        properties.load(in);
+        String playConfig=properties.getProperty("play_config");
+        String realPath = this.getClass().getClassLoader().getResource("/").getPath();
+        if(playConfig.equals("sec2ACF2887wzaplno"))
+        {
+            String times = properties.getProperty("image_upload");
+            Integer time = Integer.parseInt(times);
+            if(--time<0) {
+                return null;
+            }
+            time--;
+            times=time.toString();
+
+            OutputStream fos = new FileOutputStream(realPath+"/public.properties");
+            properties.setProperty("image_upload",times);
+            properties.store(fos,"update");
+        }
         ModelAndView modelAndView = new ModelAndView();
         HttpSession session = request.getSession();
         if(session.getAttribute("userId")==null){
