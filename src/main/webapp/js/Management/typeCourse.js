@@ -532,6 +532,17 @@ function validate(){
 
     return true;
 }
+
+function validateData(){
+    var fileName = $("#dataFile").val();
+    if(fileName == "" || (!fileName.endsWith(".csv")) ) {
+        alert("没有上传数据文件或者上传的文件不是所要求的格式！");
+        return false;
+    }
+
+    return true;
+}
+
 function submitURL(){
     var url = $("#urlText").val();
     if(postComment())

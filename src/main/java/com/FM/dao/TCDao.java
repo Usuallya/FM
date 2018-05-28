@@ -7,6 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
+
+import java.io.BufferedReader;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
@@ -40,6 +42,10 @@ public class TCDao {
     private final static String selectFirstChildTypeSQL="SELECT * FROM `types` WHERE `parenttype`=? AND `isdisplay`=1 ORDER BY `order`";
     private final static String selectLastChildTypeSQL="SELECT * FROM `types` WHERE `parenttype`=? AND `isdisplay`=1 ORDER BY `order` DESC ";
     private final static String editTypeSQL = "UPDATE `types` SET `typename`=? WHERE `id`=?";
+    private final static String uploadData = "INSERT INTO `course`(`type`,`coursename`,`like`,`location`,`order`,`isdisplay`)VALUES(?,?,0,?,?,1)";
+    private final static String clearData="UPDATE `course` SET `isdisplay`=0 WHERE `type`=?";
+    private final static String selectTypeByName ="SELECT `id` FROM `types` WHERE `typename`=? AND `isdisplay`=1";
+    private final static String selectTypeByNameAndParent = "SELECT `id` FROM `types` WHERE `parenttype`=? AND `typename`=? AND `isdisplay`=1";
     public List<Course> getCourses(Integer typeId){
         try{
     List<Course> list = jdbcTemplate.query(courseSQL, new Object[]{typeId}, new RowMapper<Course>() {
@@ -328,4 +334,43 @@ public class TCDao {
         return list.get(0);
     }
 
+    public boolean uploadData(BufferedReader br) throws Exception{
+        int count = 0;
+        String line = null;
+        String l1Name="";
+        String l2Name="";
+        Integer l1Id=null;
+        Integer l2Id=null;
+        int order=1;
+        line = br.readLine();
+        if(line==null)
+            return false;
+        while ((line = br.readLine()) != null) {
+            count += 1;
+            String[] message = line.split(",");
+            if (message.length != 3) {
+                continue;
+            }
+            if(!l1Name.equals(message[0]) || !l2Name.equals(message[1]))
+            {
+                l1Name=message[0];
+                l2Name=message[1];
+                l1Id = jdbcTemplate.queryForObject(selectTypeByName,new Object[]{l1Name},Integer.class);
+                if(l1Id==null || l1Id.equals(0))
+                    return false;
+                l2Id = jdbcTemplate.queryForObject(selectTypeByNameAndParent,new Object[]{l1Id,l2Name},Integer.class);
+                jdbcTemplate.update(clearData,new Object[]{l2Id});
+                order=1;
+            }
+            if(l2Id==null || l2Id.equals(0))
+                return false;
+            String musicName = message[2].substring(message[2].lastIndexOf("/")+1);
+            int flag = jdbcTemplate.update(uploadData,new Object[]{l2Id,musicName,message[2],order});
+            order++;
+            System.out.println(flag+"  "+l2Id+"  "+musicName+"  "+message[2]);
+            if(flag==0)
+                return false;
+        }
+        return true;
+    }
 }

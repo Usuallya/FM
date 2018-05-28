@@ -9,6 +9,7 @@ import org.springframework.jdbc.core.RowCallbackHandler;
 import org.springframework.stereotype.Repository;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
+import java.io.BufferedReader;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
@@ -21,6 +22,7 @@ public class UserDao {
     private static String loginUsername="SELECT `id` FROM `manager` WHERE `username`=?";
     private static String validatePassword="SELECT `id` FROM `manager` WHERE `id`=? AND `password`=?";
     private static String selectManager="SELECT * FROM `manager` WHERE `id`=?";
+
     public String selectByToken(String token){
         String userId = jdbcTemplate.queryForObject(loginToken,new Object[]{token},String.class);
         if(userId!=null && !userId.equals(""))

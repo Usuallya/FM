@@ -93,6 +93,17 @@
             <div style="clear:both;">
             <p style="color:green;">${tips}</p>
             </div>
+
+            <div><p class="lead">导入数据</p></div>
+            <div>
+                <form action="/Management/dataUpload" method="post"  enctype="multipart/form-data">
+                    <input type="file" style="float:left;" id="dataFile" name="data" accept="text/csv" />
+                    <input type="submit" style="float:left;" class="btn btn-success" onclick="return validateData();" value="上传" />
+                </form>
+            </div>
+            <div style="clear:both;">
+                <p style="color:green;">${dataTips}</p>
+            </div>
             <div>
                 <p class="lead">添加网络歌曲</p>
                 <label for="urlText"></label><input type="text" id="urlText" class="form-control" style="float:left;width:200px;" placeholder="填写URL"/>

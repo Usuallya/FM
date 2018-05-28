@@ -21,8 +21,7 @@ import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
-import java.io.File;
-import java.io.InputStream;
+import java.io.*;
 import java.util.*;
 
 @Controller
@@ -61,6 +60,27 @@ public class ManageController {
         modelAndView.addObject("L2Types",initl2Types);
         modelAndView.addObject("user",manager);
         return modelAndView;
+    }
+    @RequestMapping(value="/dataUpload")
+    public ModelAndView uploadData(@RequestParam(value = "data",required = false) MultipartFile file,HttpServletRequest request)throws Exception{
+        ModelAndView modelAndView = new ModelAndView(Constants.COURSE_LOAD_PATH);
+        List<Course> noTypeCourse = courseService.getCourse(0);
+        List<Type> l1Types = typeService.getTypes(0);
+        List<Type> l2Types = typeService.getTypes(l1Types.get(0).getId());
+        modelAndView.addObject("noTypeCourse",noTypeCourse);
+        modelAndView.addObject("L2Types",l2Types);
+        modelAndView.addObject("L1Types",l1Types);
+        if(file==null)
+            return modelAndView;
+        String tips =null;
+        BufferedReader br = new BufferedReader(new InputStreamReader(file.getInputStream(),"UTF-8"));
+        if(managerService.uploadData(br))
+            tips="导入成功";
+        else
+            tips="导入失败，请检查文件编码及类别名是否对应";
+        modelAndView.addObject("dataTips",tips);
+        return modelAndView;
+
     }
 
     @RequestMapping(value="/courseUpload",produces = "text/html;charset=utf-8")
