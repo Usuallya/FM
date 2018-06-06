@@ -5,6 +5,7 @@ import com.FM.domain.Type;
 import com.FM.service.CourseService;
 import com.FM.service.TypeService;
 import com.FM.utils.Constants;
+import com.google.gson.Gson;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -30,10 +31,10 @@ public class PlayController {
     @Autowired
     private CourseService courseService;
 
-    @RequestMapping("/getSortinglists")
+    @RequestMapping(value="/getSortinglists")
     @ResponseBody
     public Map<String,Object> getSortingLists(){
-        List<Type> list = typeService.getTypes(0);;
+        List<Type> list = typeService.getTypes(0);
         Boolean result = false;
         String desc="";
         if(list!=null)

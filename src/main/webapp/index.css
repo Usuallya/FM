@@ -1,0 +1,192 @@
+.user{position: absolute;left:0;top: 0;height:0;width:100%;background-size:cover;background-position: center center;
+    background-repeat: no-repeat;background-color: #fff;border-bottom:1px solid #fff;
+    z-index: 0;
+}
+
+.user_info{position: absolute;left:27%;top:20px;color: #fff;overflow: hidden;z-index: 0;}
+#user_ava{width:85px;height:85px;border-radius: 50%;border:2px solid #fff;vertical-align: middle;z-index: 0;}
+
+.select{margin-left:409.8px;margin-top:50px;color: #63a6f9;overflow: hidden; text-align: center; cursor:pointer}
+#typeValue{font-size: 32px;margin-right:26px;vertical-align: middle;}
+#select_image{width:26px;height:16px;vertical-align: middle;margin-right:5%;}
+#select_icon{width:26px;height:26px;vertical-align: middle;margin-right:2%;}
+
+#fm-covermain{margin-top:130px;margin-left:25%;overflow: hidden;position: relative;z-index: 0;width:669px;height:539px;}
+#fm-cmpic{position: absolute;left:0;top: 0;z-index: 0; opacity: 0;}
+#fm-covermain.fadein{ animation:  fadein linear 1s; opacity: 1; transition:  all linear 1s}
+#fm-covermain #fm-cmbg{margin:40px 90px ;width:350px;height: 350px;}
+
+#fm-mdes{ text-align: center;color: #fff;line-height: 2;}
+#fm-martist{font-size:24px; display: block;color: #eee}
+
+.fm-fixed{position: absolute;left:0px;top:0px;width:669px;height: 400px;}
+#fm-action{position: absolute;left:0;top: 0;height:0;width:100%;display: flex}
+/*#fm-action div{position: absolute;left:0;top: 0;height:0;width:100%;}*/
+
+.switchleft{position: absolute;left:150px;top:100px;color: #fff;overflow: hidden;z-index: 0;width: 30px;height:21px;cursor:pointer}
+.switchright{position: absolute;left:180px;top:10px;color: #fff;overflow: hidden;z-index: 0;width: 30px;height:21px;cursor:pointer}
+.switchmiddle{position: absolute;left:260px;top:300px;color: #fff;overflow: hidden;z-index: 0;width: 162px;height:80px;cursor:pointer}
+
+#title text{position: absolute;font-size: 30px;left:50px;margin-left:47px;margin-top:50px;color: #000}
+#share_image{position:relative;margin-top:12px;margin-left:583px;}
+
+#type_image{position: absolute;left:52px;top:52px;}
+
+#musicName{flex: 1;text-align: center;position: absolute;left:0;top:34%;margin-left:10px;margin-top: -35px;width: 100%}
+#musicTitle{font-size: 30px;color: #b0b0b0}
+
+#playing-status{display: flex;}
+#playing-status{margin-left:58px;margin-top:230px;}
+#play_time{margin-top:20px;margin-top:7%;}
+#endtime{margin-left:430px;color:#a2a7aa;}
+#starttime{margin-left:-553px;color:#a2a7aa;}
+.playprogress{ width:552px;margin: 0 auto;position: relative;border-radius: 4px;background: #a2a7aa;height:6px;
+    color: #ff4892; /*IE10*/
+}
+progress::-moz-progress-bar { background: #ff4892; }
+progress::-webkit-progress-bar { background: #a2a7aa; }
+progress::-webkit-progress-value  { background: #ff4892; }
+
+#playrange{ width:552px;margin: 0 auto;position: relative;border-radius: 4px;height:6px;
+}
+
+input[type=range] {
+    -webkit-appearance: none;
+    width: 300px;
+    border-radius: 10px; /*这个属性设置使填充进度条时的图形为圆角*/
+    background: -webkit-linear-gradient( #ff4892, #ff4892) no-repeat, #a2a7aa;/*设置左边颜色为#61bd12，右边颜色为#ddd*/
+    background-size: 0% 100%;/*设置左右宽度比例*/
+}
+input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+}
+input[type=range]::-webkit-slider-runnable-track {
+    -webkit-appearance: none;
+    height: 5px;
+    border-radius: 10px; /*将轨道设为圆角的*/
+}
+input[type=range]:focus {
+    outline: none;
+}
+input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    height: 20px;
+    width: 20px;
+    margin-top: -8px; /*使滑块超出轨道部分的偏移量相等*/
+    background: #b0b0b0;
+    border-radius: 50%; /*外观设置为圆形*/
+}
+
+.pslider{
+    width:38px;position: absolute;border-radius: 4px;height:51px;
+    color: #ff4892; /*IE10*/
+    float:left;
+    top: 54%;
+    left:6%;
+}
+
+
+/*#types{margin-top:40px;display: flex}*/
+/*#types image{width: 46px;height:46px;}*/
+/*#types text{position: absolute;font-size: 23px;left:25%;top:100%;color: #b0b0b0;margin-top:8px;}*/
+
+
+.types{width: 100%;height: 125px;padding-top:0px;margin-top:0;margin-left: 10px}
+.stypes{float:left;text-align: center;position: relative;width:25%;margin-top:44px;}
+/*.stypes image{width: 30px;height:30px;text-align:center;}*/
+
+.subItem image{width: 46px;height:46px;text-align: center;}
+.subimage{width: 46px;height:46px}
+.subtext{font-size: 24px;text-align: center;color: #b0b0b0;}
+
+/*.stypes text{position: absolute;font-size: 24px;left:20%;top:70%;color: #b0b0b0;margin-top:40px;}*/
+.st{
+    z-index: 0;
+    margin-top:30px;
+    position: relative;
+}
+
+#subtypes{border-top:1px solid #efefef;margin-top:8px;z-index: 0;cursor:pointer}
+
+#typeleft{position: absolute;left:25%;top:160%;z-index: 0;}
+#typeright{position: absolute;right:25%;top:160%;z-index: 0;}
+#typemiddle{position: absolute;left:27%;width: 600px;z-index: 0;}
+
+#ok{position: relative;margin-left:560px;color:#71DB46;  z-index: 2;cursor:pointer}
+#cancel{position: relative;margin-left:5px;  z-index: 2;cursor:pointer }
+
+.sorting-list{
+    margin-top: 500px;
+    position: absolute;
+    top: 0px;
+    left: 0;
+    width: 100%;
+    background-color: #fff;
+    z-index: 4;
+    font-size: 23px;
+    border-bottom: 1px solid #aaa;
+    text-align: center;
+}
+
+/*.sorting-item {*/
+    /*height: 67px;*/
+    /*padding: 0 30px;*/
+    /*line-height: 67px;*/
+    /*z-index: 4;*/
+    /*border-bottom: 1px solid #aaa;*/
+    /*background-color: #fff;*/
+/*}*/
+
+
+.backgrounddiv {
+    height: 67px;
+    padding: 0 30px;
+    line-height: 67px;
+    z-index: 24;
+    background-color: #fff;
+    cursor:pointer
+}
+
+.activebackgrounddiv{
+    height: 67px;
+    width:240px;
+    margin-left:41.5%;
+    line-height: 67px;
+    background-color: #63a6f9;
+    text-align: center;
+    color:#fff;
+    cursor:pointer
+}
+
+
+.ensureitem {
+    height: 67px;
+    padding: 0 30px;
+    line-height: 67px;
+    z-index: 4;
+    background-color: #fff;
+}
+
+
+.typescroll{
+    z-index: 4;
+    position: relative;
+}
+
+.mask{
+    position: fixed;
+    top:0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background-color: #000;
+    opacity: 0.5;
+    z-index: 3;
+}
+
+#footer{height:230px;width: 100%;position: fixed;bottom: 0;}
+body{
+    margin-bottom: 480px;
+}
+
+

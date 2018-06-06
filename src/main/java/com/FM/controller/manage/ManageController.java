@@ -61,7 +61,7 @@ public class ManageController {
         modelAndView.addObject("user",manager);
         return modelAndView;
     }
-    @RequestMapping(value="/dataUpload")
+    @RequestMapping(value="/dataUpload",produces = "text/html;charset=utf-8")
     public ModelAndView uploadData(@RequestParam(value = "data",required = false) MultipartFile file,HttpServletRequest request)throws Exception{
         ModelAndView modelAndView = new ModelAndView(Constants.COURSE_LOAD_PATH);
         List<Course> noTypeCourse = courseService.getCourse(0);

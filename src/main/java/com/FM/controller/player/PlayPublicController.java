@@ -20,11 +20,6 @@ public class PlayPublicController {
     @Autowired
     UserService userService;
 
-    @RequestMapping("/")
-    public String index(){
-        return "forward:/login";
-    }
-
     @RequestMapping("/login")
     public ModelAndView login(@RequestParam(value = "token",required = false) String token, HttpServletRequest request){
         ModelAndView modelAndView = new ModelAndView();
