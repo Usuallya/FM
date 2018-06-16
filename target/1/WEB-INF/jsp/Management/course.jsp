@@ -43,14 +43,14 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="/Management/Courses">学优优FM后台</a>
+            <a class="navbar-brand" href="<%=request.getContextPath()%>/Management/Courses">学优优FM后台</a>
         </div>
 
         <ul class="nav navbar-top-links navbar-right">
 
             <!-- /.dropdown -->
             <li class="dropdown">
-                <a href="/Management/logout">退出登录</a>
+                <a href="<%=request.getContextPath()%>/Management/logout">退出登录</a>
                 <!-- /.dropdown-user -->
             </li>
             <!-- /.dropdown -->
@@ -67,10 +67,10 @@
                     <a href="#"> 分类管理</a>
                     <ul class="nav nav-second-level">
                         <li>
-                            <a href="/Management/type/addTypePage">添加分类</a>
+                            <a href="<%=request.getContextPath()%>/Management/type/addTypePage">添加分类</a>
                         </li>
                         <li>
-                            <a href="/Management/type/icon">图标指定</a>
+                            <a href="<%=request.getContextPath()%>/Management/type/icon">图标指定</a>
                         </li>
 
                     </ul>
@@ -85,7 +85,7 @@
         <div id="page-inner">
             <div><p class="lead">上传歌曲文件</p></div>
             <div>
-                <form action="/Management/courseUpload" method="post"  enctype="multipart/form-data">
+                <form action="<%=request.getContextPath()%>/Management/courseUpload" method="post"  enctype="multipart/form-data">
                         <input type="file" style="float:left;" id="file" name="course" accept="audio/*" multiple="multiple" />
                         <input type="submit" style="float:left;" class="btn btn-success" onclick="return validate();" value="上传" />
                 </form>
@@ -96,7 +96,7 @@
 
             <div><p class="lead">导入数据</p></div>
             <div>
-                <form action="/Management/dataUpload" method="post"  enctype="multipart/form-data">
+                <form action="<%=request.getContextPath()%>/Management/dataUpload" method="post"  enctype="multipart/form-data">
                     <input type="file" style="float:left;" id="dataFile" name="data" accept="text/csv" />
                     <input type="submit" style="float:left;" class="btn btn-success" onclick="return validateData();" value="上传" />
                 </form>

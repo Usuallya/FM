@@ -2,7 +2,7 @@ function getTypes(option){
 var l1TypeId = option.value;
     $.ajax({
         type : "post",
-        url : "/Management/type/getTypes",
+        url : "/FM/Management/type/getTypes",
         dataType : "json",
         async:false,
         data : {
@@ -38,7 +38,7 @@ function cgetTypes(option){
     var l1TypeId = option.value;
     $.ajax({
         type : "post",
-        url : "/Management/type/getTypes",
+        url : "/FM/Management/type/getTypes",
         dataType : "json",
         data : {
             parentType:l1TypeId
@@ -66,7 +66,7 @@ function getTypesForAdd(option){
         l1TypeId=option.value;
     $.ajax({
         type : "post",
-        url : "/Management/type/getTypes",
+        url : "/FM/Management/type/getTypes",
         dataType : "json",
         async:false,
         data : {
@@ -95,7 +95,7 @@ function getDefaultCourse(option){
     var l2TypeId = $(option).attr("value");
     $.ajax({
         type : "post",
-        url : "/Management/Course/getCourses",
+        url : "/FM/Management/Course/getCourses",
         dataType : "json",
         data : {
             l2Type:l2TypeId
@@ -121,7 +121,7 @@ function getCourse(option){
     var l2TypeId = option.value;
     $.ajax({
         type : "post",
-        url : "/Management/Course/getCourses",
+        url : "/FM/Management/Course/getCourses",
         dataType : "json",
         data : {
             l2Type:l2TypeId
@@ -169,7 +169,7 @@ function addType(){
         }
         $.ajax({
             type : "post",
-            url : "/Management/type/addType",
+            url : "/FM/Management/type/addType",
             dataType : "json",
             data : {
                 type:typeName,
@@ -251,7 +251,7 @@ function delType(button) {
     if (confirm(tips)){
         $.ajax({
             type: "post",
-            url: "/Management/type/deleteType",
+            url: "/FM/Management/type/deleteType",
             dataType: "json",
             data: {
                 types:Id
@@ -283,7 +283,7 @@ function add2Type(){
     else{
         $.ajax({
             type : "post",
-            url : "/Management/Course/add2Type",
+            url : "/FM/Management/Course/add2Type",
             dataType : "json",
             data : {
                 typeId:tId,
@@ -309,7 +309,7 @@ function deleteCourse(){
         alert("请选择要删除的文件");
     $.ajax({
         type : "post",
-        url : "/Management/Course/deleteCourse",
+        url : "/FM/Management/Course/deleteCourse",
         dataType : "json",
         data : {
             courseId:cId
@@ -332,7 +332,7 @@ function chg2Icon(){
     var typeId = $("#L2List").val();
     $.ajax({
         type : "post",
-        url : "/Management/type/getIconLocation",
+        url : "/FM/Management/type/getIconLocation",
         dataType : "html",
         data : {
             typeId:typeId
@@ -412,7 +412,7 @@ function order(button){
 
     $.ajax({
         type : "post",
-        url : "/Management/changeOrder",
+        url : "/FM/Management/changeOrder",
         dataType : "json",
         data : {
             Id:Id,
@@ -468,7 +468,7 @@ function edit(e){
     }
     $.ajax({
         type : "post",
-        url : "/Management/type/editType",
+        url : "/FM/Management/type/editType",
         dataType : "json",
         data : {
             newtypeName:edittext,
@@ -503,7 +503,7 @@ function delCourse(){
     }
     $.ajax({
         type : "post",
-        url : "/Management/Course/deleteCourse",
+        url : "/FM/Management/Course/deleteCourse",
         dataType : "json",
         data : {
             courseId:id
@@ -549,7 +549,7 @@ function submitURL(){
     {
         $.ajax({
             type : "post",
-            url : "/Management/Course/addURL",
+            url : "/FM/Management/Course/addURL",
             dataType : "json",
             data : {
                 musicURL:url

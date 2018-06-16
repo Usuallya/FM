@@ -18,14 +18,14 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 @Controller
-@RequestMapping("Management/Course")
+@RequestMapping("/")
 public class CourseController {
     @Autowired
     private CourseService courseService;
     @Autowired
     private TypeService typeService;
 
-    @RequestMapping("/order/{operation}")
+    @RequestMapping("Management/Course/order/{operation}")
     @ResponseBody
     public Integer courseOrder(@PathVariable("operation") String operation, @RequestParam("courseId")Integer courseId){
         Integer order = 0;
@@ -37,7 +37,7 @@ public class CourseController {
         return order;
     }
 
-    @RequestMapping("/addURL")
+    @RequestMapping("Management/Course/addURL")
     @ResponseBody
     public Integer addURL(@RequestParam("musicURL") String musicURL){
 
@@ -46,7 +46,7 @@ public class CourseController {
         return courseService.addCourse(musicName,location);
     }
 
-    @RequestMapping("/getCourses")
+    @RequestMapping("Management/Course/getCourses")
     @ResponseBody
     public List<Course> getCourse(@RequestParam(value = "l2Type") String stypeId){
         Integer typeId= Integer.parseInt(stypeId);
@@ -54,7 +54,7 @@ public class CourseController {
         return list;
     }
 
-    @RequestMapping("/add2Type")
+    @RequestMapping("Management/Course/add2Type")
     @ResponseBody
     public String add2Type(@RequestParam(value="courseId") String courseId,@RequestParam(value="typeId") String typeId){
         List<String> list = new ArrayList<String>();
@@ -72,7 +72,7 @@ public class CourseController {
     }
 
 
-    @RequestMapping("/deleteCourse")
+    @RequestMapping("Management/Course/deleteCourse")
     @ResponseBody
     public String deleteCourse(@RequestParam("courseId") String courseId){
         if(courseService.deleteCourse(courseId))

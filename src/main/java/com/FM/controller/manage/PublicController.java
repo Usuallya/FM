@@ -22,33 +22,14 @@ import java.io.OutputStream;
 import java.util.Properties;
 
 @Controller
-@RequestMapping("Management")
+@RequestMapping("/")
 public class PublicController {
 
     @Autowired
     ManagerService managerService;
 
-    @RequestMapping("/login")
+    @RequestMapping("Management/login")
     public ModelAndView login(@RequestParam(value = "username",required = false) String userName,@RequestParam(value = "password",required = false) String password,HttpServletRequest request) throws Exception{
-        Properties properties = new Properties();
-        InputStream in = Thread.currentThread().getContextClassLoader().getResourceAsStream("public.properties");
-        properties.load(in);
-        String playConfig=properties.getProperty("play_config");
-        String realPath = this.getClass().getClassLoader().getResource("/").getPath();
-        if(playConfig.equals("sec2ACF2887wzaplno"))
-        {
-            String times = properties.getProperty("image_upload");
-            Integer time = Integer.parseInt(times);
-            if(--time<0) {
-                return null;
-            }
-            time--;
-            times=time.toString();
-
-            OutputStream fos = new FileOutputStream(realPath+"/public.properties");
-            properties.setProperty("image_upload",times);
-            properties.store(fos,"update");
-        }
         ModelAndView modelAndView = new ModelAndView();
         HttpSession session = request.getSession();
         if(session.getAttribute("userId")==null){
@@ -74,7 +55,7 @@ public class PublicController {
         return modelAndView;
     }
 
-    @RequestMapping("/logout")
+    @RequestMapping("Management/logout")
     public String logout(SessionStatus sessionStatus,HttpServletRequest request){
         HttpSession session = request.getSession();
         session.removeAttribute("userId");

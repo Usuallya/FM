@@ -50,14 +50,14 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="/Management/Courses">学优优FM后台</a>
+            <a class="navbar-brand" href="<%=request.getContextPath()%>/Management/Courses">学优优FM后台</a>
         </div>
 
         <ul class="nav navbar-top-links navbar-right">
 
             <!-- /.dropdown -->
             <li class="dropdown">
-                <a href="/Management/logout">退出登录</a>
+                <a href="<%=request.getContextPath()%>/Management/logout">退出登录</a>
                 <!-- /.dropdown-user -->
             </li>
             <!-- /.dropdown -->
@@ -69,7 +69,7 @@
             <ul class="nav" id="main-menu">
 
                 <li>
-                    <a href="/Management/Courses">课程管理</a>
+                    <a href="<%=request.getContextPath()%>/Management/Courses">课程管理</a>
                 </li>
                 <li>
                     <a href="#">分类管理</a>
@@ -78,7 +78,7 @@
                             <a href="javascript:void(0)">添加分类</a>
                         </li>
                         <li>
-                            <a href="/Management/type/icon">图标指定</a>
+                            <a href="<%=request.getContextPath()%>/Management/type/icon">图标指定</a>
                         </li>
                     </ul>
                 </li>

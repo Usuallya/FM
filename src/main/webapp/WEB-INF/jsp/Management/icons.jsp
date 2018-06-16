@@ -48,11 +48,11 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="/Management/Courses">学优优FM后台</a>
+            <a class="navbar-brand" href="<%=request.getContextPath()%>/Management/Courses">学优优FM后台</a>
         </div>
         <ul class="nav navbar-top-links navbar-right">
             <li class="dropdown">
-                <a href="/Management/logout">退出登录</a>
+                <a href="<%=request.getContextPath()%>/Management/logout">退出登录</a>
             </li>
         </ul>
     </nav>
@@ -60,13 +60,13 @@
         <div class="sidebar-collapse">
             <ul class="nav" id="main-menu">
                 <li>
-                    <a href="/Management/Courses">课程管理</a>
+                    <a href="<%=request.getContextPath()%>/Management/Courses">课程管理</a>
                 </li>
                 <li>
                     <a href="#">分类管理</a>
                     <ul class="nav nav-second-level">
                         <li>
-                            <a href="/Management/type/addTypePage">添加分类</a>
+                            <a href="<%=request.getContextPath()%>/Management/type/addTypePage">添加分类</a>
                         </li>
                         <li>
                             <a href="javascript:void(0)">图标指定</a>
@@ -80,7 +80,7 @@
     <div id="page-wrapper">
         <div id="page-inner">
             <div><p class="lead">图标文件上传</p></div>
-            <form action="/Management/iconUpload" method="post"  enctype="multipart/form-data">
+            <form action="<%=request.getContextPath()%>/Management/iconUpload" method="post"  enctype="multipart/form-data">
                     <input type="file" id="file" onchange="showImage(this);" name="icon" multiple="multiple" accept="image/*" />
                     <p>${tips}</p>
                 <div style="margin-top:20px;"><p class="lead">图标文件指定</p></div>

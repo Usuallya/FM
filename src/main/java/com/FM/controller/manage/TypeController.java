@@ -16,13 +16,13 @@ import java.util.Map;
 
 @Controller
 @SessionAttributes("userId")
-@RequestMapping("Management/type")
+@RequestMapping("/")
 public class TypeController {
     @Autowired
     private TypeService typeService;
 
 
-    @RequestMapping("/addTypePage")
+    @RequestMapping("Management/type/addTypePage")
     public ModelAndView addTypePage(){
         ModelAndView modelAndView = new ModelAndView(Constants.ADD_TYPE_PATH);
         List<Type> initL1Types = null;
@@ -35,7 +35,7 @@ public class TypeController {
         return modelAndView;
     }
 
-    @RequestMapping("/addType")
+    @RequestMapping("Management/type/addType")
     @ResponseBody
     public Map<String,Object> addType(@RequestParam(value = "type",required = false) String type, @RequestParam(value = "level",required = false) Integer level, @RequestParam(value = "parent",required = false) Integer parent){
         Integer flag = 0;
@@ -55,13 +55,13 @@ public class TypeController {
         return map;
     }
 
-    @RequestMapping("/editType")
+    @RequestMapping("Management/type/editType")
     @ResponseBody
     public boolean editType(@RequestParam("typeId") String typeId,@RequestParam("newtypeName") String newTypeName){
         return typeService.editType(typeId,newTypeName);
     }
 
-    @RequestMapping("/icon")
+    @RequestMapping("Management/type/icon")
     @ResponseBody
     public ModelAndView getIconPage(){
         String imageLocation=null;
@@ -79,7 +79,7 @@ public class TypeController {
         return modelAndView;
     }
 
-    @RequestMapping("/getTypes")
+    @RequestMapping("Management/type/getTypes")
     @ResponseBody
     public List<Type> getTypes(@RequestParam("parentType") String sparentType){
         if(sparentType.equals(""))
@@ -88,7 +88,7 @@ public class TypeController {
         return typeService.getTypes(parentType);
     }
 
-    @RequestMapping("/deleteType")
+    @RequestMapping("Management/type/deleteType")
     @ResponseBody
     public String deleteType(@RequestParam("types") String typeId){
         if(typeId.equals(""))
@@ -99,7 +99,7 @@ public class TypeController {
             return Constants.FAIL;
     }
 
-    @RequestMapping("/getIconLocation")
+    @RequestMapping("Management/type/getIconLocation")
     @ResponseBody
     public String getIconLocation(@RequestParam("typeId") String stypeId){
         if(stypeId.equals(""))
@@ -109,7 +109,7 @@ public class TypeController {
         return imageLocation;
     }
 
-    @RequestMapping("/order/{operation}")
+    @RequestMapping("Management/type/order/{operation}")
     @ResponseBody
     public Integer typeOrder(@PathVariable("operation") String operation, @RequestParam("typeId")Integer typeId){
         Integer order =0;

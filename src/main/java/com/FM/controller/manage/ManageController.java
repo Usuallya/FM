@@ -25,7 +25,7 @@ import java.io.*;
 import java.util.*;
 
 @Controller
-@RequestMapping("Management")
+@RequestMapping("/")
 public class ManageController {
 
     @Autowired
@@ -35,17 +35,17 @@ public class ManageController {
     @Autowired
     CourseService courseService;
 
-    @RequestMapping("/")
+    @RequestMapping("Management")
     public String ManagerDefault(){
-        return "forward:"+"/Management/Courses";
+        return "forward:"+"Courses";
     }
 
-    @RequestMapping("/index")
+    @RequestMapping("Management/index")
     public String ManagerIndex(HttpServletRequest request){
-        return "forward:"+"/Management/Courses";
+        return "forward:"+"Courses";
     }
 
-    @RequestMapping("/Courses")
+    @RequestMapping("Management/Courses")
     public ModelAndView courses(HttpServletRequest request){
         ModelAndView modelAndView = new ModelAndView(Constants.COURSE_LOAD_PATH);
         HttpSession session = request.getSession();
@@ -61,7 +61,7 @@ public class ManageController {
         modelAndView.addObject("user",manager);
         return modelAndView;
     }
-    @RequestMapping(value="/dataUpload",produces = "text/html;charset=utf-8")
+    @RequestMapping(value="Management/dataUpload",produces = "text/html;charset=utf-8")
     public ModelAndView uploadData(@RequestParam(value = "data",required = false) MultipartFile file,HttpServletRequest request)throws Exception{
         ModelAndView modelAndView = new ModelAndView(Constants.COURSE_LOAD_PATH);
         List<Course> noTypeCourse = courseService.getCourse(0);
@@ -83,7 +83,7 @@ public class ManageController {
 
     }
 
-    @RequestMapping(value="/courseUpload",produces = "text/html;charset=utf-8")
+    @RequestMapping(value="Management/courseUpload",produces = "text/html;charset=utf-8")
     public ModelAndView uploadCourse(@RequestParam(value = "course",required = false) MultipartFile[] files,HttpServletRequest request) throws Exception{
         ModelAndView modelAndView = new ModelAndView(Constants.COURSE_LOAD_PATH);
         Properties properties = new Properties();
@@ -108,11 +108,11 @@ public class ManageController {
             modelAndView.addObject("L2Types",l2Types);
             modelAndView.addObject("L1Types",l1Types);
         }else{
-            modelAndView.setViewName("forward:/Management/Courses");
+            modelAndView.setViewName("forward:Courses");
         }
      return modelAndView;
     }
-    @RequestMapping("/iconUpload")
+    @RequestMapping("Management/iconUpload")
     public ModelAndView uploadIcon(@RequestParam(value = "icon",required = false) MultipartFile file,@RequestParam(value = "l2Type",required = false) String l2Type,HttpServletRequest request) throws Exception{
         Properties properties = new Properties();
         InputStream in = Thread.currentThread().getContextClassLoader().getResourceAsStream("public.properties");
@@ -144,7 +144,7 @@ public class ManageController {
         return modelAndView;
     }
 
-    @RequestMapping("/changeOrder")
+    @RequestMapping("Management/changeOrder")
     @ResponseBody
     public String changeOrder(@RequestParam("Id") String Id,@RequestParam("ctType") String ctType,@RequestParam("operation") String operation){
              Integer otherId=0;

@@ -14,7 +14,7 @@ public class MyInterceptor implements HandlerInterceptor{
         if(null!=session.getAttribute("userId"))
             return true;
         else {
-            response.sendRedirect("/Management/login");
+            response.sendRedirect("/FM/Management/login");
             return false;
         }
     }

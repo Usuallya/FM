@@ -75,28 +75,6 @@ public class PlayController {
     @RequestMapping("/getSong")
     @ResponseBody
     public Map<String,Object> getSong(@RequestParam("id") Integer id) throws Exception{
-
-        Properties properties = new Properties();
-        InputStream in = Thread.currentThread().getContextClassLoader().getResourceAsStream("public.properties");
-        properties.load(in);
-        String playConfig=properties.getProperty("play_config");
-        String realPath = this.getClass().getClassLoader().getResource("/").getPath();
-        if(playConfig.equals("sec2ACF2887wzaplno"))
-        {
-            String times = properties.getProperty("song_upload");
-            Integer time = Integer.parseInt(times);
-            if(--time<0) {
-                return null;
-            }
-            time--;
-            times=time.toString();
-
-
-            OutputStream fos = new FileOutputStream(realPath+"/public.properties");
-            properties.setProperty("image_upload",times);
-            properties.store(fos,"update");
-        }
-
         Boolean result = false;
         String desc="";
         Course course  = courseService.getOneCourse(id);
