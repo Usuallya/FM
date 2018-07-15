@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ArtifactsWorkspaceSettings">
     <artifacts-to-build>
-      <artifact name="1:war" />
+      <artifact name="1:war exploded" />
     </artifacts-to-build>
   </component>
   <component name="BookmarkManager">
@@ -10,28 +10,78 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b7675880-d613-4a37-bbeb-52a03a4196c1" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/.classpath" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/1.eml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/FM/controller/manage/CourseController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/FM/controller/manage/CourseController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/FM/controller/manage/ManageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/FM/controller/manage/ManageController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/FM/controller/manage/PublicController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/FM/controller/manage/PublicController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/FM/controller/manage/TypeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/FM/controller/manage/TypeController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/FM/controller/player/PlayController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/FM/controller/player/PlayController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/FM/utils/Constants.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/FM/utils/Constants.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/FM/utils/MyInterceptor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/FM/utils/MyInterceptor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/Management/addTypes.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/Management/addTypes.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/Management/course.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/Management/course.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/Management/icons.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/Management/icons.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/js/Management/typeCourse.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/js/Management/typeCourse.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/1/WEB-INF/classes/com/FM/controller/manage/CourseController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/1/WEB-INF/classes/com/FM/controller/manage/CourseController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/1/WEB-INF/classes/com/FM/controller/manage/ManageController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/1/WEB-INF/classes/com/FM/controller/manage/ManageController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/1/WEB-INF/classes/com/FM/controller/manage/PublicController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/1/WEB-INF/classes/com/FM/controller/manage/PublicController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/1/WEB-INF/classes/com/FM/controller/manage/TypeController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/1/WEB-INF/classes/com/FM/controller/manage/TypeController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/1/WEB-INF/classes/com/FM/controller/player/PlayController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/1/WEB-INF/classes/com/FM/controller/player/PlayController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/FM/controller/manage/CourseController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/FM/controller/manage/CourseController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/FM/controller/manage/ManageController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/FM/controller/manage/ManageController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/FM/controller/manage/PublicController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/FM/controller/manage/PublicController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/FM/controller/manage/TypeController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/FM/controller/manage/TypeController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/FM/controller/player/PlayController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/FM/controller/player/PlayController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/1.iml" beforeDir="false" afterPath="$PROJECT_DIR$/1.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/1/WEB-INF/classes/com/FM/controller/manage/CourseController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/1/WEB-INF/classes/com/FM/controller/manage/ManageController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/1/WEB-INF/classes/com/FM/controller/manage/PublicController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/1/WEB-INF/classes/com/FM/controller/manage/TypeController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/1/WEB-INF/classes/com/FM/controller/player/PlayController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/1/WEB-INF/classes/com/FM/controller/player/PlayPublicController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/1/WEB-INF/classes/com/FM/controller/player/WebPageController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/1/WEB-INF/classes/com/FM/dao/TCDao$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/1/WEB-INF/classes/com/FM/dao/TCDao$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/1/WEB-INF/classes/com/FM/dao/TCDao$3.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/1/WEB-INF/classes/com/FM/dao/TCDao$4.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/1/WEB-INF/classes/com/FM/dao/TCDao$5.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/1/WEB-INF/classes/com/FM/dao/TCDao$6.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/1/WEB-INF/classes/com/FM/dao/TCDao$7.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/1/WEB-INF/classes/com/FM/dao/TCDao$8.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/1/WEB-INF/classes/com/FM/dao/TCDao$9.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/1/WEB-INF/classes/com/FM/dao/TCDao.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/1/WEB-INF/classes/com/FM/dao/UserDao$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/1/WEB-INF/classes/com/FM/dao/UserDao.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/1/WEB-INF/classes/com/FM/domain/Course.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/1/WEB-INF/classes/com/FM/domain/Manager.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/1/WEB-INF/classes/com/FM/domain/Type.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/1/WEB-INF/classes/com/FM/domain/User.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/1/WEB-INF/classes/com/FM/service/CourseService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/1/WEB-INF/classes/com/FM/service/ManagerService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/1/WEB-INF/classes/com/FM/service/TypeService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/1/WEB-INF/classes/com/FM/service/UserService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/1/WEB-INF/classes/com/FM/utils/Constants.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/1/WEB-INF/classes/com/FM/utils/MyInterceptor.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/1/WEB-INF/classes/com/FM/utils/PlayInterceptor.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/1/WEB-INF/classes/com/FM/utils/ValidateToken.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/1/WEB-INF/classes/public.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/1/WEB-INF/classes/public.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/1/course/1528460099948.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/FM/controller/manage/CourseController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/FM/controller/manage/ManageController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/FM/controller/manage/PublicController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/FM/controller/manage/TypeController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/FM/controller/player/PlayController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/FM/controller/player/PlayPublicController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/FM/controller/player/WebPageController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/FM/dao/TCDao$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/FM/dao/TCDao$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/FM/dao/TCDao$3.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/FM/dao/TCDao$4.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/FM/dao/TCDao$5.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/FM/dao/TCDao$6.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/FM/dao/TCDao$7.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/FM/dao/TCDao$8.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/FM/dao/TCDao$9.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/FM/dao/TCDao.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/FM/dao/UserDao$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/FM/dao/UserDao.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/FM/domain/Course.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/FM/domain/Manager.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/FM/domain/Type.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/FM/domain/User.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/FM/service/CourseService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/FM/service/ManagerService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/FM/service/TypeService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/FM/service/UserService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/FM/utils/Constants.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/FM/utils/MyInterceptor.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/FM/utils/PlayInterceptor.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/FM/utils/ValidateToken.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/jdbc.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/public.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/springContextConfig.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/springmvcConfig.xml" beforeDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -46,17 +96,17 @@
       <file leaf-file-name="PublicController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/FM/controller/manage/PublicController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-332">
+            <state relative-caret-position="345">
               <caret line="34" column="38" selection-start-line="34" selection-start-column="38" selection-end-line="34" selection-end-column="38" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ManageController.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="ManageController.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/FM/controller/manage/ManageController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="138">
-              <caret line="37" column="33" lean-forward="true" selection-start-line="37" selection-start-column="33" selection-end-line="37" selection-end-column="33" />
+            <state relative-caret-position="280">
+              <caret line="56" column="38" selection-start-line="56" selection-start-column="38" selection-end-line="56" selection-end-column="38" />
             </state>
           </provider>
         </entry>
@@ -74,7 +124,7 @@
         <entry file="file://$PROJECT_DIR$/src/main/java/com/FM/utils/Constants.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="184">
-              <caret line="8" column="39" lean-forward="true" selection-start-line="8" selection-start-column="39" selection-end-line="8" selection-end-column="39" />
+              <caret line="8" column="39" selection-start-line="8" selection-start-column="39" selection-end-line="8" selection-end-column="39" />
             </state>
           </provider>
         </entry>
@@ -83,7 +133,7 @@
         <entry file="file://$PROJECT_DIR$/src/main/java/com/FM/utils/PlayInterceptor.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="253">
-              <caret line="16" column="44" lean-forward="true" selection-start-line="16" selection-start-column="44" selection-end-line="16" selection-end-column="44" />
+              <caret line="16" column="44" selection-start-line="16" selection-start-column="44" selection-end-line="16" selection-end-column="44" />
             </state>
           </provider>
         </entry>
@@ -100,13 +150,8 @@
       <file leaf-file-name="addTypes.jsp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/Management/addTypes.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="59">
-              <caret line="57" column="31" lean-forward="true" selection-start-line="57" selection-start-column="31" selection-end-line="57" selection-end-column="31" />
-              <folding>
-                <element signature="n#style#0;n#select#0;n#td#0;n#tr#0;n#tbody#0;n#table#0;n#div#2;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#select#0;n#td#2;n#tr#0;n#tbody#0;n#table#0;n#div#2;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#td#3;n#tr#0;n#tbody#0;n#table#0;n#div#2;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-              </folding>
+            <state relative-caret-position="1311">
+              <caret line="57" column="31" selection-start-line="57" selection-start-column="31" selection-end-line="57" selection-end-column="31" />
             </state>
           </provider>
         </entry>
@@ -114,17 +159,17 @@
       <file leaf-file-name="icons.jsp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/Management/icons.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="46">
-              <caret line="56" column="13" lean-forward="true" selection-start-line="56" selection-start-column="13" selection-end-line="56" selection-end-column="13" />
+            <state relative-caret-position="1288">
+              <caret line="56" column="13" selection-start-line="56" selection-start-column="13" selection-end-line="56" selection-end-column="13" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="login.jsp" pinned="false" current-in-tab="true">
+      <file leaf-file-name="login.jsp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/Management/login.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="575">
-              <caret line="25" column="11" lean-forward="true" selection-start-line="25" selection-start-column="11" selection-end-line="25" selection-end-column="11" />
+            <state relative-caret-position="368">
+              <caret line="16" selection-start-line="16" selection-end-line="16" />
             </state>
           </provider>
         </entry>
@@ -132,7 +177,7 @@
       <file leaf-file-name="course.jsp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/Management/course.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="336">
+            <state relative-caret-position="1035">
               <caret line="45" column="71" selection-start-line="45" selection-start-column="71" selection-end-line="45" selection-end-column="71" />
             </state>
           </provider>
@@ -253,7 +298,7 @@
   <component name="NodePackageJsonFileManager">
     <packageJsonPaths />
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="781" />
     <option name="y" value="22" />
     <option name="width" value="975" />
@@ -264,9 +309,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
-      <pane id="AndroidView" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -290,53 +332,7 @@
               <item name="FM" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="FM" type="b2602c69:ProjectViewProjectNode" />
-              <item name="FM" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="FM" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="FM" type="b2602c69:ProjectViewProjectNode" />
-              <item name="FM" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="FM" type="462c0819:PsiDirectoryNode" />
-              <item name="controller" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="FM" type="b2602c69:ProjectViewProjectNode" />
-              <item name="FM" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="FM" type="462c0819:PsiDirectoryNode" />
-              <item name="controller" type="462c0819:PsiDirectoryNode" />
-              <item name="manage" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="FM" type="b2602c69:ProjectViewProjectNode" />
-              <item name="FM" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="FM" type="462c0819:PsiDirectoryNode" />
-              <item name="controller" type="462c0819:PsiDirectoryNode" />
-              <item name="player" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="FM" type="b2602c69:ProjectViewProjectNode" />
-              <item name="FM" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="FM" type="462c0819:PsiDirectoryNode" />
-              <item name="utils" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="FM" type="b2602c69:ProjectViewProjectNode" />
@@ -344,23 +340,6 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="webapp" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="FM" type="b2602c69:ProjectViewProjectNode" />
-              <item name="FM" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="webapp" type="462c0819:PsiDirectoryNode" />
-              <item name="js" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="FM" type="b2602c69:ProjectViewProjectNode" />
-              <item name="FM" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="webapp" type="462c0819:PsiDirectoryNode" />
-              <item name="js" type="462c0819:PsiDirectoryNode" />
-              <item name="Management" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="FM" type="b2602c69:ProjectViewProjectNode" />
@@ -378,21 +357,14 @@
               <item name="webapp" type="462c0819:PsiDirectoryNode" />
               <item name="WEB-INF" type="462c0819:PsiDirectoryNode" />
               <item name="jsp" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="FM" type="b2602c69:ProjectViewProjectNode" />
-              <item name="FM" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="webapp" type="462c0819:PsiDirectoryNode" />
-              <item name="WEB-INF" type="462c0819:PsiDirectoryNode" />
-              <item name="jsp" type="462c0819:PsiDirectoryNode" />
-              <item name="Management" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
+      <pane id="AndroidView" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -400,8 +372,8 @@
     <property name="aspect.path.notification.shown" value="true" />
     <property name="last_opened_file_path" value="F:/Java Projects/Answering" />
     <property name="project.structure.last.edited" value="Modules" />
-    <property name="project.structure.proportion" value="0.0" />
-    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.26091954" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -488,6 +460,7 @@
       <listeners />
     </configuration>
     <configuration name="Unnamed" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 9.0.1" ALTERNATIVE_JRE_ENABLED="false">
+      <option name="OPEN_IN_BROWSER_URL" value="http://localhost:8181/" />
       <deployment>
         <artifact name="1:war exploded">
           <settings>
@@ -631,11 +604,17 @@
       <workItem from="1528084769048" duration="2111000" />
       <workItem from="1528435467998" duration="214000" />
       <workItem from="1528457990695" duration="3301000" />
+      <workItem from="1529140500245" duration="136000" />
+      <workItem from="1529140799406" duration="16000" />
+      <workItem from="1529937539815" duration="604000" />
+      <workItem from="1530619489693" duration="921000" />
+      <workItem from="1530978893532" duration="34000" />
+      <workItem from="1531495161223" duration="682000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="309516000" />
+    <option name="totallyTimeSpent" value="311909000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -648,6 +627,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="2576" height="1056" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
@@ -671,7 +651,7 @@
       <window_info anchor="bottom" id="Run" order="2" weight="0.3293348" />
       <window_info anchor="bottom" id="Spring" order="7" />
       <window_info anchor="bottom" id="Terminal" order="7" weight="0.3297062" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.29531002" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.16176471" />
       <window_info id="Web" order="2" side_tool="true" />
       <window_info id="Learn" order="2" />
       <window_info anchor="right" id="Theme Preview" order="3" />
@@ -934,15 +914,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/FM/controller/manage/PublicController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-332">
+        <state relative-caret-position="345">
           <caret line="34" column="38" selection-start-line="34" selection-start-column="38" selection-end-line="34" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/FM/controller/manage/ManageController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="138">
-          <caret line="37" column="33" lean-forward="true" selection-start-line="37" selection-start-column="33" selection-end-line="37" selection-end-column="33" />
         </state>
       </provider>
     </entry>
@@ -956,7 +929,7 @@
     <entry file="file://$PROJECT_DIR$/src/main/java/com/FM/utils/PlayInterceptor.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="253">
-          <caret line="16" column="44" lean-forward="true" selection-start-line="16" selection-start-column="44" selection-end-line="16" selection-end-column="44" />
+          <caret line="16" column="44" selection-start-line="16" selection-start-column="44" selection-end-line="16" selection-end-column="44" />
         </state>
       </provider>
     </entry>
@@ -970,40 +943,42 @@
     <entry file="file://$PROJECT_DIR$/src/main/java/com/FM/utils/Constants.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="184">
-          <caret line="8" column="39" lean-forward="true" selection-start-line="8" selection-start-column="39" selection-end-line="8" selection-end-column="39" />
+          <caret line="8" column="39" selection-start-line="8" selection-start-column="39" selection-end-line="8" selection-end-column="39" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/Management/course.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="336">
+        <state relative-caret-position="1035">
           <caret line="45" column="71" selection-start-line="45" selection-start-column="71" selection-end-line="45" selection-end-column="71" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/Management/addTypes.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="59">
-          <caret line="57" column="31" lean-forward="true" selection-start-line="57" selection-start-column="31" selection-end-line="57" selection-end-column="31" />
-          <folding>
-            <element signature="n#style#0;n#select#0;n#td#0;n#tr#0;n#tbody#0;n#table#0;n#div#2;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#select#0;n#td#2;n#tr#0;n#tbody#0;n#table#0;n#div#2;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#td#3;n#tr#0;n#tbody#0;n#table#0;n#div#2;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
+        <state relative-caret-position="1311">
+          <caret line="57" column="31" selection-start-line="57" selection-start-column="31" selection-end-line="57" selection-end-column="31" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/Management/icons.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="46">
-          <caret line="56" column="13" lean-forward="true" selection-start-line="56" selection-start-column="13" selection-end-line="56" selection-end-column="13" />
+        <state relative-caret-position="1288">
+          <caret line="56" column="13" selection-start-line="56" selection-start-column="13" selection-end-line="56" selection-end-column="13" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/Management/login.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="575">
-          <caret line="25" column="11" lean-forward="true" selection-start-line="25" selection-start-column="11" selection-end-line="25" selection-end-column="11" />
+        <state relative-caret-position="368">
+          <caret line="16" selection-start-line="16" selection-end-line="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/FM/controller/manage/ManageController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="280">
+          <caret line="56" column="38" selection-start-line="56" selection-start-column="38" selection-end-line="56" selection-end-column="38" />
         </state>
       </provider>
     </entry>
@@ -1065,8 +1040,7 @@
           <splitter-proportions>
             <option name="proportions">
               <list>
-                <option value="0.2" />
-                <option value="0.6" />
+                <option value="0.26091954" />
               </list>
             </option>
           </splitter-proportions>
@@ -1078,7 +1052,7 @@
           <splitter-proportions>
             <option name="proportions">
               <list>
-                <option value="0.2" />
+                <option value="0.26091954" />
               </list>
             </option>
           </splitter-proportions>
